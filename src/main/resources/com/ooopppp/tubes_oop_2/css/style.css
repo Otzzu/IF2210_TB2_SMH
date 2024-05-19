@@ -1,0 +1,98 @@
+.card {
+    -fx-background-color: #FFEFC8;
+    -fx-border-color: #684500;
+    -fx-border-radius: 10px;
+    -fx-border-width: 4px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.root {
+    -fx-padding: 50;
+    -fx-background-color: #DBE056;
+    -fx-font-family: "Courier New";
+}
+
+.button-brown {
+    -fx-background-color: #E99C1E;
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Courier New";
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+    -fx-background-radius: 17px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: black;
+    -fx-padding: 15px 10px 15px 10px;
+}
+
+.label-deck {
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-background-color: #AA6039;
+    -fx-text-fill: white;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.button-dark-brown {
+    -fx-background-color: #5B311C;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Courier New";
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+    -fx-background-radius: 17px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: white;
+    -fx-padding: 20px 20px 20px 20px;
+}
+
+.container-point {
+    -fx-background-color: #5B311C;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.text-point {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-fill: white;
+}
+
+.text-white {
+    -fx-font-family: "Courier New";
+    -fx-font-weight: 800;
+    -fx-fill: white;
+}
+
+.circular-turn {
+    -fx-background-color: #AA6039;
+    -fx-background-radius: 55;
+    -fx-border-radius: 55;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.card-choose {
+    -fx-effect: dropshadow(gaussian, black, 0, 1, 0, 0);
+    -fx-border-color: #E99C1E;
+}
+
+.board-empty {
+    -fx-background-color: #E99C1E;
+    -fx-border-color: black;
+    -fx-cursor: hand;
+}
+
+.board-fill:hover {
+    -fx-opacity: 0.8;
+}
+
+.card-hover:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+}
+

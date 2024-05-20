@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainView extends VBox {
-    private Board board;
+    protected Board board;
     private HBox mainContent;
     private Sidebar sidebar;
-    private Header header;
+    protected Header header;
     private DeckContainer deckContainer;
     private CardComponent selectedCardDeck;
     private List<Observer> cardsInBoard;
@@ -42,12 +42,12 @@ public class MainView extends VBox {
         this.selectedCardDeck = selectedCardDeck;
     }
 
-    public MainView(){
+    public MainView(boolean useTimer){
         super();
         cardsInBoard = new ArrayList<>(20);
         mainContent = new HBox();
         sidebar = new Sidebar();
-        header = new Header();
+        header = new Header(useTimer);
         deckContainer = new DeckContainer(this);
         board = new Board(5, 4, this, deckContainer);
         Region space = new Region();

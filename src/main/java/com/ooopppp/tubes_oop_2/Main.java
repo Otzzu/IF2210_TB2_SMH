@@ -1,6 +1,7 @@
 package com.ooopppp.tubes_oop_2;
 
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
 import com.ooopppp.tubes_oop_2.Entity.GameState;
 import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.application.Application;
@@ -14,7 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = new MainView();
+//        Parent root = new SeranganBeruangView();
+        Parent root = new MainView(false);
         Scene scene = new Scene(root, 980, 900);
         URL css = getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css");
         if (css != null) {

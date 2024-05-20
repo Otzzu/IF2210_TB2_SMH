@@ -68,8 +68,21 @@
     -fx-fill: white;
 }
 
+.text-black {
+    -fx-font-family: "Courier New";
+    -fx-font-weight: 800;
+    -fx-fill: black;
+}
+
 .circular-turn {
     -fx-background-color: #AA6039;
+    -fx-background-radius: 55;
+    -fx-border-radius: 55;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.circular-timer {
+    -fx-background-color: #CB9270;
     -fx-background-radius: 55;
     -fx-border-radius: 55;
     -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
@@ -96,3 +109,8 @@
     -fx-cursor: hand;
 }
 
+.text-card {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}

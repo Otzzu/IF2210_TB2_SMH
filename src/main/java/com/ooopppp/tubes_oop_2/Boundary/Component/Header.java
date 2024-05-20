@@ -10,24 +10,47 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 import java.util.Objects;
 
 public class Header extends HBox {
     private VBox moneyContainer;
     private VBox turnContainer;
+    private VBox timerContainer;
     private Text moneyPlayer1;
     private Text moneyPlayer2;
     private Text turnNumber;
     private Button buttonNext;
-    public Header(){
+    private boolean showTimer;
+    private Timeline timeline;
+
+    public Header(boolean showTimer) {
         super();
-        moneyContainer = new VBox();
+        this.showTimer = showTimer;
+        initializeComponents();
+        this.setAlignment(Pos.CENTER);
+    }
+
+    private void initializeComponents() {
+        setUpPlayerMoney();
+        setUpTurnContainer();
+        if (showTimer) {
+            setUpTimerContainer();  // Conditionally set up the timer container
+        }
+        setUpNextButton();
+        arrangeComponents();
+    }
+
+    private void setUpPlayerMoney() {
+        moneyContainer = new VBox(10);
         moneyContainer.getStyleClass().add("container-point");
-
-
+        moneyContainer.setPadding(new Insets(20));
         moneyContainer.setPrefWidth(325);
         moneyContainer.setMaxHeight(100);
+
         Text player1 = new Text("Player 1");
         Text player2 = new Text("Player 2");
         moneyPlayer1 = new Text("400");
@@ -38,37 +61,33 @@ public class Header extends HBox {
         moneyPlayer1.getStyleClass().add("text-point");
         moneyPlayer2.getStyleClass().add("text-point");
 
-        Region space = new Region();
-        HBox.setHgrow(space, Priority.ALWAYS);
+        Image coinImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img/coin.png")));
+        ImageView imageView1 = new ImageView(coinImage);
+        imageView1.setFitHeight(25);
+        imageView1.setFitWidth(25);
 
-        Region space2 = new Region();
-        HBox.setHgrow(space2, Priority.ALWAYS);
-
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img/coin.png")));
-        Image image2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img/coin.png")));
-
-        ImageView imageView = new ImageView(image);
-        ImageView imageView2 = new ImageView(image2);
-
-        imageView.setFitHeight(25);
-        imageView.setFitWidth(25);
-
+        ImageView imageView2 = new ImageView(coinImage);
         imageView2.setFitHeight(25);
         imageView2.setFitWidth(25);
 
-        HBox player1Container = new HBox();
-        player1Container.getChildren().addAll(player1, space, moneyPlayer1, imageView);
+        HBox player1Container = new HBox(player1, new Region(), moneyPlayer1, imageView1);
         player1Container.setAlignment(Pos.CENTER);
+        HBox.setHgrow(player1Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
 
-        HBox player2Container = new HBox();
-        player2Container.getChildren().addAll(player2, space2, moneyPlayer2, imageView2);
+        HBox player2Container = new HBox(player2, new Region(), moneyPlayer2, imageView2);
         player2Container.setAlignment(Pos.CENTER);
+        HBox.setHgrow(player2Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
 
         moneyContainer.getChildren().addAll(player1Container, player2Container);
-        moneyContainer.setSpacing(10);
-        moneyContainer.setPadding(new Insets(20, 20, 20, 20));
+    }
 
-        turnContainer = new VBox();
+    private void setUpTurnContainer() {
+        turnContainer = new VBox(2);
+        turnContainer.getStyleClass().add("circular-turn");
+        turnContainer.setPadding(new Insets(10));
+        turnContainer.setAlignment(Pos.CENTER);
+        turnContainer.setPrefSize(110, 110);
+
         Text turnText = new Text("Turn");
         turnNumber = new Text("2");
 
@@ -78,33 +97,83 @@ public class Header extends HBox {
         turnText.setStyle("-fx-font-size: 20px");
         turnNumber.setStyle("-fx-font-size: 40px");
 
-        turnContainer.getStyleClass().add("circular-turn");
-        turnContainer.setPadding(new Insets(10,10,10,10));
-        turnContainer.setSpacing(2);
-        turnContainer.setPrefWidth(110);
-        turnContainer.setPrefHeight(110);
-        turnContainer.setMaxWidth(110);
-        turnContainer.setMaxHeight(110);
-        turnContainer.setAlignment(Pos.CENTER);
         turnContainer.getChildren().addAll(turnText, turnNumber);
+    }
 
+    private void setUpTimerContainer() {
+        timerContainer = new VBox(2);
+        timerContainer.getStyleClass().add("circular-timer");
+        timerContainer.setPadding(new Insets(10));
+        timerContainer.setAlignment(Pos.CENTER);
+        timerContainer.setPrefSize(110, 110);
+        timerContainer.setMaxWidth(130);
+        timerContainer.setMaxHeight(130);
+
+        Text timerText = new Text("Timer");
+        Text timerValue = new Text("30.0s");  // Start at 30 seconds
+
+        timerText.getStyleClass().add("text-black");
+        timerValue.getStyleClass().add("text-black");
+
+        timerText.setStyle("-fx-font-size: 24px");
+        timerValue.setStyle("-fx-font-size: 22px");
+
+        timerContainer.getChildren().addAll(timerText, timerValue);
+        startCountdown(timerValue);
+    }
+
+
+    private void startCountdown(Text timerValue) {
+        final int[] timeRemaining = {3000};  // 30 seconds * 100 to represent in hundredths of a second (3000 hundredths)
+        final Timeline[] timelineHolder = new Timeline[1];  // Array to hold the timeline
+
+        timelineHolder[0] = new Timeline(
+                new KeyFrame(Duration.millis(10), event -> {  // Update every 10 milliseconds
+                    timeRemaining[0]--;
+                    int seconds = timeRemaining[0] / 100;
+                    int milliseconds = timeRemaining[0] % 100;
+                    timerValue.setText(String.format("%02d:%02d", seconds, milliseconds));  // Format as SS:MS
+                    if (timeRemaining[0] <= 0) {
+                        timelineHolder[0].stop();  // Stop the timeline using the reference from the array
+                        timerValue.setText("00:00");
+                    }
+                })
+        );
+        timelineHolder[0].setCycleCount(Timeline.INDEFINITE);
+        timelineHolder[0].play();
+    }
+
+
+    private void setUpNextButton() {
         buttonNext = new Button("Next");
         buttonNext.getStyleClass().add("button-dark-brown");
         buttonNext.setPrefWidth(130);
-
-        Region space3 = new Region();
-        space3.setMinWidth(60);
-
-        Region space4 = new Region();
-        HBox.setHgrow(space4, Priority.ALWAYS);
-
-        HBox boxLeft = new HBox();
-        boxLeft.getChildren().addAll(moneyContainer, turnContainer);
-        boxLeft.setSpacing(80);
-        boxLeft.setAlignment(Pos.CENTER);
-
-        this.getChildren().addAll(boxLeft, space4, buttonNext,space3);
-        this.setAlignment(Pos.CENTER);
-
     }
+
+    private void arrangeComponents() {
+        Region spaceBetween = new Region();
+        HBox.setHgrow(spaceBetween, Priority.ALWAYS);  // Space between money and turn containers
+
+        Region spaceBetweenTurnAndTimer = new Region();
+        HBox.setHgrow(spaceBetweenTurnAndTimer, Priority.ALWAYS);  // Space between turn and timer containers
+
+        Region spaceBetweenTimerAndButton = new Region();
+        HBox.setHgrow(spaceBetweenTimerAndButton, Priority.ALWAYS);  // Space between timer container and next button
+
+        HBox leftBox = new HBox();
+        leftBox.getChildren().addAll(moneyContainer);
+        leftBox.setAlignment(Pos.CENTER);
+
+        HBox middleBox = new HBox();
+        middleBox.getChildren().addAll(turnContainer);
+        if (showTimer) {
+            middleBox.getChildren().addAll(spaceBetweenTurnAndTimer, timerContainer);
+        }
+        middleBox.setAlignment(Pos.CENTER);
+        HBox.setHgrow(middleBox, Priority.ALWAYS);  // Space added so that it balances out with left and right
+
+        this.getChildren().addAll(leftBox, spaceBetween, middleBox, spaceBetweenTimerAndButton, buttonNext);
+        this.setAlignment(Pos.CENTER);
+    }
+
 }

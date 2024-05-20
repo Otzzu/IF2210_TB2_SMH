@@ -37,8 +37,8 @@ public class Header extends HBox {
     private void initializeComponents() {
         setUpPlayerMoney();
         setUpTurnContainer();
-        if (showTimer) {
-            setUpTimerContainer();  // Conditionally set up the timer container
+        if (showTimer) { // muncul di beruang doang
+            setUpTimerContainer();
         }
         setUpNextButton();
         arrangeComponents();
@@ -110,7 +110,7 @@ public class Header extends HBox {
         timerContainer.setMaxHeight(130);
 
         Text timerText = new Text("Timer");
-        Text timerValue = new Text("30.0s");  // Start at 30 seconds
+        Text timerValue = new Text("30.0s");  // hrsnya ganti random 30 - 60
 
         timerText.getStyleClass().add("text-black");
         timerValue.getStyleClass().add("text-black");
@@ -124,17 +124,17 @@ public class Header extends HBox {
 
 
     private void startCountdown(Text timerValue) {
-        final int[] timeRemaining = {3000};  // 30 seconds * 100 to represent in hundredths of a second (3000 hundredths)
-        final Timeline[] timelineHolder = new Timeline[1];  // Array to hold the timeline
+        final int[] timeRemaining = {3000};
+        final Timeline[] timelineHolder = new Timeline[1];
 
         timelineHolder[0] = new Timeline(
-                new KeyFrame(Duration.millis(10), event -> {  // Update every 10 milliseconds
+                new KeyFrame(Duration.millis(10), event -> {
                     timeRemaining[0]--;
-                    int seconds = timeRemaining[0] / 100;
-                    int milliseconds = timeRemaining[0] % 100;
-                    timerValue.setText(String.format("%02d:%02d", seconds, milliseconds));  // Format as SS:MS
+                    int s = timeRemaining[0] / 100;
+                    int ms = timeRemaining[0] % 100;
+                    timerValue.setText(String.format("%02d:%02d", s, ms)); // format s:ms (12:63)
                     if (timeRemaining[0] <= 0) {
-                        timelineHolder[0].stop();  // Stop the timeline using the reference from the array
+                        timelineHolder[0].stop();
                         timerValue.setText("00:00");
                     }
                 })
@@ -152,13 +152,13 @@ public class Header extends HBox {
 
     private void arrangeComponents() {
         Region spaceBetween = new Region();
-        HBox.setHgrow(spaceBetween, Priority.ALWAYS);  // Space between money and turn containers
+        HBox.setHgrow(spaceBetween, Priority.ALWAYS);  // space money and turn
 
         Region spaceBetweenTurnAndTimer = new Region();
-        HBox.setHgrow(spaceBetweenTurnAndTimer, Priority.ALWAYS);  // Space between turn and timer containers
+        HBox.setHgrow(spaceBetweenTurnAndTimer, Priority.ALWAYS);  // space turn and timer
 
         Region spaceBetweenTimerAndButton = new Region();
-        HBox.setHgrow(spaceBetweenTimerAndButton, Priority.ALWAYS);  // Space between timer container and next button
+        HBox.setHgrow(spaceBetweenTimerAndButton, Priority.ALWAYS);  // space timer and next button
 
         HBox leftBox = new HBox();
         leftBox.getChildren().addAll(moneyContainer);

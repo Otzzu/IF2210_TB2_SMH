@@ -10,7 +10,7 @@ public class SeranganBeruangView extends MainView {
     private static final int[] attackPositions = new int[]{5, 6, 7, 10, 11, 12};
 
     public SeranganBeruangView(Stage stage) {
-        super(stage, true);  // Pass stage to the superclass constructor
+        super(stage, true);
         highlightAttackAreas();
     }
 

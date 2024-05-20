@@ -4,12 +4,13 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
+import javafx.stage.Stage;
 
 public class SeranganBeruangView extends MainView {
-    private static final int[] attackPositions = new int[]{5, 6, 7, 9, 10, 11}; // example positions
+    private static final int[] attackPositions = new int[]{5, 6, 7, 10, 11, 12};
 
-    public SeranganBeruangView() {
-        super(true);
+    public SeranganBeruangView(Stage stage) {
+        super(stage, true);  // Pass stage to the superclass constructor
         highlightAttackAreas();
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,11 @@ public class MainView extends VBox {
     private DeckContainer deckContainer;
     private CardComponent selectedCardDeck;
     private List<Observer> cardsInBoard;
+    private Stage stage;
+
+    public DeckContainer getDeckContainer() {
+        return deckContainer;
+    }
 
     public void addObserver(Observer observer){
         cardsInBoard.add(observer);
@@ -42,14 +48,15 @@ public class MainView extends VBox {
         this.selectedCardDeck = selectedCardDeck;
     }
 
-    public MainView(boolean useTimer){
+    public MainView(Stage stage, boolean useTimer){
         super();
+        this.stage = stage;
         cardsInBoard = new ArrayList<>(20);
         mainContent = new HBox();
         sidebar = new Sidebar();
         header = new Header(useTimer);
         deckContainer = new DeckContainer(this);
-        board = new Board(5, 4, this, deckContainer);
+        board = new Board(5, 4, this);
         Region space = new Region();
         HBox.setHgrow(space, Priority.ALWAYS);
         mainContent.getChildren().addAll(board, space, sidebar);

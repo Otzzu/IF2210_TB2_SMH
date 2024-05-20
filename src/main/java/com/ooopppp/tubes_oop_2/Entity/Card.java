@@ -3,13 +3,19 @@ package com.ooopppp.tubes_oop_2.Entity;
 import java.util.Objects;
 
 public class Card {
-    private String name;
-    private int id;
+    protected String name;
+    protected int id;
     private static int count = 0;
+    protected String image;
 
-    public Card(String name){
+    public Card(String name, String image){
         this.name = name;
+        this.image = image;
         this.id = count++;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public String getName() {

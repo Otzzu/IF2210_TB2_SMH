@@ -96,3 +96,9 @@
     -fx-cursor: hand;
 }
 
+.text-card {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+

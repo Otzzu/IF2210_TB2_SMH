@@ -1,14 +1,25 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
 import com.ooopppp.tubes_oop_2.Entity.Card;
+import com.ooopppp.tubes_oop_2.Entity.Plant;
 import com.ooopppp.tubes_oop_2.Helper.Observer;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+
+import java.util.Objects;
 
 public class CardComponent extends VBox implements Observer {
     private Card cardData;
     private Text textName;
+    private ImageView imageView;
+
     private boolean isInBoard;
     public CardComponent(Card cardData, boolean isInBoard){
         super();
@@ -20,8 +31,15 @@ public class CardComponent extends VBox implements Observer {
         this.setMaxHeight(108);
         this.setMaxWidth(90);
         this.setAlignment(Pos.CENTER);
+        this.setPadding(new Insets(10,10,10,10));
 
+        imageView = new ImageView();
+        imageView.setFitHeight(45);
+        imageView.setFitWidth(45);
         textName = new Text();
+        textName.getStyleClass().add("text-card");
+        textName.setWrappingWidth(55);
+        textName.setTextAlignment(TextAlignment.CENTER);
 
         buildCard();
 
@@ -43,8 +61,13 @@ public class CardComponent extends VBox implements Observer {
     private void buildCard(){
         this.getChildren().clear();
         if (cardData != null){
-            textName.setText(cardData.getName());
-            this.getChildren().add(textName);
+
+            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + cardData.getImage())));
+            Region space = new Region();
+            VBox.setVgrow(space, Priority.ALWAYS);
+            imageView.setImage(image);
+            textName.setText(cardData.getName().replace(" ", "\n"));
+            this.getChildren().addAll(imageView, space, textName);
         }
     }
 

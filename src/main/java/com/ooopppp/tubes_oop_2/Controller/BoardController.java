@@ -52,7 +52,6 @@ public class BoardController {
                     Card data = parent.getSelectedCardDeck().getCardData();
                     CardComponent current = (CardComponent) event.getSource();
                     current.getStyleClass().removeAll("card-hover", "board-empty");
-                    current.setCardData(data);
                     parent.getSelectedCardDeck().setCardData(null);
                     parent.getSelectedCardDeck().getStyleClass().removeAll("card-choose", "card-hover");
                     parent.getSelectedCardDeck().setScaleX(1);
@@ -65,6 +64,8 @@ public class BoardController {
                         GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
                         this.populateGrid();
                     }
+                    current.setCardData(data);
+
                     parent.setSelectedCardDeck(null);
 
                 }
@@ -138,23 +139,22 @@ public class BoardController {
 
             if (parent.getSelectedCardDeck() != null && current.getCardData() == null){
                 Card data = parent.getSelectedCardDeck().getCardData();
-                if (!parent.getSelectedCardDeck().isInBoard()){
-                    GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
-                } else {
-                    GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
-                }
+
                 current.getStyleClass().removeAll("card-hover", "board-empty");
-                current.setCardData(data);
                 parent.getSelectedCardDeck().setCardData(null);
                 parent.getSelectedCardDeck().getStyleClass().removeAll("card-choose", "card-hover");
                 parent.getSelectedCardDeck().setScaleX(1);
                 parent.getSelectedCardDeck().setScaleY(1);
                 parent.notifyCardsInBoard("unchoose");
                 if (!parent.getSelectedCardDeck().isInBoard()){
+                    GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
                     parent.getDeckContainer().getController().renderDeck();
                 } else {
+                    GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
                     this.populateGrid();
                 };
+                current.setCardData(data);
+
                 parent.setSelectedCardDeck(null);
             } else if (current.getCardData() != null){
                 if (e.getClickCount() == 2){
@@ -188,7 +188,7 @@ public class BoardController {
 
                     }
                 } else if (e.getClickCount() == 1){
-                    //info
+                    // SHOW DESKRIPS MODAL
                 }
             }
 

@@ -48,7 +48,7 @@ public class DeckController {
 
         card.setOnDragDone(event -> {
             if (event.getTransferMode() == TransferMode.MOVE) {
-                ((CardComponent) event.getSource()).setVisible(false);  // Hide or remove the original
+                ((CardComponent) event.getSource()).setVisible(false);
             }
             event.consume();
 

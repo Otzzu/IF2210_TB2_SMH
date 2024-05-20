@@ -37,6 +37,24 @@ public class Player {
         return activeDeck;
     }
 
+    public void moveCardInFarm(int idCard, int targetI, int targetJ){
+        System.out.println("move " + idCard);
+        LivingBeing data = null;
+        for (int i = 0 ; i < this.getFarm().getRow(); i++){
+            for (int j = 0; j < this.getFarm().getCol(); j++){
+                if (this.getFarm().get(i, j) != null && this.getFarm().get(i, j).getId() == idCard ){
+                    data = this.getFarm().take(i, j);
+                    break;
+                }
+            }
+        }
+
+        if (data != null){
+            this.getFarm().set(targetI, targetJ, data);
+        }
+        this.getFarm().printBoard();
+
+    }
     public void moveCardToFarm(int idCard, int row, int col){
         Optional<Card> chooseCard = activeDeck.stream().filter(c -> c.getId() == idCard).findFirst();
 
@@ -48,8 +66,10 @@ public class Player {
             return;
         }
 
+        System.out.println("halo");
         farm.set(row, col, (LivingBeing) chooseCard.get());
         activeDeck.remove(chooseCard.get());
+        farm.printBoard();
 
     }
 }

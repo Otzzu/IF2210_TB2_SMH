@@ -27,6 +27,10 @@ public class CardComponent extends VBox implements Observer {
 
     }
 
+    public boolean isInBoard() {
+        return isInBoard;
+    }
+
     public Card getCardData() {
         return cardData;
     }

@@ -39,6 +39,43 @@
 }
 
 
+.label-store {
+    -fx-background-color: #E99C1E;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Courier New";
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+    -fx-background-radius: 17px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: black;
+    -fx-padding: 20px 20px 20px 20px;
+}
+
+.card-store {
+    -fx-background-color: #DBE056;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+    -fx-background-radius: 17px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: black;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.2);  /* semi-transparent black for visibility */
+    -fx-background-insets: 2;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.4);  /* darker on hover */
+}
+
 .label-deck {
     -fx-background-radius: 15px;
     -fx-border-radius: 15px;
@@ -95,6 +132,12 @@
     -fx-fill: white;
 }
 
+.text-black {
+    -fx-font-family: "Courier New";
+    -fx-font-weight: 800;
+    -fx-fill: black;
+}
+
 .text-green {
     -fx-font-family: "Courier New";
     -fx-font-weight: 800;
@@ -103,6 +146,13 @@
 
 .circular-turn {
     -fx-background-color: #AA6039;
+    -fx-background-radius: 55;
+    -fx-border-radius: 55;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+.circular-timer {
+    -fx-background-color: #CB9270;
     -fx-background-radius: 55;
     -fx-border-radius: 55;
     -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
@@ -134,4 +184,3 @@
     -fx-font-size: 11px;
     -fx-font-weight: 800;
 }
-

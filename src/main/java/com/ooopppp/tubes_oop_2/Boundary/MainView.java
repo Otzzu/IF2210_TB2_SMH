@@ -2,6 +2,7 @@ package com.ooopppp.tubes_oop_2.Boundary;
 
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.*;
+import com.ooopppp.tubes_oop_2.Controller.MainViewController;
 import com.ooopppp.tubes_oop_2.Helper.Observer;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -16,15 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainView extends VBox {
-    private Board board;
+    protected Board board;
     private HBox mainContent;
     private Sidebar sidebar;
-    private Header header;
+    protected Header header;
     private DeckContainer deckContainer;
     private CardComponent selectedCardDeck;
     private List<Observer> cardsInBoard;
     private Stage stage;
     private MediaPlayer btnSound;
+    private MainViewController controller;
 
     public DeckContainer getDeckContainer() {
         return deckContainer;
@@ -54,6 +56,8 @@ public class MainView extends VBox {
 
     public MainView(Stage stage){
         super();
+        controller = new MainViewController(this);
+
         this.stage = stage;
         cardsInBoard = new ArrayList<>(20);
         mainContent = new HBox();
@@ -67,20 +71,11 @@ public class MainView extends VBox {
         this.getChildren().addAll(header, mainContent, deckContainer);
         this.setSpacing(45);
 
-        loadSound();
+        controller.loadSound();
     }
 
-    public void loadSound(){
-        URL btnSoundUrl = getClass().getResource("/com/ooopppp/tubes_oop_2/sound/button-click.mp3");
-        if (btnSoundUrl == null) {
-            System.out.println("Resource not found.");
-
-            return;
-        }
-
-        Media media = new Media(btnSoundUrl.toExternalForm());
-        btnSound = new MediaPlayer(media);
-        btnSound.setVolume(50);
+    public void setBtnSound(MediaPlayer btnSound) {
+        this.btnSound = btnSound;
     }
 
     public MediaPlayer getBtnSound() {

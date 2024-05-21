@@ -1,4 +1,4 @@
-package com.ooopppp.tubes_oop_2.Boundary;
+package com.ooopppp.tubes_oop_2.Boundary.Component;
 
 import com.ooopppp.tubes_oop_2.Controller.DialogController;
 import javafx.geometry.Insets;
@@ -37,7 +37,7 @@ public class GenericDialog {
         setupComponents(dialogVBox);
 
 
-        Scene dialogScene = new Scene(dialogVBox, 720, 470);
+        Scene dialogScene = new Scene(dialogVBox, 720, 490);
         dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
         dialogScene.setFill(null);
         dialogStage.setScene(dialogScene);
@@ -137,7 +137,28 @@ public class GenericDialog {
     private void setupActionButton(Button actionButton, ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {
         actionButton.setMaxSize(170, 65);
         actionButton.setMinSize(170, 65);
+        actionButton.getStyleClass().add("button-pop-item");
         actionButton.setStyle("-fx-background-color: #5B311C; -fx-text-fill: #DBE056; -fx-font-family: 'Courier'; -fx-font-size: 30; -fx-font-weight: 900; -fx-background-radius: 15;");
+
+        actionButton.setOnMouseEntered(event -> {
+            actionButton.setScaleX(1.05);
+            actionButton.setScaleY(1.05);
+        });
+
+        actionButton.setOnMouseExited(event -> {
+            actionButton.setScaleX(1.0);
+            actionButton.setScaleY(1.0);
+        });
+
+        actionButton.setOnMousePressed(event -> {
+            actionButton.setScaleX(0.9);
+            actionButton.setScaleY(0.9);
+        });
+
+        actionButton.setOnMouseReleased(event -> {
+            actionButton.setScaleX(1.0);
+            actionButton.setScaleY(1.0);
+        });
         actionButton.setOnAction(e -> controller.handleAction(formatComboBox, folderTextField, feedbackLabel));
     }
 

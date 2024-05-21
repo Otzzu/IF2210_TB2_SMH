@@ -1,11 +1,10 @@
-    package com.ooopppp.tubes_oop_2.Boundary;
+    package com.ooopppp.tubes_oop_2.Boundary.Component;
 
     import javafx.geometry.Insets;
     import javafx.geometry.Pos;
     import javafx.scene.Scene;
     import javafx.scene.control.Button;
     import javafx.scene.control.Label;
-    import javafx.scene.control.TextField;
     import javafx.scene.layout.GridPane;
     import javafx.scene.layout.HBox;
     import javafx.scene.layout.VBox;
@@ -27,7 +26,7 @@
             dialogVBox.setStyle("-fx-background-color: #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #AA6039; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
             setupComponents(dialogVBox);
 
-            Scene dialogScene = new Scene(dialogVBox, 720, 470);
+            Scene dialogScene = new Scene(dialogVBox, 720, 490);
             dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
             dialogScene.setFill(null);
             dialogStage.setScene(dialogScene);
@@ -70,7 +69,7 @@
             GridPane grid = new GridPane();
             grid.setAlignment(Pos.CENTER);
             grid.setHgap(30);
-            grid.setPadding(new Insets(0, 0, 0, 90));
+            grid.setPadding(new Insets(0, 0, 0, 50));
 
             Label folderLabel = new Label("File plugin   :   No File Uploaded");
             folderLabel.setMinSize(430, 45);
@@ -80,23 +79,63 @@
             Button chooseFileButton = new Button("Choose File");
             chooseFileButton.setMaxSize(150, 45);
             chooseFileButton.setMinSize(150, 45);
-            chooseFileButton.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-background-color: #DBE056; -fx-font-size: 20; -fx-background-radius: 15; -fx-font-weight: 900;");
+            chooseFileButton.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-background-color: #DBE056; -fx-font-size: 20; -fx-background-radius: 15; -fx-font-weight: 900; -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);");
             chooseFileButton.setOnAction(e -> handleChoose(folderLabel));
 
-            grid.add(chooseFileButton, 1, 0);
-            grid.add(folderLabel, 2, 0);
+            chooseFileButton.setOnMouseEntered(event -> {
+                chooseFileButton.setScaleX(1.05);
+                chooseFileButton.setScaleY(1.05);
+            });
+
+            chooseFileButton.setOnMouseExited(event -> {
+                chooseFileButton.setScaleX(1.0);
+                chooseFileButton.setScaleY(1.0);
+            });
+
+            chooseFileButton.setOnMousePressed(event -> {
+                chooseFileButton.setScaleX(0.9);
+                chooseFileButton.setScaleY(0.9);
+            });
+
+            chooseFileButton.setOnMouseReleased(event -> {
+                chooseFileButton.setScaleX(1.0);
+                chooseFileButton.setScaleY(1.0);
+            });
+
+            grid.add(chooseFileButton, 0, 0);
+            grid.add(folderLabel, 1, 0);
 
             Label feedbackLabel = new Label();
             HBox feedbackBox = new HBox(feedbackLabel);
             feedbackBox.setAlignment(Pos.CENTER);
 
             Button uploadButton = new Button("Upload");
-            uploadButton.setStyle("-fx-font-family: 'Courier'; -fx-text-fill: #DBE056; -fx-background-color: #5B311C; -fx-font-size: 30; -fx-background-radius: 15; -fx-font-weight: 900;");
+            uploadButton.setStyle("-fx-font-family: 'Courier'; -fx-text-fill: #DBE056; -fx-background-color: #5B311C; -fx-font-size: 30; -fx-background-radius: 15; -fx-font-weight: 900; -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);");
             uploadButton.setMaxSize(170, 65);
             uploadButton.setMinSize(170, 65);
             HBox uploadButtonBox = new HBox(uploadButton);
             uploadButtonBox.setAlignment(Pos.CENTER);
             uploadButtonBox.setPadding(new Insets(50, 0, 25, 0));
+
+            uploadButton.setOnMouseEntered(event -> {
+                uploadButton.setScaleX(1.05);
+                uploadButton.setScaleY(1.05);
+            });
+
+            uploadButton.setOnMouseExited(event -> {
+                uploadButton.setScaleX(1.0);
+                uploadButton.setScaleY(1.0);
+            });
+
+            uploadButton.setOnMousePressed(event -> {
+                uploadButton.setScaleX(0.9);
+                uploadButton.setScaleY(0.9);
+            });
+
+            uploadButton.setOnMouseReleased(event -> {
+                uploadButton.setScaleX(1.0);
+                uploadButton.setScaleY(1.0);
+            });
 
             dialogVBox.getChildren().addAll(closecontainer, titleBox, grid, uploadButtonBox, feedbackBox);
         }

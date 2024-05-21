@@ -27,7 +27,7 @@
             dialogVBox.setStyle("-fx-background-color: #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #AA6039; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
             setupComponents(dialogVBox);
 
-            Scene dialogScene = new Scene(dialogVBox, 720, 450);
+            Scene dialogScene = new Scene(dialogVBox, 720, 470);
             dialogScene.setFill(null);
             dialogStage.setScene(dialogScene);
         }

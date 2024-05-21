@@ -1,6 +1,7 @@
 package com.ooopppp.tubes_oop_2;
 
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
 // import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
 import com.ooopppp.tubes_oop_2.Entity.GameState;
 import com.ooopppp.tubes_oop_2.Entity.Player;
@@ -31,6 +32,8 @@ public class Main extends Application {
         primaryStage.setTitle("Card Game");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        GenericDialog.showGenericDialog(primaryStage, "Load"); //ntr type diganti sm passing pas klik button
     }
 
     public static void main(String[] args) {

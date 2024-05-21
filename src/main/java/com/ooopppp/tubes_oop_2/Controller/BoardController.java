@@ -90,7 +90,7 @@ public class BoardController {
                                 }
                             }
                         } catch (Exception exception){
-                            ErrorDialog.getInstance().showError(exception.getMessage());
+                            ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                             parent.getDeckContainer().getController().renderDeck();
                             parent.getBoard().getController().populateGrid(false);
                         }
@@ -244,7 +244,7 @@ public class BoardController {
                                 livingBeing.print();
                             }
                         } catch (Exception exception){
-                            ErrorDialog.getInstance().showError(exception.getMessage());
+                            ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                             parent.getDeckContainer().getController().renderDeck();
                             parent.getBoard().getController().populateGrid(false);
 

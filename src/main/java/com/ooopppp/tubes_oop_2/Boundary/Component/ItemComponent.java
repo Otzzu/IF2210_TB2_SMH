@@ -18,8 +18,8 @@ public class ItemComponent extends HBox {
     public ItemComponent(String name, int price, int quantity) {
         super(10); // spacing between elements
         this.setAlignment(Pos.CENTER);
-        this.setPrefHeight(141);
-        this.setPrefWidth(250);
+        this.setMaxHeight(160);
+        this.setMaxWidth(270);
         this.setPadding(new Insets(10,10,10,10));
 
         info = new VBox();

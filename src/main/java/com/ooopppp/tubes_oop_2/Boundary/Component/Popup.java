@@ -50,4 +50,10 @@ public abstract class Popup extends Application {
 
     protected abstract void configure();
     protected abstract String getTitle();
+
+//    public void show(double screenX, double screenY) {
+//        primaryStage.setX(screenX);
+//        primaryStage.setY(screenY);
+//        primaryStage.show();
+//    }
 }

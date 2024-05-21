@@ -1,9 +1,9 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.Sidebar;
-import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Boundary.PluginDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.PluginDialog;
 
 public class SidebarController {
     private Sidebar sidebar;

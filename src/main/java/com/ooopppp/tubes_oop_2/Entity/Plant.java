@@ -44,4 +44,8 @@ public class Plant extends LivingBeing implements Observer {
     public void update(String data) {
         addAge(1);
     }
+
+//    public String getImagePath() {
+//        return image;
+//    }
 }

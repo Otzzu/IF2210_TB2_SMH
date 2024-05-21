@@ -1,6 +1,5 @@
-package com.ooopppp.tubes_oop_2.Boundary;
+package com.ooopppp.tubes_oop_2.Boundary.Component;
 
-import com.ooopppp.tubes_oop_2.Boundary.Component.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

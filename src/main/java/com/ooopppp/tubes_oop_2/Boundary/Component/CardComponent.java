@@ -74,16 +74,27 @@ public class CardComponent extends VBox implements Observer {
     @Override
     public void update(String data) {
         if (data.equals("choose")){
-
             if (cardData == null && isInBoard){
                 this.getStyleClass().addAll("card-hover", "board-empty");
             } else if (cardData != null && isInBoard){
                 this.getStyleClass().addAll("board-fill");
             }
-        } else {
+        } else if (data.equals("unchoose")) {
             if (cardData == null && isInBoard){
                 this.getStyleClass().removeAll("card-hover", "board-empty");
             } else if (cardData != null && isInBoard){
+                this.getStyleClass().removeAll("board-fill");
+            }
+        } else if (data.equals("choose2")){
+            if (cardData != null && isInBoard){
+                this.getStyleClass().addAll("card-hover", "board-empty");
+            } else if (cardData == null && isInBoard){
+                this.getStyleClass().addAll("board-fill");
+            }
+        } else if (data.equals("unchoose2")){
+            if (cardData != null && isInBoard){
+                this.getStyleClass().removeAll("card-hover", "board-empty");
+            } else if (cardData == null && isInBoard){
                 this.getStyleClass().removeAll("board-fill");
             }
         }

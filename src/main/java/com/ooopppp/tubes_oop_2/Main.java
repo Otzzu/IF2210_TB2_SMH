@@ -4,7 +4,6 @@ import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
 // import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
-import com.ooopppp.tubes_oop_2.Entity.GameState;
 import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -21,7 +20,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Parent root = new SeranganBeruangView(primaryStage);
-        GameData.getGameData().start();
         Parent root = new MainView(primaryStage);
         Scene scene = new Scene(root, 980, 900);
         URL css = getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css");
@@ -35,7 +33,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        GenericDialog.showGenericDialog(primaryStage, "Load"); //ntr type diganti sm passing pas klik button
     }
 
     public static void main(String[] args) {
@@ -45,8 +42,6 @@ public class Main extends Application {
         gameData.addPlayer(player1);
         gameData.addPlayer(player2);
         gameData.setCurrentPlayer(player1);
-
-
         launch(args);
     }
 

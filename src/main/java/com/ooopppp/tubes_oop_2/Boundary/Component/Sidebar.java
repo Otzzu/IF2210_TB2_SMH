@@ -44,7 +44,9 @@ public class Sidebar extends VBox {
         this.setMaxHeight(492);
         this.getChildren().addAll(buttonLadang, buttonToko, buttonSaveState, buttonLoadState, buttonLoadPlugin);
 
-        controller.attachEventsLadangButton();
+        buttonLadang.setOnAction(e -> controller.handleLadangButton());
+        buttonSaveState.setOnAction(e -> controller.handleSaveButton());
+        buttonLoadState.setOnAction(e -> controller.handleLoadButton());
     }
 
     public Button getButtonLadang() {

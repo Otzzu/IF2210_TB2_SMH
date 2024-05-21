@@ -46,6 +46,10 @@ public class MainView extends VBox {
         }
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
     public CardComponent getSelectedCardDeck() {
         return selectedCardDeck;
     }

@@ -164,13 +164,13 @@
 }
 
 .board-empty {
-    -fx-background-color: #E99C1E;
-    -fx-border-color: black;
+    /*-fx-background-color: #E99C1E;*/
+    -fx-border-color: #E99C1E;
     -fx-cursor: hand;
 }
 
-.board-fill:hover {
-    -fx-opacity: 0.8;
+.board-fill {
+    -fx-opacity: 0.7;
 }
 
 .card-hover:hover {

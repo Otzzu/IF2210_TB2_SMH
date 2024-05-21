@@ -18,15 +18,15 @@ public class Player {
 //        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
-//        activeDeck.add(factory.createCard("AYAM"));
-//        activeDeck.add(factory.createCard("DOMBA"));
-//        activeDeck.add(factory.createCard("BIJI_JAGUNG"));
-//        activeDeck.add(factory.createCard("BIJI_LABU"));
-//        activeDeck.add(factory.createCard("BIJI_STROBERI"));
+        deck.getActiveDeck().add(factory.createCard("AYAM"));
+        deck.getActiveDeck().add(factory.createCard("DOMBA"));
+        deck.getActiveDeck().add(factory.createCard("ACCELERATE"));
+        deck.getActiveDeck().add(factory.createCard("BIJI_LABU"));
+        deck.getActiveDeck().add(factory.createCard("SUSU"));
 
-//        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
-//        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
-//        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
+        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
+        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
+        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
 
         deck.generateDeck(40);
     }
@@ -96,5 +96,11 @@ public class Player {
         deck.getActiveDeck().remove(chooseCard.get());
         farm.printBoard();
 
+    }
+
+    public void giveEat(Product product, Animal animal){
+        animal.eat(product);
+
+        deck.getActiveDeck().remove(product);
     }
 }

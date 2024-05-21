@@ -46,6 +46,10 @@ public class GenericDialog {
         dialog.showDialog();
     }
 
+    public String getActionType() {
+        return actionType;
+    }
+
     private void setupComponents(VBox dialogVBox) {
         Button closeButton = new Button("X");
         closeButton.setOnAction(e -> dialogStage.close());
@@ -123,38 +127,12 @@ public class GenericDialog {
         actionButton.setMaxSize(170, 55);
         actionButton.setMinSize(170, 55);
         actionButton.setStyle("-fx-background-color: #5B311C; -fx-text-fill: #DBE056; -fx-font-family: 'Courier'; -fx-font-size: 30; -fx-font-weight: 900; -fx-background-radius: 15;");
-        actionButton.setOnAction(e -> handleAction(formatComboBox, folderTextField, feedbackLabel));
+        actionButton.setOnAction(e -> controller.handleAction(formatComboBox, folderTextField, feedbackLabel));
     }
 
-    private void handleAction(ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {
-        String selectedFormat = formatComboBox.getSelectionModel().getSelectedItem();
-        String folderName = folderTextField.getText().trim();
-        if (!isValidFilename(folderName)) {
-            feedbackLabel.setText("Error: Failed to " + actionType.toLowerCase() + " state");
-            feedbackLabel.setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: red;");
-        } else {
-            if (actionType.equalsIgnoreCase("Save")) {
-                controller.saveGame(selectedFormat, folderName);
-            } else if (actionType.equalsIgnoreCase("Load")) {
-                controller.loadGame(selectedFormat, folderName);
-            }
-            feedbackLabel.setText(actionType + " State Successfully");
-            feedbackLabel.setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: green;");
-        }
-    }
 
-    private boolean isValidFilename(String filename) {
-        if (filename.trim().isEmpty()) {
-            return false;
-        }
-        String invalidChars = "\\/:;.'*?\"<>|";
-        for (char c : invalidChars.toCharArray()) {
-            if (filename.indexOf(c) >= 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+
+
 
     public void showDialog() {
         dialogStage.showAndWait();

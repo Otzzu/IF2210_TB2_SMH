@@ -1,6 +1,6 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
-import com.ooopppp.tubes_oop_2.Boundary.SellDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.SellDialog;
 import com.ooopppp.tubes_oop_2.Boundary.StoreView;
 import javafx.application.Application;
 import javafx.geometry.Pos;

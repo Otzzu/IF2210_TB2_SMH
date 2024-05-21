@@ -2,7 +2,7 @@ package com.ooopppp.tubes_oop_2;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
 // import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;

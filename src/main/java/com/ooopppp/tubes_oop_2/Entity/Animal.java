@@ -17,4 +17,8 @@ public abstract class Animal extends LivingBeing{
     }
 
     public abstract void eat(Product product);
+
+    public String getImagePath() {
+        return image;
+    }
 }

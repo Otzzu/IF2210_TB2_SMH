@@ -13,4 +13,12 @@ public class LivingBeing extends Card{
     public Product harvest(){
         return harvestResult;
     }
+
+//    public String getActiveItem() {
+//        StringBuilder sb = new StringBuilder();
+//        for (Map.Entry<Item, Integer> entry : activeItem.entrySet()) {
+//            sb.append(entry.getKey().getName()).append(" : ").append(entry.getValue()).append("\n");
+//        }
+//        return sb.toString();
+//    }
 }

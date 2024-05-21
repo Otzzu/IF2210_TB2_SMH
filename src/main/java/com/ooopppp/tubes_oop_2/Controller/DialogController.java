@@ -1,6 +1,6 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
-import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

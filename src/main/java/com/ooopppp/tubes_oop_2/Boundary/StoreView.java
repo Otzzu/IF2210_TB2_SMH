@@ -3,7 +3,9 @@ package com.ooopppp.tubes_oop_2.Boundary;
 
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.*;
+import com.ooopppp.tubes_oop_2.Controller.BuyController;
 import com.ooopppp.tubes_oop_2.Controller.StoreController;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
 import com.ooopppp.tubes_oop_2.Entity.Product;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -28,9 +30,11 @@ public class StoreView extends VBox {
     private Map<String, List<Product>> items;
     private StoreController controller;
     private MediaPlayer btnSound;
+    private GridPane grid;
     public StoreView(Stage stage) {
         super();
         this.stage = stage;
+        this.items = GameData.getGameData().getStore().getItemSells();
         controller = new StoreController(this);
         this.setStyle("-fx-background-color: #AA6039;");
 
@@ -67,26 +71,12 @@ public class StoreView extends VBox {
 
 
         // Grid for items
-        GridPane grid = new GridPane();
+        grid = new GridPane();
         grid.setVgap(30);
         grid.setHgap(30); // Increased gap between columns
         grid.setPadding(new Insets(20));
         grid.setAlignment(Pos.CENTER);
-        int numCols = 3;
-        int numRows = 5;
-
-        for (int i = 0; i < numCols; i++) {
-            for (int j = 0; j < numRows; j++) {
-                ItemComponent item = new ItemComponent("Item " + (i * numRows + j + 1), 500, 5);
-                grid.add(item, i, j);
-                item.setOnMouseClicked(e -> {
-                    this.getBtnSound().stop();
-                    this.getBtnSound().play();
-                    BuyDialog buyDialog = new BuyDialog();
-                    buyDialog.showDialog(this.stage);
-                });
-            }
-        }
+        populateGrid();
 
 
         // ScrollPane to make the GridPane scrollable
@@ -105,6 +95,41 @@ public class StoreView extends VBox {
 
         buttonJual.setOnAction(e -> controller.attachEventsJualButton());
         imageView.setOnMouseClicked(e ->controller.attachEventsBackButton());
+    }
+
+    public void populateGrid(){
+        grid.getChildren().clear();
+        int col = 0;
+        int row = 0;
+        for (Map.Entry<String, List<Product>> entry : items.entrySet()) {
+            String productName = entry.getKey();
+            List<Product> productList = entry.getValue();
+            if (productList.isEmpty()) continue;
+
+            // Assuming all products with the same name have the same price and added weight
+            Product sampleProduct = productList.get(0);
+            int quantity = productList.size();
+
+            ItemComponent item = new ItemComponent(sampleProduct, quantity);
+            grid.add(item, col, row);
+            col++;
+            if (col == 3) { // 3 columns per row
+                col = 0;
+                row++;
+            }
+            item.setOnMouseClicked(e -> {
+                this.getBtnSound().stop();
+                this.getBtnSound().play();
+                BuyDialog buyDialog = new BuyDialog(sampleProduct, quantity);
+                buyDialog.setController(new BuyController(buyDialog, this));
+                buyDialog.showDialog(this.stage);
+            });
+        }
+    }
+
+    public void refresh() {
+        this.items = GameData.getGameData().getStore().getItemSells();
+        populateGrid();
     }
 
     public Button getButtonJual() {

@@ -8,11 +8,11 @@ public class GameState {
     private Player currentPlayer;
     private Player[] players;
     private int turn;
-    private Store store;
+
 
     private GameState() {
         players = new Player[2];
-        store = new Store();
+
         turn = 1;
     }
 
@@ -57,9 +57,7 @@ public class GameState {
         return turn;
     }
 
-    public Store getStore() {
-        return store;
-    }
+
 
 
 }

@@ -6,9 +6,11 @@ public class GameData {
     private Player[] players;
     private int turn;
     private String gameState;
+    private Store store;
 
     private GameData(){
         players = new Player[2];
+        store = new Store();
         turn = 1;
         gameState = "Shuffle";
     }
@@ -63,5 +65,13 @@ public class GameData {
 
     public int getTurn() {
         return turn;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public Player[] getPlayers() {
+        return players;
     }
 }

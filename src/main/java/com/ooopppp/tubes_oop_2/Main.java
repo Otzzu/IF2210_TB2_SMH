@@ -15,8 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = new SeranganBeruangView(primaryStage);
-//        Parent root = new MainView(primaryStage, false);
+//        Parent root = new SeranganBeruangView(primaryStage);
+        Parent root = new MainView(primaryStage, false);
         Scene scene = new Scene(root, 980, 900);
         URL css = getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css");
         if (css != null) {

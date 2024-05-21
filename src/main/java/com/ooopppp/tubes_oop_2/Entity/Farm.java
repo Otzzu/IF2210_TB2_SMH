@@ -60,6 +60,17 @@ public class Farm {
         }
     }
 
+    public void remove(LivingBeing livingBeing){
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++){
+                if (grid[i][j] != null && grid[i][j].equals(livingBeing)){
+                    grid[i][j] = null;
+                    break;
+                }
+            }
+        }
+    }
+
     public void addPlantObserver(Observer obs){
         plantObserver.add(obs);
     }

@@ -23,6 +23,8 @@ public class Plant extends LivingBeing implements Observer {
         age += addedAge;
         if (age >= ageToHarvest){
             ripped();
+        } else if (age < 0){
+            age = 0;
         }
     }
 

@@ -21,6 +21,9 @@ public abstract class Animal extends LivingBeing{
         super.useItem(item);
         if (item instanceof ItemAdded itemAdded){
             weight += itemAdded.getAddedWeight();
+            if (weight < 0) {
+                weight = 0;
+            }
         }
     }
 

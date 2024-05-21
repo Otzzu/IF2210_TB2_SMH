@@ -115,9 +115,9 @@ public class Deck {
         return products;
     }
 
-    public boolean removeFromActiveDeck(Product product) {
+    public boolean removeFromActiveDeck(Card card) {
         for (int i = 0; i < activeDeck.length; i++) {
-            if (activeDeck[i] != null && activeDeck[i].equals(product)) {
+            if (activeDeck[i] != null && activeDeck[i].equals(card)) {
                 activeDeck[i] = null;
                 return true;
             }

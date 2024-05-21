@@ -15,18 +15,8 @@ public class Player {
         farm = new Farm(4, 5);
         deck = new Deck();
         gulden = 0;
-//        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
-//        deck.getActiveDeck()[0] = (factory.createCard("AYAM"));
-//        deck.getActiveDeck()[1] = (factory.createCard("DOMBA"));
-//        deck.getActiveDeck()[2] = (factory.createCard("ACCELERATE"));
-//        deck.getActiveDeck()[3] = (factory.createCard("BIJI_LABU"));
-//        deck.getActiveDeck()[4] = (factory.createCard("SUSU"));
-//
-//        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
-//        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
-//        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
 
         deck.generateDeck(40);
     }
@@ -43,9 +33,6 @@ public class Player {
         return deck;
     }
 
-//    public List<Card> getActiveDeck() {
-//        return activeDeck;
-//    }
 
     public void moveCardInFarm(int idCard, int targetI, int targetJ){
         System.out.println("move " + idCard);
@@ -95,21 +82,33 @@ public class Player {
 
         farm.set(row, col, (LivingBeing) chooseCard.get());
 
-        for (int i = 0 ; i < 6; i++){
-            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(chooseCard.get())){
-                deck.getActiveDeck()[i] = null;
-            }
-        }
+//        for (int i = 0 ; i < 6; i++){
+//            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(chooseCard.get())){
+//                deck.getActiveDeck()[i] = null;
+//            }
+//        }
+        deck.removeFromActiveDeck(chooseCard.get());
         farm.printBoard();
     }
 
     public void giveEat(Product product, Animal animal){
         animal.eat(product);
 
-        for (int i = 0 ; i < 6; i++){
-            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(product)){
-                deck.getActiveDeck()[i] = null;
-            }
+        deck.removeFromActiveDeck(product);
+
+//        for (int i = 0 ; i < 6; i++){
+//            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(product)){
+//                deck.getActiveDeck()[i] = null;
+//            }
+//        }
+    }
+
+    public void harvestLivingBeing(LivingBeing livingBeing){
+        Product product = livingBeing.harvest();
+        deck.moveToActiveDeck(Collections.singletonList(product));
+        farm.remove(livingBeing);
+        if (livingBeing instanceof Plant){
+            farm.removePlantObserver((Plant) livingBeing);
         }
     }
 
@@ -118,16 +117,33 @@ public class Player {
             throw new IllegalArgumentException("This item cannot be used here");
         }
         if (item.getName().equals("Instant Harvest")){
-            
-            Product product = livingBeing.harvest();
+            if (deck.getActiveDeckCount() == 6){
+                throw new IllegalArgumentException("Active deck full!!");
+            }
+            harvestLivingBeing(livingBeing);
+            deck.removeFromActiveDeck(item);
 
+            return;
         }
         giveItemToLivingBeing(item, livingBeing);
     }
 
-    public void giveItemToEnemy(Item item, LivingBeing livingBeing){
+    public void giveItemToEnemy(Item item, LivingBeing livingBeing, Player enemy){
         if (!item.isForEnemy()){
             throw new IllegalArgumentException("This item cannot be used here");
+        }
+
+        if (livingBeing.haveProtect()){
+            throw new IllegalArgumentException("This card have protection");
+        }
+
+        if (item.getName().equals("Destroy")){
+            enemy.getFarm().remove(livingBeing);
+            if (livingBeing instanceof Plant){
+                enemy.getFarm().removePlantObserver((Plant) livingBeing);
+            }
+            deck.removeFromActiveDeck(item);
+            return;
         }
 
         giveItemToLivingBeing(item, livingBeing);
@@ -136,11 +152,12 @@ public class Player {
     private void giveItemToLivingBeing(Item item, LivingBeing livingBeing){
 
         livingBeing.useItem(item);
-        for (int i = 0 ; i < 6; i++){
-            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(item)){
-                deck.getActiveDeck()[i] = null;
-            }
-        }
+//        for (int i = 0 ; i < 6; i++){
+//            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(item)){
+//                deck.getActiveDeck()[i] = null;
+//            }
+//        }
+        deck.removeFromActiveDeck(item);
     }
 
     public int getGulden() {

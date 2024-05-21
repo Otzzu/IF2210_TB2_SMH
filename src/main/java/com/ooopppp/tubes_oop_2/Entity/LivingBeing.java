@@ -12,6 +12,14 @@ public class LivingBeing extends Card{
         this.activeItem = new HashMap<>();
     }
 
+    public boolean haveProtect(){
+        return activeItem.containsKey("Protect");
+    }
+
+    public boolean haveTrap(){
+        return activeItem.containsKey("Trap");
+    }
+
     public void useItem(Item item){
 
         if (activeItem.containsKey(item.getName())){

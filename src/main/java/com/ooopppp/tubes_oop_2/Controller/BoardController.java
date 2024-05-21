@@ -115,7 +115,7 @@ public class BoardController {
                         try {
                             if (current.getCardData() != null && data instanceof Item item){
                                 LivingBeing livingBeing = (LivingBeing)current.getCardData();
-                                GameData.getGameData().getCurrentPlayer().giveItemToEnemy(item, livingBeing);
+                                GameData.getGameData().getCurrentPlayer().giveItemToEnemy(item, livingBeing, GameData.getGameData().getAnotherPlayer());
                                 parent.getDeckContainer().getController().renderDeck();
                                 parent.getBoard().getController().populateGrid(true);
                                 livingBeing.print();
@@ -296,7 +296,7 @@ public class BoardController {
                                 if (current.getCardData() != null && parent.getSelectedCardDeck().getCardData() instanceof Item item){
                                     try {
                                         LivingBeing livingBeing = (LivingBeing)current.getCardData();
-                                        GameData.getGameData().getCurrentPlayer().giveItemToEnemy(item, livingBeing);
+                                        GameData.getGameData().getCurrentPlayer().giveItemToEnemy(item, livingBeing, GameData.getGameData().getAnotherPlayer());
                                         parent.getDeckContainer().getController().renderDeck();
                                         parent.getBoard().getController().populateGrid(true);
                                         livingBeing.print();

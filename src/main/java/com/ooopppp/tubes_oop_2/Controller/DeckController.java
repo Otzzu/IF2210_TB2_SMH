@@ -4,7 +4,7 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.Component.DeckContainer;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
-import com.ooopppp.tubes_oop_2.Entity.GameState;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -55,10 +55,14 @@ public class DeckController {
         });
     }
 
+    public void updateDeckLabel(){
+        deckContainer.getCountCardDeck().setText(String.format("Deck\n%d/40", GameData.getGameData().getCurrentPlayer().getDeck().getAllDeck().size()));
+    }
+
     public void renderDeck(){
         deckContainer.getDeck().getChildren().clear();
         //get player active deck, example
-        List<Card> activeDeck = GameState.getGameState().getCurrentPlayer().getActiveDeck();
+        List<Card> activeDeck = GameData.getGameData().getCurrentPlayer().getDeck().getActiveDeck();
 
         int emptyCard = 6 - activeDeck.size();
 

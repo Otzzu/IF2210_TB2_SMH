@@ -36,7 +36,7 @@ public class Header extends HBox {
     public Header(MainView parent) {
         super();
         controller = new HeaderController(this, parent);
-        
+
         initializeComponents(false);
         this.setAlignment(Pos.CENTER);
     }
@@ -80,11 +80,11 @@ public class Header extends HBox {
 
         HBox player1Container = new HBox(player1Text, new Region(), moneyPlayer1, imageView1);
         player1Container.setAlignment(Pos.CENTER);
-        HBox.setHgrow(player1Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
+        HBox.setHgrow(player1Container.getChildren().get(1), Priority.ALWAYS);
 
         HBox player2Container = new HBox(player2Text, new Region(), moneyPlayer2, imageView2);
         player2Container.setAlignment(Pos.CENTER);
-        HBox.setHgrow(player2Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
+        HBox.setHgrow(player2Container.getChildren().get(1), Priority.ALWAYS);
 
         moneyContainer.getChildren().addAll(player1Container, player2Container);
     }

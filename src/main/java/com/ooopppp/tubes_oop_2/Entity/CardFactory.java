@@ -19,6 +19,15 @@ public class CardFactory {
             case "DESTROY" -> new Item("Destroy", "/Destroy.png");
             case "PROTECT" -> new Item("Protect", "/Protect.png");
             case "TRAP" -> new Item("Trap", "/bear_trap");
+            case "SIRIP_HIU" -> new Product("Sirip Hiu", 500, 12, "/shark-fin.png");
+            case "SUSU" -> new Product("Susu", 100, 4, "/susu.png");
+            case "DAGING_DOMBA" -> new Product("Daging Domba", 120, 6, "/Daging_Domba.png");
+            case "DAGING_KUDA" -> new Product("Daging Kuda", 150, 8, "/Daging_Kuda.png");
+            case "TELUR" -> new Product("Telur", 50, 2, "/telur.png");
+            case "DAGING_BERUANG" ->  new Product("Daging Beruang", 500, 12, "/Daging_Beruang.png");
+            case "JAGUNG" -> new Product("Jagung", 150, 3, "/corn.png");
+            case "LABU" -> new Product("Labu", 500, 5, "/pumpkin.png");
+            case "STROBERI" -> new Product("Stroberi", 350, 5, "/strawberry.png");
             default -> throw new IllegalStateException("Unexpected value: " + type);
         };
     }

@@ -5,7 +5,7 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.Farm;
-import com.ooopppp.tubes_oop_2.Entity.GameState;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -68,10 +68,10 @@ public class BoardController {
                     parent.getSelectedCardDeck().setScaleY(1);
                     parent.notifyCardsInBoard("unchoose");
                     if (!parent.getSelectedCardDeck().isInBoard()){
-                        GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
+                        GameData.getGameData().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
                         parent.getDeckContainer().getController().renderDeck();
                     } else {
-                        GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
+                        GameData.getGameData().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
                         this.populateGrid(false);
                     }
                     current.setCardData(data);
@@ -128,9 +128,9 @@ public class BoardController {
         parent.clearObserver();
         Farm farm;
         if (!enemy){
-            farm = GameState.getGameState().getCurrentPlayer().getFarm();
+            farm = GameData.getGameData().getCurrentPlayer().getFarm();
         } else {
-            farm = GameState.getGameState().getAnotherPlayer().getFarm();
+            farm = GameData.getGameData().getAnotherPlayer().getFarm();
         }
 
         for (int i = 0; i < board.getRow(); i++) {
@@ -163,10 +163,10 @@ public class BoardController {
                 parent.getSelectedCardDeck().setScaleY(1);
                 parent.notifyCardsInBoard("unchoose");
                 if (!parent.getSelectedCardDeck().isInBoard()){
-                    GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
+                    GameData.getGameData().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
                     parent.getDeckContainer().getController().renderDeck();
                 } else {
-                    GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
+                    GameData.getGameData().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
                     this.populateGrid(false);
                 };
                 current.setCardData(data);

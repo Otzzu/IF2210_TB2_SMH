@@ -9,25 +9,26 @@ import java.util.Optional;
 public class Player {
 
     private String name;
+    private Deck deck;
     private Farm farm;
-    private List<Card> deck;
-    private List<Card> activeDeck;
+//    private List<Card> activeDeck;
     public Player(String name){
         farm = new Farm(4, 5);
-        deck = new ArrayList<>(40);
-        activeDeck = new ArrayList<>(6);
+        deck = new Deck();
+//        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
-        activeDeck.add(factory.createCard("AYAM"));
-        activeDeck.add(factory.createCard("DOMBA"));
-        activeDeck.add(factory.createCard("BIJI_JAGUNG"));
-        activeDeck.add(factory.createCard("BIJI_LABU"));
-        activeDeck.add(factory.createCard("BIJI_STROBERI"));
+//        activeDeck.add(factory.createCard("AYAM"));
+//        activeDeck.add(factory.createCard("DOMBA"));
+//        activeDeck.add(factory.createCard("BIJI_JAGUNG"));
+//        activeDeck.add(factory.createCard("BIJI_LABU"));
+//        activeDeck.add(factory.createCard("BIJI_STROBERI"));
 
-        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
-        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
-        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
+//        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
+//        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
+//        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
 
+        deck.generateDeck(40);
     }
 
     public String getName() {
@@ -38,13 +39,13 @@ public class Player {
         return farm;
     }
 
-    public List<Card> getDeck() {
+    public Deck getDeck() {
         return deck;
     }
 
-    public List<Card> getActiveDeck() {
-        return activeDeck;
-    }
+//    public List<Card> getActiveDeck() {
+//        return activeDeck;
+//    }
 
     public void moveCardInFarm(int idCard, int targetI, int targetJ){
         System.out.println("move " + idCard);
@@ -74,7 +75,7 @@ public class Player {
     }
 
     public void moveCardToFarm(int idCard, int row, int col){
-        Optional<Card> chooseCard = activeDeck.stream().filter(c -> c.getId() == idCard).findFirst();
+        Optional<Card> chooseCard = deck.getActiveDeck().stream().filter(c -> c.getId() == idCard).findFirst();
 
         if (chooseCard.isEmpty()){
             return;
@@ -92,7 +93,7 @@ public class Player {
 
         farm.set(row, col, (LivingBeing) chooseCard.get());
 
-        activeDeck.remove(chooseCard.get());
+        deck.getActiveDeck().remove(chooseCard.get());
         farm.printBoard();
 
     }

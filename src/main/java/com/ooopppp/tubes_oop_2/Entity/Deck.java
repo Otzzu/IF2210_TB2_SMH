@@ -65,6 +65,16 @@ public class Deck {
             }
         }
     }
+    
+    public int getActiveDeckCount(){
+        int count = 0;
+        for (int i = 0; i < 6; i++){
+            if(activeDeck[i] != null){
+                count++;
+            }
+        }
+        return count;
+    }
 
     public void generateDeck(int deckSize) {
         allDeck.clear();
@@ -94,4 +104,25 @@ public class Deck {
             allDeck.add(cardFactory.createCard(cardType));
         }
     }
+
+    public List<Product> getProductsFromActiveDeck() {
+        List<Product> products = new ArrayList<>();
+        for (Card card : activeDeck) {
+            if (card instanceof Product) {
+                products.add((Product) card);
+            }
+        }
+        return products;
+    }
+
+    public boolean removeFromActiveDeck(Product product) {
+        for (int i = 0; i < activeDeck.length; i++) {
+            if (activeDeck[i] != null && activeDeck[i].equals(product)) {
+                activeDeck[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

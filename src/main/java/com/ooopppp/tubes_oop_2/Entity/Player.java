@@ -9,10 +9,12 @@ public class Player {
     private String name;
     private Deck deck;
     private Farm farm;
+    private int gulden;
 //    private List<Card> activeDeck;
     public Player(String name){
         farm = new Farm(4, 5);
         deck = new Deck();
+        gulden = 0;
 //        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
@@ -139,5 +141,13 @@ public class Player {
                 deck.getActiveDeck()[i] = null;
             }
         }
+    }
+
+    public int getGulden() {
+        return gulden;
+    }
+
+    public void setGulden(int gulden) {
+        this.gulden = gulden;
     }
 }

@@ -4,6 +4,8 @@ import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Controller.HeaderController;
 import com.ooopppp.tubes_oop_2.Entity.Card;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
+import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -35,12 +37,13 @@ public class Header extends HBox {
     private Text player1Text;
     private Text player2Text;
     private HeaderController controller;
+    private Player[] players;
 
 
     public Header(MainView parent) {
         super();
         controller = new HeaderController(this, parent);
-
+        players = GameData.getGameData().getPlayers();
         initializeComponents(false);
         this.setAlignment(Pos.CENTER);
     }
@@ -63,10 +66,12 @@ public class Header extends HBox {
         moneyContainer.setMaxHeight(100);
 
 
-        player1Text = new Text("Player 1");
-        player2Text = new Text("Player 2");
-        moneyPlayer1 = new Text("400");
-        moneyPlayer2 = new Text("400");
+
+        player1Text = new Text(players[0].getName());
+        player2Text = new Text(players[1].getName());
+        moneyPlayer1 = new Text(String.valueOf(players[0].getGulden()));
+        moneyPlayer2 = new Text(String.valueOf(players[1].getGulden()));
+
 
         player1Text.getStyleClass().add("text-point");
         player2Text.getStyleClass().add("text-point");

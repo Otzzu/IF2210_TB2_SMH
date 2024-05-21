@@ -40,7 +40,9 @@ public class StoreController {
         storeview.getBtnSound().play();
 
         SellDialog selldialog = new SellDialog();
+        selldialog.setController(new SellController(selldialog,storeview));
         selldialog.showDialog(storeview.getStage());
+
 
     }
 

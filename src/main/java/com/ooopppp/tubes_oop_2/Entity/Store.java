@@ -29,4 +29,9 @@ public class Store {
         }
         return null;
     }
+
+
+    public Map<String, List<Product>> getItemSells() {
+        return itemSells;
+    }
 }

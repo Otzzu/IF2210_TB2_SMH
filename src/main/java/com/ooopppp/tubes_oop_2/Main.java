@@ -40,6 +40,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
+        ShuffleView.showView(cards);
     }
 
     public static void main(String[] args) {

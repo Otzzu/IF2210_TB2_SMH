@@ -3,6 +3,7 @@ package com.ooopppp.tubes_oop_2.Entity;
 import com.ooopppp.tubes_oop_2.Helper.Observer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,11 +19,11 @@ public class Player {
 //        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
-        deck.getActiveDeck().add(factory.createCard("AYAM"));
-        deck.getActiveDeck().add(factory.createCard("DOMBA"));
-        deck.getActiveDeck().add(factory.createCard("ACCELERATE"));
-        deck.getActiveDeck().add(factory.createCard("BIJI_LABU"));
-        deck.getActiveDeck().add(factory.createCard("SUSU"));
+        deck.getActiveDeck()[0] = (factory.createCard("AYAM"));
+        deck.getActiveDeck()[1] = (factory.createCard("DOMBA"));
+        deck.getActiveDeck()[2] = (factory.createCard("ACCELERATE"));
+        deck.getActiveDeck()[3] = (factory.createCard("BIJI_LABU"));
+        deck.getActiveDeck()[4] = (factory.createCard("SUSU"));
 
         farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
         farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
@@ -75,7 +76,7 @@ public class Player {
     }
 
     public void moveCardToFarm(int idCard, int row, int col){
-        Optional<Card> chooseCard = deck.getActiveDeck().stream().filter(c -> c.getId() == idCard).findFirst();
+        Optional<Card> chooseCard = Arrays.stream(deck.getActiveDeck()).filter(c -> c.getId() == idCard).findFirst();
 
         if (chooseCard.isEmpty()){
             return;
@@ -86,14 +87,17 @@ public class Player {
         }
 
         if (chooseCard.get() instanceof Plant){
-            ((Plant) chooseCard.get()).seed();
             farm.addPlantObserver((Observer) chooseCard.get());
         }
 
 
         farm.set(row, col, (LivingBeing) chooseCard.get());
 
-        deck.getActiveDeck().remove(chooseCard.get());
+        for (int i = 0 ; i < 6; i++){
+            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(chooseCard.get())){
+                deck.getActiveDeck()[i] = null;
+            }
+        }
         farm.printBoard();
 
     }
@@ -101,6 +105,10 @@ public class Player {
     public void giveEat(Product product, Animal animal){
         animal.eat(product);
 
-        deck.getActiveDeck().remove(product);
+        for (int i = 0 ; i < 6; i++){
+            if (deck.getActiveDeck()[i].equals(product)){
+                deck.getActiveDeck()[i] = null;
+            }
+        }
     }
 }

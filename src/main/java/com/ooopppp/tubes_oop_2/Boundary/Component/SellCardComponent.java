@@ -16,8 +16,8 @@ public class SellCardComponent extends VBox {
 
     public SellCardComponent(String name, int price) {
         // Create a placeholder for the image
-        this.setPrefWidth(140);
-        this.setPrefHeight(170);
+        this.setMaxWidth(140);
+        this.setMaxHeight(170);
         this.setPadding(new Insets(10));
         this.getStyleClass().add("card-store");
         CardComponent card = new CardComponent(new CardFactory().createCard("SAPI"), false);

@@ -3,10 +3,10 @@ package com.ooopppp.tubes_oop_2.Entity;
 import java.util.*;
 
 public class Deck {
-    private List<Card> activeDeck;
+    private Card[] activeDeck;
     private List<Card> allDeck;
     private String[] cardTypes = {
-            "HIU_DARAT", "SAPI", "DOMBA", "KUDA", "AYAM", "BERUANG",
+            "HIU_DARAT", "SAPI", "DOMBA", "KUDA", "AYAM",
             "BIJI_JAGUNG", "BIJI_LABU", "BIJI_STROBERI", "ACCELERATE",
             "DELAY", "INSTANT_HARVEST", "DESTROY", "PROTECT", "TRAP",
             "SIRIP_HIU", "SUSU", "DAGING_DOMBA", "DAGING_KUDA", "TELUR",
@@ -18,11 +18,11 @@ public class Deck {
     };
 
     public Deck() {
-        activeDeck = new ArrayList<>(6);
+        activeDeck = new Card[6];
         allDeck = new ArrayList<>(40);
     }
 
-    public List<Card> getActiveDeck() {
+    public Card[] getActiveDeck() {
         return activeDeck;
     }
 
@@ -35,7 +35,14 @@ public class Deck {
         generateDeck(deckSize);
     }
 
-    public List<Card> shuffleCard(int numCard){
+    public List<Card> shuffleCard(){
+        int numCard = 0;
+
+        for (int i = 0; i < 6; i++){
+            if (activeDeck[i] == null){
+                numCard++;
+            }
+        }
         Collections.shuffle(allDeck);
         if (allDeck.size() < numCard){
             numCard = allDeck.size();
@@ -47,7 +54,12 @@ public class Deck {
     public void moveToActiveDeck(List<Card> chooseCard){
         for (Card c: chooseCard){
             allDeck.remove(c);
-            activeDeck.add(c);
+            for (int i = 0; i < 6; i++){
+                if (activeDeck[i] == null){
+                    activeDeck[i] = c;
+                    break;
+                }
+            }
         }
     }
 

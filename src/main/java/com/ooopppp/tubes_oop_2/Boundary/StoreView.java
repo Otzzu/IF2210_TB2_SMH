@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class StoreView extends VBox {
     private ImageView imageView;
     private Map<String, List<Product>> items;
     private StoreController controller;
+    private MediaPlayer btnSound;
     public StoreView(Stage stage) {
         super();
         this.stage = stage;
@@ -39,6 +41,7 @@ public class StoreView extends VBox {
         imageView = new ImageView();
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img/back.png")));
         imageView.setImage(image);
+        imageView.getStyleClass().add("image-view");
         imageBox.getChildren().addAll(imageView);
         imageBox.setAlignment(Pos.CENTER_LEFT);
         Label header = new Label("Toko");
@@ -76,6 +79,12 @@ public class StoreView extends VBox {
             for (int j = 0; j < numRows; j++) {
                 ItemComponent item = new ItemComponent("Item " + (i * numRows + j + 1), 500, 5);
                 grid.add(item, i, j);
+                item.setOnMouseClicked(e -> {
+                    this.getBtnSound().stop();
+                    this.getBtnSound().play();
+                    BuyDialog buyDialog = new BuyDialog();
+                    buyDialog.showDialog(this.stage);
+                });
             }
         }
 
@@ -92,8 +101,10 @@ public class StoreView extends VBox {
         // Adding components to the VBox
         this.getChildren().addAll(headerContainer, scrollPane);
         this.setSpacing(20);
+        controller.loadSound();
 
-        controller.attachEventsJualButton();
+        buttonJual.setOnAction(e -> controller.attachEventsJualButton());
+        imageView.setOnMouseClicked(e ->controller.attachEventsBackButton());
     }
 
     public Button getButtonJual() {
@@ -102,6 +113,18 @@ public class StoreView extends VBox {
 
     public Stage getStage() {
         return stage;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public MediaPlayer getBtnSound() {
+        return btnSound;
+    }
+
+    public void setBtnSound(MediaPlayer btnSound) {
+        this.btnSound = btnSound;
     }
 }
 

@@ -105,6 +105,42 @@
     -fx-text-fill: black;
 }
 
+
+.circular-button-1 {
+    -fx-background-color: #5B311C;
+    -fx-background-radius: 55;
+    -fx-border-radius: 55;
+    -fx-text-fill: #DBE056;
+    -fx-font-size: 20px;
+    -fx-font-family: "Courier New";
+    -fx-font-weight: 800;
+    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+}
+
+
+.card-store:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.card-store:pressed{
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-opacity: 0.8;
+}
+
+.image-view:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.image-view:pressed{
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-opacity: 0.8;
+}
+
+
 .scroll-bar:vertical, .scroll-bar:horizontal {
     -fx-background-color: transparent;
     -fx-background-radius: 0;

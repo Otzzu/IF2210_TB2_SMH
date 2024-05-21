@@ -111,7 +111,7 @@ public class GenericDialog {
                     setText(null);
                 } else {
                     setText(item);
-                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60");
+                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60; -fx-background-color: #0DA300");
                 }
             }
         });

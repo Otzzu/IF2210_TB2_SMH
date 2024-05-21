@@ -28,7 +28,7 @@ public class Board extends GridPane {
         this.setVgap(20);
         this.setAlignment(Pos.CENTER_LEFT);
         setupGrid();
-        controller.populateGrid();
+        controller.populateGrid(false);
     }
 
     public int getRow() {
@@ -55,6 +55,7 @@ public class Board extends GridPane {
         }
     }
 
-
-
+    public BoardController getController() {
+        return controller;
+    }
 }

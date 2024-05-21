@@ -1,18 +1,22 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
+import com.ooopppp.tubes_oop_2.Helper.Observer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Player {
 
+    private String name;
     private Farm farm;
     private List<Card> deck;
     private List<Card> activeDeck;
-    public Player(){
+    public Player(String name){
         farm = new Farm(4, 5);
         deck = new ArrayList<>(40);
         activeDeck = new ArrayList<>(6);
+        this.name = name;
         CardFactory factory = new CardFactory();
         activeDeck.add(factory.createCard("AYAM"));
         activeDeck.add(factory.createCard("DOMBA"));
@@ -24,6 +28,10 @@ public class Player {
         farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
         farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
 
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Farm getFarm() {
@@ -54,8 +62,17 @@ public class Player {
             this.getFarm().set(targetI, targetJ, data);
         }
         this.getFarm().printBoard();
-
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player) o;
+        return name.equals(player.name);
+    }
+
     public void moveCardToFarm(int idCard, int row, int col){
         Optional<Card> chooseCard = activeDeck.stream().filter(c -> c.getId() == idCard).findFirst();
 
@@ -69,7 +86,10 @@ public class Player {
 
         if (chooseCard.get() instanceof Plant){
             ((Plant) chooseCard.get()).seed();
+            farm.addPlantObserver((Observer) chooseCard.get());
         }
+
+
         farm.set(row, col, (LivingBeing) chooseCard.get());
 
         activeDeck.remove(chooseCard.get());

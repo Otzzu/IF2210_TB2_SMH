@@ -1,5 +1,7 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Controller.HeaderController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,21 +22,27 @@ public class Header extends HBox {
     private Text moneyPlayer2;
     private Text turnNumber;
     private Button buttonNext;
-    public Header(){
+    private Text player1Text;
+    private Text player2Text;
+    private HeaderController controller;
+
+
+    public Header(MainView parent){
         super();
+        controller = new HeaderController(this, parent);
+
         moneyContainer = new VBox();
         moneyContainer.getStyleClass().add("container-point");
-
-
         moneyContainer.setPrefWidth(325);
         moneyContainer.setMaxHeight(100);
-        Text player1 = new Text("Player 1");
-        Text player2 = new Text("Player 2");
+
+        player1Text = new Text("Player 1");
+        player2Text = new Text("Player 2");
         moneyPlayer1 = new Text("400");
         moneyPlayer2 = new Text("400");
 
-        player1.getStyleClass().add("text-point");
-        player2.getStyleClass().add("text-point");
+        player1Text.getStyleClass().add("text-point");
+        player2Text.getStyleClass().add("text-point");
         moneyPlayer1.getStyleClass().add("text-point");
         moneyPlayer2.getStyleClass().add("text-point");
 
@@ -57,11 +65,11 @@ public class Header extends HBox {
         imageView2.setFitWidth(25);
 
         HBox player1Container = new HBox();
-        player1Container.getChildren().addAll(player1, space, moneyPlayer1, imageView);
+        player1Container.getChildren().addAll(player1Text, space, moneyPlayer1, imageView);
         player1Container.setAlignment(Pos.CENTER);
 
         HBox player2Container = new HBox();
-        player2Container.getChildren().addAll(player2, space2, moneyPlayer2, imageView2);
+        player2Container.getChildren().addAll(player2Text, space2, moneyPlayer2, imageView2);
         player2Container.setAlignment(Pos.CENTER);
 
         moneyContainer.getChildren().addAll(player1Container, player2Container);
@@ -70,7 +78,7 @@ public class Header extends HBox {
 
         turnContainer = new VBox();
         Text turnText = new Text("Turn");
-        turnNumber = new Text("2");
+        turnNumber = new Text("1");
 
         turnText.getStyleClass().add("text-white");
         turnNumber.getStyleClass().add("text-white");
@@ -106,5 +114,27 @@ public class Header extends HBox {
         this.getChildren().addAll(boxLeft, space4, buttonNext,space3);
         this.setAlignment(Pos.CENTER);
 
+        controller.attachEventsButtonNext();
+        controller.changePlayerTextColor();
+    }
+
+    public Text getTurnNumber() {
+        return turnNumber;
+    }
+
+    public Button getButtonNext() {
+        return buttonNext;
+    }
+
+    public Text getPlayer1Text() {
+        return player1Text;
+    }
+
+    public Text getPlayer2Text() {
+        return player2Text;
+    }
+
+    public HeaderController getController() {
+        return controller;
     }
 }

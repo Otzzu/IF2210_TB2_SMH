@@ -1,6 +1,8 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
-public class Plant extends LivingBeing{
+import com.ooopppp.tubes_oop_2.Helper.Observer;
+
+public class Plant extends LivingBeing implements Observer {
     private int age;
     private int ageToHarvest;
     public Plant(String name, Product harvestResult, int ageToHarvest, String image) {
@@ -17,7 +19,12 @@ public class Plant extends LivingBeing{
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void addAge(int addedAge){
+        age += addedAge;
+    }
+
+    @Override
+    public void update(String data) {
+        addAge(1);
     }
 }

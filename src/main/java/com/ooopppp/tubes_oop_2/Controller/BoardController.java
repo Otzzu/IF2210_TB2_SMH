@@ -24,7 +24,7 @@ public class BoardController {
         board.setOnDragOver(event -> {
             if (event.getGestureSource() != this &&
                     event.getDragboard().hasString() &&
-                    event.getDragboard().getString().equals("VBox")) {
+                    event.getDragboard().getString().equals("VBox") && parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")) {
                 event.acceptTransferModes(TransferMode.MOVE);
 
             }
@@ -40,8 +40,18 @@ public class BoardController {
                     event.getDragboard().hasString() &&
                     event.getDragboard().getString().equals("VBox") && cardComponent.getCardData() == null) {
                 event.acceptTransferModes(TransferMode.MOVE);
+                cardComponent.setScaleX(1.05);
+                cardComponent.setScaleY(1.05);
+
             }
             event.consume();
+        });
+
+        card.setOnDragExited(e -> {
+            CardComponent cardComponent = (CardComponent) e.getSource();
+
+            cardComponent.setScaleX(1);
+            cardComponent.setScaleY(1);
         });
 
         card.setOnDragDropped(event -> {
@@ -62,7 +72,7 @@ public class BoardController {
                         parent.getDeckContainer().getController().renderDeck();
                     } else {
                         GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
-                        this.populateGrid();
+                        this.populateGrid(false);
                     }
                     current.setCardData(data);
 
@@ -113,21 +123,27 @@ public class BoardController {
         });
     }
 
-    public void populateGrid() {
-        //get data ladang player , example
+    public void populateGrid(boolean enemy) {
         board.getChildren().clear();
         parent.clearObserver();
-        Farm farm = GameState.getGameState().getCurrentPlayer().getFarm();
+        Farm farm;
+        if (!enemy){
+            farm = GameState.getGameState().getCurrentPlayer().getFarm();
+        } else {
+            farm = GameState.getGameState().getAnotherPlayer().getFarm();
+        }
 
         for (int i = 0; i < board.getRow(); i++) {
             for (int j = 0; j < board.getCol(); j++) {
 
                 CardComponent card = new CardComponent(farm.get(i, j), true);
-                this.setupDropTargetCard(card, i, j);
-                this.setupDraggableCard(card);
-                this.setUpOnClickCard(card, i, j);
+                if (!enemy){
+                    this.setupDropTargetCard(card, i, j);
+                    this.setupDraggableCard(card);
+                    this.setUpOnClickCard(card, i, j);
+                    parent.addObserver(card);
+                }
 
-                parent.addObserver(card);
                 board.add(card, j, i);
             }
         }
@@ -151,7 +167,7 @@ public class BoardController {
                     parent.getDeckContainer().getController().renderDeck();
                 } else {
                     GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
-                    this.populateGrid();
+                    this.populateGrid(false);
                 };
                 current.setCardData(data);
 

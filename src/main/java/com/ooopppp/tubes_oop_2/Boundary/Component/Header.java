@@ -106,7 +106,7 @@ public class Header extends HBox {
         turnContainer.setPrefSize(110, 110);
 
         Text turnText = new Text("Turn");
-        turnNumber = new Text("1");
+        turnNumber = new Text(String.valueOf(GameData.getGameData().getTurn()));
 
         turnText.getStyleClass().add("text-white");
         turnNumber.getStyleClass().add("text-white");
@@ -117,7 +117,7 @@ public class Header extends HBox {
         turnContainer.getChildren().addAll(turnText, turnNumber);
     }
 
-    private void setUpTimerContainer() {
+    public void setUpTimerContainer() {
         timerContainer = new VBox(2);
         timerContainer.getStyleClass().add("circular-timer");
         timerContainer.setPadding(new Insets(10));

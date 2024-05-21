@@ -89,7 +89,7 @@ public class BoardController {
                                 }
                             }
                         } catch (Exception exception){
-                            ErrorDialog.getInstance().showError(exception.getMessage());
+                            ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
 
                         }
                     }
@@ -236,7 +236,7 @@ public class BoardController {
                                 }
                             }
                         } catch (Exception exception){
-                            ErrorDialog.getInstance().showError(exception.getMessage());
+//                            ErrorDialog.getInstance().showError(exception.getMessage());
 
                         }
                     }

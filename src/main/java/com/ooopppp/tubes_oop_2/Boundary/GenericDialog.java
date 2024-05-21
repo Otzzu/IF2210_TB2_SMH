@@ -36,7 +36,9 @@ public class GenericDialog {
         dialogVBox.setStyle("-fx-background-color: #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #AA6039; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
         setupComponents(dialogVBox);
 
-        Scene dialogScene = new Scene(dialogVBox, 720, 450);
+
+        Scene dialogScene = new Scene(dialogVBox, 720, 470);
+        dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
         dialogScene.setFill(null);
         dialogStage.setScene(dialogScene);
     }
@@ -52,10 +54,19 @@ public class GenericDialog {
 
     private void setupComponents(VBox dialogVBox) {
         Button closeButton = new Button("X");
-        closeButton.setOnAction(e -> dialogStage.close());
-        closeButton.setStyle("-fx-background-color: #FFEFC8; -fx-text-fill: #FF0000; -fx-font-family: 'Courier'; -fx-font-size: 30;");
-        HBox closeLabel = new HBox(closeButton);
-        closeLabel.setAlignment(Pos.TOP_RIGHT);
+        closeButton.getStyleClass().add("x-symbol");
+        closeButton.setOnAction(event -> dialogStage.close());
+
+        closeButton.setOnMousePressed(event -> {
+            closeButton.setTranslateY(1);
+        });
+
+        closeButton.setOnMouseReleased(event -> {
+            closeButton.setTranslateY(0);
+        });
+
+        VBox closecontainer = new VBox(closeButton);
+        closecontainer.setAlignment(Pos.TOP_RIGHT);
 
         Label titleLabel = new Label(actionType);
         titleLabel.setStyle("-fx-font-family: 'Courier'; -fx-font-size: 40; -fx-text-fill: #000000; -fx-font-weight: 900;");
@@ -96,7 +107,7 @@ public class GenericDialog {
         actionButtonBox.setAlignment(Pos.CENTER);
         actionButtonBox.setPadding(new Insets(30, 0, 25, 0));
 
-        dialogVBox.getChildren().addAll(closeLabel, titleBox, grid, actionButtonBox, feedbackBox);
+        dialogVBox.getChildren().addAll(closecontainer, titleBox, grid, actionButtonBox, feedbackBox);
     }
 
     private void setupComboBox(ComboBox<String> comboBox) {
@@ -111,7 +122,7 @@ public class GenericDialog {
                     setText(null);
                 } else {
                     setText(item);
-                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60");
+                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60; -fx-background-color: #0DA300");
                 }
             }
         });
@@ -124,8 +135,8 @@ public class GenericDialog {
     }
 
     private void setupActionButton(Button actionButton, ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {
-        actionButton.setMaxSize(170, 55);
-        actionButton.setMinSize(170, 55);
+        actionButton.setMaxSize(170, 65);
+        actionButton.setMinSize(170, 65);
         actionButton.setStyle("-fx-background-color: #5B311C; -fx-text-fill: #DBE056; -fx-font-family: 'Courier'; -fx-font-size: 30; -fx-font-weight: 900; -fx-background-radius: 15;");
         actionButton.setOnAction(e -> controller.handleAction(formatComboBox, folderTextField, feedbackLabel));
     }

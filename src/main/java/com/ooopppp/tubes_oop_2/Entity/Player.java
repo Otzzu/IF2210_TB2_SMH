@@ -111,7 +111,28 @@ public class Player {
         }
     }
 
-    public void giveItemToLivingBeing(Item item, LivingBeing livingBeing){
+    public void giveItemToOwn(Item item, LivingBeing livingBeing){
+        if (item.isForEnemy()){
+            throw new IllegalArgumentException("This item cannot be used here");
+        }
+        if (item.getName().equals("Instant Harvest")){
+            
+            Product product = livingBeing.harvest();
+
+        }
+        giveItemToLivingBeing(item, livingBeing);
+    }
+
+    public void giveItemToEnemy(Item item, LivingBeing livingBeing){
+        if (!item.isForEnemy()){
+            throw new IllegalArgumentException("This item cannot be used here");
+        }
+
+        giveItemToLivingBeing(item, livingBeing);
+    }
+
+    private void giveItemToLivingBeing(Item item, LivingBeing livingBeing){
+
         livingBeing.useItem(item);
         for (int i = 0 ; i < 6; i++){
             if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(item)){

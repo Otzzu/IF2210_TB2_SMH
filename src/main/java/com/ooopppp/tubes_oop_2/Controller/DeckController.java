@@ -28,40 +28,85 @@ public class DeckController {
             content.putString("VBox");
             db.setContent(content);
             CardComponent previousSelected = parent.getSelectedCardDeck();
-
-            if (cardComponent.getCardData() instanceof LivingBeing){
-                if (previousSelected != event.getSource() ){
-                    if (previousSelected != null){
-                        previousSelected.setScaleX(1);
-                        previousSelected.setScaleY(1);
-                        previousSelected.getStyleClass().remove("card-choose");
-                        previousSelected.getStyleClass().add("card-hover");
+            if (parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){
+                if (cardComponent.getCardData() instanceof LivingBeing){
+                    if (previousSelected != event.getSource() ){
+                        parent.notifyCardsInBoard("unchoose-all");
+                        if (previousSelected != null){
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                            previousSelected.getStyleClass().add("card-hover");
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                        parent.notifyCardsInBoard("choose");
                     }
-                    parent.setSelectedCardDeck((CardComponent) event.getSource());
-                    parent.getSelectedCardDeck().setScaleY(1.08);
-                    parent.getSelectedCardDeck().setScaleX(1.08);
-                    parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                    parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                    parent.notifyCardsInBoard("choose");
+                } else if (cardComponent.getCardData() instanceof Product || cardComponent.getCardData() instanceof Item){
+                    if (previousSelected != event.getSource() ){
+                        parent.notifyCardsInBoard("unchoose-all");
+                        if (previousSelected != null){
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                            previousSelected.getStyleClass().add("card-hover");
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                        parent.notifyCardsInBoard("choose2");
+
+                    }
                 }
-            } else if (cardComponent.getCardData() instanceof Product || cardComponent.getCardData() instanceof Item){
-                if (previousSelected != event.getSource() ){
-                    if (previousSelected != null){
-                        previousSelected.setScaleX(1);
-                        previousSelected.setScaleY(1);
-                        previousSelected.getStyleClass().remove("card-choose");
-                        previousSelected.getStyleClass().add("card-hover");
-                    }
-                    parent.setSelectedCardDeck((CardComponent) event.getSource());
-                    parent.getSelectedCardDeck().setScaleY(1.08);
-                    parent.getSelectedCardDeck().setScaleX(1.08);
-                    parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                    parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                    parent.notifyCardsInBoard("choose2");
+            } else {
+                if (cardComponent.getCardData() instanceof Item){
+                    if (previousSelected != event.getSource()) {
+//                        parent.notifyCardsInBoard("unchoose2");
+//                        parent.notifyCardsInBoard("unchoose3");
+                        parent.notifyCardsInBoard("unchoose-all");
 
+                        if (previousSelected != null) {
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                            if (!previousSelected.isInBoard()) {
+                                previousSelected.getStyleClass().add("card-hover");
+                            }
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                        parent.notifyCardsInBoard("choose2");
+                    }
+                } else {
+                    if (previousSelected != event.getSource()) {
+                        parent.notifyCardsInBoard("unchoose-all");
+//                        parent.notifyCardsInBoard("unchoose3");
+                        System.out.println("aaaa");
+                        if (previousSelected != null) {
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                            if (!previousSelected.isInBoard()) {
+                                previousSelected.getStyleClass().add("card-hover");
+                            }
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                        parent.notifyCardsInBoard("choose3");
+                    }
                 }
             }
-
             event.consume();
         });
 
@@ -95,62 +140,130 @@ public class DeckController {
                     CardComponent previousSelected = parent.getSelectedCardDeck();
                     CardComponent cardChoose = (CardComponent) event.getSource();
 
-                    if (cardChoose.getCardData() instanceof LivingBeing) {
-                        if (previousSelected != event.getSource()) {
-                            parent.notifyCardsInBoard("unchoose");
-                            if (previousSelected != null) {
+                    if (parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){
+                        if (cardChoose.getCardData() instanceof LivingBeing) {
+                            if (previousSelected != event.getSource()) {
+//                                parent.notifyCardsInBoard("unchoose");
+                                parent.notifyCardsInBoard("unchoose-all");
+
+                                if (previousSelected != null) {
+                                    previousSelected.setScaleX(1);
+                                    previousSelected.setScaleY(1);
+                                    previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                    if (!previousSelected.isInBoard()) {
+                                        previousSelected.getStyleClass().add("card-hover");
+                                    }
+                                }
+                                parent.setSelectedCardDeck((CardComponent) event.getSource());
+                                parent.getSelectedCardDeck().setScaleY(1.08);
+                                parent.getSelectedCardDeck().setScaleX(1.08);
+                                parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                                parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover","board-fill");
+                                parent.notifyCardsInBoard("choose");
+                            } else {
                                 previousSelected.setScaleX(1);
                                 previousSelected.setScaleY(1);
-                                previousSelected.getStyleClass().remove("card-choose");
-                                if (!previousSelected.isInBoard()) {
-                                    previousSelected.getStyleClass().add("card-hover");
-                                }
-                            }
-                            parent.setSelectedCardDeck((CardComponent) event.getSource());
-                            parent.getSelectedCardDeck().setScaleY(1.08);
-                            parent.getSelectedCardDeck().setScaleX(1.08);
-                            parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                            parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                            parent.notifyCardsInBoard("choose");
-                        } else {
-                            previousSelected.setScaleX(1);
-                            previousSelected.setScaleY(1);
-                            previousSelected.getStyleClass().remove("card-choose");
-                            previousSelected.getStyleClass().add("card-hover");
-                            parent.setSelectedCardDeck(null);
-                            parent.notifyCardsInBoard("unchoose");
+                                previousSelected.getStyleClass().removeAll("card-choose","board-fill");
+                                previousSelected.getStyleClass().add("card-hover");
+                                parent.setSelectedCardDeck(null);
+//                                parent.notifyCardsInBoard("unchoose");
+                                parent.notifyCardsInBoard("unchoose-all");
 
+
+                            }
+                        } else if (cardChoose.getCardData() instanceof Product || cardChoose.getCardData() instanceof Item) {
+                            if (previousSelected != event.getSource()) {
+//                                parent.notifyCardsInBoard("unchoose2");
+                                parent.notifyCardsInBoard("unchoose-all");
+                                if (previousSelected != null) {
+                                    previousSelected.setScaleX(1);
+                                    previousSelected.setScaleY(1);
+                                    previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                    if (!previousSelected.isInBoard()) {
+                                        previousSelected.getStyleClass().add("card-hover");
+                                    }
+                                }
+                                parent.setSelectedCardDeck((CardComponent) event.getSource());
+                                parent.getSelectedCardDeck().setScaleY(1.08);
+                                parent.getSelectedCardDeck().setScaleX(1.08);
+                                parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                                parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                                parent.notifyCardsInBoard("choose2");
+
+                            } else {
+                                previousSelected.setScaleX(1);
+                                previousSelected.setScaleY(1);
+                                previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                previousSelected.getStyleClass().add("card-hover");
+                                parent.setSelectedCardDeck(null);
+//                                parent.notifyCardsInBoard("unchoose2");
+                                parent.notifyCardsInBoard("unchoose-all");
+
+                            }
                         }
-                    } else if (cardChoose.getCardData() instanceof Product || cardChoose.getCardData() instanceof Item) {
-                        if (previousSelected != event.getSource()) {
-                            parent.notifyCardsInBoard("unchoose2");
-                            if (previousSelected != null) {
+                    } else {
+                        if (cardChoose.getCardData() instanceof Item){
+                            if (previousSelected != event.getSource()) {
+//                                parent.notifyCardsInBoard("unchoose2");
+//                                parent.notifyCardsInBoard("unchoose3");
+                                parent.notifyCardsInBoard("unchoose-all");
+
+                                if (previousSelected != null) {
+                                    previousSelected.setScaleX(1);
+                                    previousSelected.setScaleY(1);
+                                    previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                    if (!previousSelected.isInBoard()) {
+                                        previousSelected.getStyleClass().add("card-hover");
+                                    }
+                                }
+                                parent.setSelectedCardDeck((CardComponent) event.getSource());
+                                parent.getSelectedCardDeck().setScaleY(1.08);
+                                parent.getSelectedCardDeck().setScaleX(1.08);
+                                parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                                parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                                parent.notifyCardsInBoard("choose2");
+                            } else {
                                 previousSelected.setScaleX(1);
                                 previousSelected.setScaleY(1);
-                                previousSelected.getStyleClass().remove("card-choose");
-                                if (!previousSelected.isInBoard()) {
-                                    previousSelected.getStyleClass().add("card-hover");
-                                }
+                                previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                previousSelected.getStyleClass().add("card-hover");
+                                parent.setSelectedCardDeck(null);
+//                                parent.notifyCardsInBoard("unchoose2");
+                                parent.notifyCardsInBoard("unchoose-all");
+
                             }
-                            parent.setSelectedCardDeck((CardComponent) event.getSource());
-                            parent.getSelectedCardDeck().setScaleY(1.08);
-                            parent.getSelectedCardDeck().setScaleX(1.08);
-                            parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                            parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                            parent.notifyCardsInBoard("choose2");
-
                         } else {
-                            previousSelected.setScaleX(1);
-                            previousSelected.setScaleY(1);
-                            previousSelected.getStyleClass().remove("card-choose");
-                            previousSelected.getStyleClass().add("card-hover");
-                            parent.setSelectedCardDeck(null);
-                            parent.notifyCardsInBoard("unchoose2");
+                            if (previousSelected != event.getSource()) {
+//                                parent.notifyCardsInBoard("unchoose2");
+//                                parent.notifyCardsInBoard("unchoose3");
+                                parent.notifyCardsInBoard("unchoose-all");
 
+                                if (previousSelected != null) {
+                                    previousSelected.setScaleX(1);
+                                    previousSelected.setScaleY(1);
+                                    previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                    if (!previousSelected.isInBoard()) {
+                                        previousSelected.getStyleClass().add("card-hover");
+                                    }
+                                }
+                                parent.setSelectedCardDeck((CardComponent) event.getSource());
+                                parent.getSelectedCardDeck().setScaleY(1.08);
+                                parent.getSelectedCardDeck().setScaleX(1.08);
+                                parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                                parent.getSelectedCardDeck().getStyleClass().removeAll("card-hover", "board-fill");
+                                parent.notifyCardsInBoard("choose3");
+                            } else {
+                                previousSelected.setScaleX(1);
+                                previousSelected.setScaleY(1);
+                                previousSelected.getStyleClass().removeAll("card-choose", "board-fill");
+                                previousSelected.getStyleClass().add("card-hover");
+                                parent.setSelectedCardDeck(null);
+//                                parent.notifyCardsInBoard("unchoose3");
+                                parent.notifyCardsInBoard("unchoose-all");
 
+                            }
                         }
                     }
-
                 });
             } else {
                 cardComponent = new CardComponent(null, false);

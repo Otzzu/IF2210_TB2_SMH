@@ -13,12 +13,12 @@ public class CardFactory {
             case "BIJI_JAGUNG" -> new Plant("Biji Jagung", new Product("Jagung", 150, 3, "/corn.png"), 3, "/corn_seeds.png");
             case "BIJI_LABU" -> new Plant("Biji Labu", new Product("Labu", 500, 5, "/pumpkin.png"), 5, "/pumpkin_seeds.png");
             case "BIJI_STROBERI" -> new Plant("Biji Stroberi", new Product("Stroberi", 350, 5, "/strawberry.png"), 4, "/strawberry_seeds.png");
-            case "ACCELERATE" -> new ItemAdded("Accelerate", 8, 2, "/Accelerate.png");
-            case "DELAY" -> new ItemAdded("Delay", -5, -2, "/Delay.png");
-            case "INSTANT_HARVEST" -> new Item("Instant Harvest", "/Instant_Harvest.png");
-            case "DESTROY" -> new Item("Destroy", "/Destroy.png");
-            case "PROTECT" -> new Item("Protect", "/Protect.png");
-            case "TRAP" -> new Item("Trap", "/bear_trap.png");
+            case "ACCELERATE" -> new ItemAdded("Accelerate", 8, 2, "/Accelerate.png", false);
+            case "DELAY" -> new ItemAdded("Delay", -5, -2, "/Delay.png", true);
+            case "INSTANT_HARVEST" -> new Item("Instant Harvest", "/Instant_Harvest.png", false);
+            case "DESTROY" -> new Item("Destroy", "/Destroy.png", true);
+            case "PROTECT" -> new Item("Protect", "/Protect.png", false);
+            case "TRAP" -> new Item("Trap", "/bear_trap.png", false);
             case "SIRIP_HIU" -> new Product("Sirip Hiu", 500, 12, "/shark-fin.png");
             case "SUSU" -> new Product("Susu", 100, 4, "/susu.png");
             case "DAGING_DOMBA" -> new Product("Daging Domba", 120, 6, "/Daging_Domba.png");

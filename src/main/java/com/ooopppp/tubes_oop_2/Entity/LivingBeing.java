@@ -13,6 +13,7 @@ public class LivingBeing extends Card{
     }
 
     public void useItem(Item item){
+
         if (activeItem.containsKey(item.getName())){
             activeItem.put(item.getName(), activeItem.get(item.getName()) + 1);
         } else {

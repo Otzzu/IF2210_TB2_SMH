@@ -5,8 +5,8 @@ public class ItemAdded extends Item{
     private int addedWeight;
     private int addedAge;
 
-    public ItemAdded(String name, int addedWeight, int addedAge, String image) {
-        super(name, image);
+    public ItemAdded(String name, int addedWeight, int addedAge, String image, boolean isForEnemy) {
+        super(name, image, isForEnemy);
         this.addedWeight = addedWeight;
         this.addedAge = addedAge;
     }

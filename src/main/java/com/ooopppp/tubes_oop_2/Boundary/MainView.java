@@ -41,6 +41,7 @@ public class MainView extends VBox {
     }
 
     public void notifyCardsInBoard(String data){
+
         for (Observer obs: cardsInBoard){
             obs.update(data);
         }

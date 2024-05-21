@@ -14,7 +14,6 @@ public class DialogController {
         System.out.println("save");
         System.out.println("Format " + format);
         System.out.println("folder " + folder);
-        // Example: Write to file, update database, etc.
     }
 
     public void loadGame(String format, String folder) {

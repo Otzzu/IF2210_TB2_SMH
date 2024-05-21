@@ -47,6 +47,7 @@ public class Sidebar extends VBox {
         buttonLadang.setOnAction(e -> controller.handleLadangButton());
         buttonSaveState.setOnAction(e -> controller.handleSaveButton());
         buttonLoadState.setOnAction(e -> controller.handleLoadButton());
+        buttonToko.setOnAction(e -> controller.handleTokoButton());
     }
 
     public Button getButtonLadang() {

@@ -1,7 +1,9 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Controller.HeaderController;
+import com.ooopppp.tubes_oop_2.Entity.Card;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -16,6 +18,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Header extends HBox {

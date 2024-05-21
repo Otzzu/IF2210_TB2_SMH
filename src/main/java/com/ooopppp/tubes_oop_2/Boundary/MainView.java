@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
+import javafx.scene.Parent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +46,9 @@ public class MainView extends VBox {
         }
     }
 
-    public Stage getStage() {
-        return stage;
-    }
+    // public Stage getStage() {
+    //     return stage;
+    // }
 
     public CardComponent getSelectedCardDeck() {
         return selectedCardDeck;
@@ -96,5 +96,14 @@ public class MainView extends VBox {
 
     public Header getHeader() {
         return header;
+    }
+
+    public void switchToStoreView(Stage stage) {
+        Parent storeView = new StoreView(stage);
+        stage.getScene().setRoot(storeView);
+    }
+
+    public Stage getStage() {
+        return stage;
     }
 }

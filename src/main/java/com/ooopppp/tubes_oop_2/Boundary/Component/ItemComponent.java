@@ -19,27 +19,30 @@ public class ItemComponent extends HBox {
         super(10); // spacing between elements
         this.setAlignment(Pos.CENTER);
         this.setPrefHeight(141);
-        this.setPrefWidth(205);
-        this.setPadding(new Insets(30));
+        this.setPrefWidth(250);
+        this.setPadding(new Insets(10,10,10,10));
 
         info = new VBox();
         info.setAlignment(Pos.CENTER_LEFT);
         priceLabel = new VBox();
         priceLabel.setAlignment(Pos.CENTER_LEFT);
         Text priceTag = new Text("Harga");
+        priceTag.setStyle("-fx-font-family: 'Courier New'; -fx-font-size: 20px; -fx-text-fill:#AA6039;  -fx-font-weight: 900;");
         textHarga = new Text("500");
+        textHarga.setStyle("-fx-font-family: 'Courier New'; -fx-font-size: 20px; -fx-text-fill:#000000; -fx-font-weight: 400;");
         priceLabel.getChildren().addAll(priceTag,textHarga);
-        priceLabel.setSpacing(3);
+
 
         quantityLabel = new VBox();
         quantityLabel.setAlignment(Pos.CENTER_LEFT);
         Text quantityTag = new Text("Jumlah");
+        quantityTag.setStyle("-fx-font-family: 'Courier New'; -fx-font-size: 20px; -fx-text-fill:#AA6039;  -fx-font-weight: 900;");
         textJumlah = new Text("2");
+        textJumlah.setStyle("-fx-font-family: 'Courier New'; -fx-font-size: 20px; -fx-text-fill:#000000;  -fx-font-weight: 400;");
         quantityLabel.getChildren().addAll(quantityTag,textJumlah);
-        quantityLabel.setSpacing(3);
 
         info.getChildren().addAll(priceLabel,quantityLabel);
-        info.setSpacing(20);
+        info.setSpacing(10);
 
 
         CardComponent card = new CardComponent(new CardFactory().createCard("SAPI"), false);

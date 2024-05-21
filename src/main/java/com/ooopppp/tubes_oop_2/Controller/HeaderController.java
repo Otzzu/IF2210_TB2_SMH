@@ -1,8 +1,14 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
+import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.Component.Header;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
+import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HeaderController {
 
@@ -28,6 +34,13 @@ public class HeaderController {
             parent.getBoard().getController().populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
             changePlayerTextColor();
+            List<CardComponent> cards = new ArrayList<>();
+            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            ShuffleView shuffleView = new ShuffleView(cards);
+            shuffleView.showAndWait(); // This will block input to other windows until closed
         });
     }
 

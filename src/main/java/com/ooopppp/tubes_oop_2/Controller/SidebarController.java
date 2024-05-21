@@ -40,4 +40,10 @@ public class SidebarController {
         GenericDialog.showGenericDialog(parent.getStage(), "Load");
     }
 
+    public void handleTokoButton() {
+        parent.getBtnSound().stop();
+        parent.getBtnSound().play();
+        parent.switchToStoreView(parent.getStage());
+    }
+
 }

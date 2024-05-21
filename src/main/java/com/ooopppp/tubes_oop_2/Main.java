@@ -1,19 +1,26 @@
 package com.ooopppp.tubes_oop_2;
 
+import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
 // import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
+import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
+import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 

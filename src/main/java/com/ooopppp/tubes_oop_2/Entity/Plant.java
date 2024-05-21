@@ -10,7 +10,7 @@ public class Plant extends LivingBeing implements Observer {
         this.ageToHarvest = ageToHarvest;
     }
 
-    public void seed(){
+    public void ripped(){
         this.name = this.harvestResult.name;
         this.image = this.harvestResult.image;
     }
@@ -21,6 +21,9 @@ public class Plant extends LivingBeing implements Observer {
 
     public void addAge(int addedAge){
         age += addedAge;
+        if (age >= ageToHarvest){
+            ripped();
+        }
     }
 
     @Override

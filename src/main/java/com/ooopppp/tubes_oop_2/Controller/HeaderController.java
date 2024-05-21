@@ -34,13 +34,14 @@ public class HeaderController {
             parent.getBoard().getController().populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
             changePlayerTextColor();
-            List<CardComponent> cards = new ArrayList<>();
-            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-            ShuffleView shuffleView = new ShuffleView(cards);
-            shuffleView.showAndWait(); // This will block input to other windows until closed
+            List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            gameData.getCurrentPlayer().getDeck().shuffleCard();
+
+            ShuffleView.showView(cards); // This will block input to other windows until closed
         });
     }
 

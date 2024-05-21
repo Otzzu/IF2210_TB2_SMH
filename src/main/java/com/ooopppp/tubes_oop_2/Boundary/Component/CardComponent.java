@@ -88,4 +88,9 @@ public class CardComponent extends VBox implements Observer {
             }
         }
     }
+
+    public void setImageView(double width, double height) {
+        this.imageView.setFitWidth(width);
+        this.imageView.setFitHeight(height);
+    }
 }

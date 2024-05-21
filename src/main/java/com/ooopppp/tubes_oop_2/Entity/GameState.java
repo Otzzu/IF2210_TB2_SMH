@@ -8,34 +8,37 @@ public class GameState {
     private Player currentPlayer;
     private Player[] players;
     private int turn;
+    private Store store;
 
-    private GameState(){
+    private GameState() {
         players = new Player[2];
+        store = new Store();
         turn = 1;
     }
 
-    public static GameState getGameState(){
-        if (gameState != null){
+    public static GameState getGameState() {
+        if (gameState != null) {
             return gameState;
         }
         gameState = new GameState();
         return gameState;
     }
 
-    public void addPlayer(Player player){
-        if (players[0] == null){
+    public void addPlayer(Player player) {
+        if (players[0] == null) {
             players[0] = player;
         } else {
             players[1] = player;
         }
     }
 
+
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
     public Player getAnotherPlayer() {
-        if (players[0].equals(currentPlayer)){
+        if (players[0].equals(currentPlayer)) {
             return players[1];
         } else {
             return players[0];
@@ -46,11 +49,17 @@ public class GameState {
         this.currentPlayer = currentPlayer;
     }
 
-    public void addTurn(){
+    public void addTurn() {
         turn++;
     }
 
     public int getTurn() {
         return turn;
     }
+
+    public Store getStore() {
+        return store;
+    }
+
+
 }

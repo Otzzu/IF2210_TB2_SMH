@@ -29,4 +29,12 @@ public class SidebarController {
         });
     }
 
+    public void attachEventsTokoButton() {
+        sidebar.getButtonToko().setOnAction(e -> {
+            parent.getBtnSound().stop();
+            parent.getBtnSound().play();
+            parent.switchToStoreView(parent.getStage());
+        });
+    }
+
 }

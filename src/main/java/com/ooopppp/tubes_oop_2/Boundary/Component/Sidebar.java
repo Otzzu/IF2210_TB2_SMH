@@ -45,6 +45,7 @@ public class Sidebar extends VBox {
         this.getChildren().addAll(buttonLadang, buttonToko, buttonSaveState, buttonLoadState, buttonLoadPlugin);
 
         controller.attachEventsLadangButton();
+        controller.attachEventsTokoButton();
     }
 
     public Button getButtonLadang() {

@@ -34,10 +34,10 @@ public abstract class Popup extends Application {
             closeButton.setTranslateY(0);
         });
 
-        VBox container = new VBox(closeButton);
-        container.setAlignment(Pos.TOP_RIGHT);
+        VBox closecontainer = new VBox(closeButton);
+        closecontainer.setAlignment(Pos.TOP_RIGHT);
 
-        root.getChildren().add(container);
+        root.getChildren().add(closecontainer);
 
         configure();
 

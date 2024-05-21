@@ -28,6 +28,7 @@
             setupComponents(dialogVBox);
 
             Scene dialogScene = new Scene(dialogVBox, 720, 450);
+            dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
             dialogScene.setFill(null);
             dialogStage.setScene(dialogScene);
         }
@@ -46,10 +47,19 @@
 
         private void setupComponents(VBox dialogVBox) {
             Button closeButton = new Button("X");
-            closeButton.setOnAction(e -> dialogStage.close());
-            closeButton.setStyle("-fx-background-color: #FFEFC8; -fx-text-fill: #FF0000; -fx-font-family: 'Courier'; -fx-font-size: 30;");
-            HBox closeLabel = new HBox(closeButton);
-            closeLabel.setAlignment(Pos.TOP_RIGHT);
+            closeButton.getStyleClass().add("x-symbol");
+            closeButton.setOnAction(event -> dialogStage.close());
+
+            closeButton.setOnMousePressed(event -> {
+                closeButton.setTranslateY(1);
+            });
+
+            closeButton.setOnMouseReleased(event -> {
+                closeButton.setTranslateY(0);
+            });
+
+            VBox closecontainer = new VBox(closeButton);
+            closecontainer.setAlignment(Pos.TOP_RIGHT);
 
             Label titleLabel = new Label("Plugin");
             titleLabel.setStyle("-fx-font-family: 'Courier'; -fx-font-size: 40; -fx-text-fill: #000000; -fx-font-weight: 900;");
@@ -88,7 +98,7 @@
             uploadButtonBox.setAlignment(Pos.CENTER);
             uploadButtonBox.setPadding(new Insets(50, 0, 25, 0));
 
-            dialogVBox.getChildren().addAll(closeLabel, titleBox, grid, uploadButtonBox, feedbackBox);
+            dialogVBox.getChildren().addAll(closecontainer, titleBox, grid, uploadButtonBox, feedbackBox);
         }
 
         private void handleChoose(Label folderLabel){

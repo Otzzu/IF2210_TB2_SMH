@@ -41,6 +41,9 @@ public class Deck {
         for (int i = 0; i < 6; i++){
             if (activeDeck[i] == null){
                 numCard++;
+                if (numCard == 4){
+                    break;
+                }
             }
         }
         Collections.shuffle(allDeck);

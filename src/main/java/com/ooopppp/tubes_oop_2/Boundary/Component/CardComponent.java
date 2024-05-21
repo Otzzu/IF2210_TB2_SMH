@@ -61,7 +61,7 @@ public class CardComponent extends VBox implements Observer {
     private void buildCard(){
         this.getChildren().clear();
         if (cardData != null){
-            System.out.println(cardData.getName());
+//            System.out.println(cardData.getName());
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + cardData.getImage())));
             Region space = new Region();
             VBox.setVgrow(space, Priority.ALWAYS);

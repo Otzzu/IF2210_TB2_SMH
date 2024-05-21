@@ -123,7 +123,7 @@ public class DeckController {
                         }
                     } else if (cardChoose.getCardData() instanceof Product || cardChoose.getCardData() instanceof Item) {
                         if (previousSelected != event.getSource()) {
-                            parent.notifyCardsInBoard("unchoose");
+                            parent.notifyCardsInBoard("unchoose2");
                             if (previousSelected != null) {
                                 previousSelected.setScaleX(1);
                                 previousSelected.setScaleY(1);

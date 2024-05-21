@@ -15,6 +15,10 @@
     -fx-background-radius: 12px;
     -fx-padding: 30px 20px 30px 20px;
     -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);
+    -fx-min-width: 105px;
+    -fx-max-width: 105px;
+    -fx-min-height: 150px;
+    -fx-max-height: 150px;
 }
 
 .root {

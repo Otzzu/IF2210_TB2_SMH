@@ -27,6 +27,20 @@ public class Plant extends LivingBeing implements Observer {
     }
 
     @Override
+    public void print() {
+        super.print();
+        System.out.println("Age: " + age);
+    }
+
+    @Override
+    public void useItem(Item item) {
+        super.useItem(item);
+        if (item instanceof ItemAdded itemAdded){
+            addAge(itemAdded.getAddedAge());
+        }
+    }
+
+    @Override
     public void update(String data) {
         addAge(1);
     }

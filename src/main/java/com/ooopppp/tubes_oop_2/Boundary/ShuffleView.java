@@ -21,6 +21,7 @@ import java.net.URL;
 
 
 public class ShuffleView extends Stage {
+    private List<Card> dataCards;
     private List<CardComponent> cardComponents;
     private Button okButton;
     private Button switchButton;
@@ -30,7 +31,7 @@ public class ShuffleView extends Stage {
     private Scene scene;
     private VBox layout;
 
-    private ShuffleView(List<Card> cards) {
+    private ShuffleView(List<Card> cards, MainView parent) {
         layout = new VBox(20);
         scene = new Scene(layout, 400, 600); // Adjusted size
         scene.setFill(Color.TRANSPARENT);
@@ -40,11 +41,12 @@ public class ShuffleView extends Stage {
         } else {
             System.out.println("CSS Resource not found.");
         }
+        this.dataCards = cards;
         this.cardComponents = new ArrayList<>();
         for (Card c: cards){
             this.cardComponents.add(new CardComponent(c, false));
         }
-        controller = new ShuffleController(this);
+        controller = new ShuffleController(this, parent);
         topRow = new HBox(10);
         topRow.setAlignment(Pos.CENTER);
 
@@ -61,9 +63,14 @@ public class ShuffleView extends Stage {
 
     public void setCards(List<Card> cards) {
         this.cardComponents.clear();
+        this.dataCards = cards;
         for (Card c: cards){
             this.cardComponents.add(new CardComponent(c, false));
         }
+    }
+
+    public List<Card> getDataCards() {
+        return dataCards;
     }
 
     private void applyStylesToCards() {
@@ -85,7 +92,7 @@ public class ShuffleView extends Stage {
 
         // Ok Button
         okButton = new Button("OK");
-        okButton.setOnAction(e -> this.close()); // Or any other action
+        okButton.setOnAction(e -> controller.handleOk()); // Or any other action
 
         // Add style classes for buttons
         okButton.getStyleClass().add("circular-button-dark-brown");
@@ -124,11 +131,10 @@ public class ShuffleView extends Stage {
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #FFEFC8; -fx-border-width: 5px; -fx-background-color: #E99C1E");
 
-        // Scene and other setup remains similar
     }
 
-    public static void showView(List<Card> cards){
-        ShuffleView shuffleView = new ShuffleView(cards);
+    public static void showView(List<Card> cards, MainView parent){
+        ShuffleView shuffleView = new ShuffleView(cards, parent);
         shuffleView.showAndWait();
     }
 

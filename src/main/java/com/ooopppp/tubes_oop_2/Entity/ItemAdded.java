@@ -10,4 +10,12 @@ public class ItemAdded extends Item{
         this.addedWeight = addedWeight;
         this.addedAge = addedAge;
     }
+
+    public int getAddedWeight() {
+        return addedWeight;
+    }
+
+    public int getAddedAge() {
+        return addedAge;
+    }
 }

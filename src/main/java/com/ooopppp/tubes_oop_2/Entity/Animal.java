@@ -16,5 +16,19 @@ public abstract class Animal extends LivingBeing{
         this.weight = weight;
     }
 
+    @Override
+    public void useItem(Item item) {
+        super.useItem(item);
+        if (item instanceof ItemAdded itemAdded){
+            weight += itemAdded.getAddedWeight();
+        }
+    }
+
+    @Override
+    public void print() {
+        super.print();
+        System.out.println("Weight: " + weight);
+    }
+
     public abstract void eat(Product product);
 }

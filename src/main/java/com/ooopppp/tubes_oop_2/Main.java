@@ -41,7 +41,7 @@ public class Main extends Application {
         primaryStage.show();
 
         List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
-        ShuffleView.showView(cards);
+        ShuffleView.showView(cards, (MainView) root);
     }
 
     public static void main(String[] args) {

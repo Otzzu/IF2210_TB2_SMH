@@ -2,10 +2,7 @@ package com.ooopppp.tubes_oop_2.Entity;
 
 import com.ooopppp.tubes_oop_2.Helper.Observer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Player {
 
@@ -19,15 +16,15 @@ public class Player {
 //        activeDeck = new ArrayList<>(6);
         this.name = name;
         CardFactory factory = new CardFactory();
-        deck.getActiveDeck()[0] = (factory.createCard("AYAM"));
-        deck.getActiveDeck()[1] = (factory.createCard("DOMBA"));
-        deck.getActiveDeck()[2] = (factory.createCard("ACCELERATE"));
-        deck.getActiveDeck()[3] = (factory.createCard("BIJI_LABU"));
-        deck.getActiveDeck()[4] = (factory.createCard("SUSU"));
-
-        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
-        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
-        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
+//        deck.getActiveDeck()[0] = (factory.createCard("AYAM"));
+//        deck.getActiveDeck()[1] = (factory.createCard("DOMBA"));
+//        deck.getActiveDeck()[2] = (factory.createCard("ACCELERATE"));
+//        deck.getActiveDeck()[3] = (factory.createCard("BIJI_LABU"));
+//        deck.getActiveDeck()[4] = (factory.createCard("SUSU"));
+//
+//        farm.set(0, 1, (LivingBeing) factory.createCard("DOMBA"));
+//        farm.set(0, 2, (LivingBeing) factory.createCard("HIU_DARAT"));
+//        farm.set(1, 1, (LivingBeing) factory.createCard("KUDA"));
 
         deck.generateDeck(40);
     }
@@ -76,13 +73,16 @@ public class Player {
     }
 
     public void moveCardToFarm(int idCard, int row, int col){
-        Optional<Card> chooseCard = Arrays.stream(deck.getActiveDeck()).filter(c -> c.getId() == idCard).findFirst();
+        Optional<Card> chooseCard = Arrays.stream(deck.getActiveDeck()).filter(Objects::nonNull).filter(c -> c.getId() == idCard).findFirst();
 
         if (chooseCard.isEmpty()){
+            System.out.println("Empty");
             return;
         }
 
         if (!(chooseCard.get() instanceof LivingBeing)){
+            System.out.println("Bukan makhluk");
+
             return;
         }
 
@@ -99,14 +99,22 @@ public class Player {
             }
         }
         farm.printBoard();
-
     }
 
     public void giveEat(Product product, Animal animal){
         animal.eat(product);
 
         for (int i = 0 ; i < 6; i++){
-            if (deck.getActiveDeck()[i].equals(product)){
+            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(product)){
+                deck.getActiveDeck()[i] = null;
+            }
+        }
+    }
+
+    public void giveItemToLivingBeing(Item item, LivingBeing livingBeing){
+        livingBeing.useItem(item);
+        for (int i = 0 ; i < 6; i++){
+            if (deck.getActiveDeck()[i] != null && deck.getActiveDeck()[i].equals(item)){
                 deck.getActiveDeck()[i] = null;
             }
         }

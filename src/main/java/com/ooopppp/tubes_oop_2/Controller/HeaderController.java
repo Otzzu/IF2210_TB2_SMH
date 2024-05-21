@@ -41,7 +41,7 @@ public class HeaderController {
 //            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
             gameData.getCurrentPlayer().getDeck().shuffleCard();
 
-            ShuffleView.showView(cards); // This will block input to other windows until closed
+            ShuffleView.showView(cards, parent); // This will block input to other windows until closed
         });
     }
 

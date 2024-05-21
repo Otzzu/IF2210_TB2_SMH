@@ -18,7 +18,7 @@ public class CardFactory {
             case "INSTANT_HARVEST" -> new Item("Instant Harvest", "/Instant_Harvest.png");
             case "DESTROY" -> new Item("Destroy", "/Destroy.png");
             case "PROTECT" -> new Item("Protect", "/Protect.png");
-            case "TRAP" -> new Item("Trap", "/bear_trap");
+            case "TRAP" -> new Item("Trap", "/bear_trap.png");
             case "SIRIP_HIU" -> new Product("Sirip Hiu", 500, 12, "/shark-fin.png");
             case "SUSU" -> new Product("Susu", 100, 4, "/susu.png");
             case "DAGING_DOMBA" -> new Product("Daging Domba", 120, 6, "/Daging_Domba.png");

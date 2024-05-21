@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
@@ -9,16 +10,27 @@ import java.util.List;
 public class ShuffleController {
 
     private ShuffleView shuffleView;
+    private MainView parent;
 
-    public ShuffleController(ShuffleView shuffleView) {
+    public ShuffleController(ShuffleView shuffleView, MainView parent) {
         this.shuffleView = shuffleView;
+        this.parent = parent;
     }
 
     public void handleSwitchCards() {
-        // Logic to switch cards goes here
-        // For example, shuffle the cards within the list or rotate positions
+
         List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
         shuffleView.setCards(cards);
         shuffleView.buildLayout();
+    }
+
+    public void handleOk(){
+        GameData.getGameData().getCurrentPlayer().getDeck().moveToActiveDeck(shuffleView.getDataCards());
+
+        parent.getBoard().getController().populateGrid(false);
+        parent.getDeckContainer().getController().renderDeck();
+        parent.getDeckContainer().getController().updateDeckLabel();
+        shuffleView.close();
+
     }
 }

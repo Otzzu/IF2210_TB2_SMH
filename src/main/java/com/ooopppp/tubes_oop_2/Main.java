@@ -2,6 +2,7 @@ package com.ooopppp.tubes_oop_2;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.GenericDialog;
 // import com.ooopppp.tubes_oop_2.Boundary.SeranganBeruangView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
@@ -39,6 +40,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        GenericDialog.showGenericDialog(primaryStage, "Load"); //ntr type diganti sm passing pas klik button
     }
 
     public static void main(String[] args) {

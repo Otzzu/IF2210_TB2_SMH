@@ -1,5 +1,9 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
+import com.ooopppp.tubes_oop_2.Controller.HeaderController;
+import com.ooopppp.tubes_oop_2.Entity.Card;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,6 +18,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Header extends HBox {
@@ -24,24 +30,29 @@ public class Header extends HBox {
     private Text moneyPlayer2;
     private Text turnNumber;
     private Button buttonNext;
-    private boolean showTimer;
     private Timeline timeline;
 
-    public Header(boolean showTimer) {
+    private Text player1Text;
+    private Text player2Text;
+    private HeaderController controller;
+
+
+    public Header(MainView parent) {
         super();
-        this.showTimer = showTimer;
-        initializeComponents();
+        controller = new HeaderController(this, parent);
+
+        initializeComponents(false);
         this.setAlignment(Pos.CENTER);
     }
 
-    private void initializeComponents() {
+    public void initializeComponents(boolean showTimer) {
         setUpPlayerMoney();
         setUpTurnContainer();
         if (showTimer) { // muncul di beruang doang
             setUpTimerContainer();
         }
         setUpNextButton();
-        arrangeComponents();
+        arrangeComponents(showTimer);
     }
 
     private void setUpPlayerMoney() {
@@ -51,13 +62,14 @@ public class Header extends HBox {
         moneyContainer.setPrefWidth(325);
         moneyContainer.setMaxHeight(100);
 
-        Text player1 = new Text("Player 1");
-        Text player2 = new Text("Player 2");
+
+        player1Text = new Text("Player 1");
+        player2Text = new Text("Player 2");
         moneyPlayer1 = new Text("400");
         moneyPlayer2 = new Text("400");
 
-        player1.getStyleClass().add("text-point");
-        player2.getStyleClass().add("text-point");
+        player1Text.getStyleClass().add("text-point");
+        player2Text.getStyleClass().add("text-point");
         moneyPlayer1.getStyleClass().add("text-point");
         moneyPlayer2.getStyleClass().add("text-point");
 
@@ -70,13 +82,13 @@ public class Header extends HBox {
         imageView2.setFitHeight(25);
         imageView2.setFitWidth(25);
 
-        HBox player1Container = new HBox(player1, new Region(), moneyPlayer1, imageView1);
+        HBox player1Container = new HBox(player1Text, new Region(), moneyPlayer1, imageView1);
         player1Container.setAlignment(Pos.CENTER);
-        HBox.setHgrow(player1Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
+        HBox.setHgrow(player1Container.getChildren().get(1), Priority.ALWAYS);
 
-        HBox player2Container = new HBox(player2, new Region(), moneyPlayer2, imageView2);
+        HBox player2Container = new HBox(player2Text, new Region(), moneyPlayer2, imageView2);
         player2Container.setAlignment(Pos.CENTER);
-        HBox.setHgrow(player2Container.getChildren().get(1), Priority.ALWAYS); // Space between elements
+        HBox.setHgrow(player2Container.getChildren().get(1), Priority.ALWAYS);
 
         moneyContainer.getChildren().addAll(player1Container, player2Container);
     }
@@ -89,7 +101,7 @@ public class Header extends HBox {
         turnContainer.setPrefSize(110, 110);
 
         Text turnText = new Text("Turn");
-        turnNumber = new Text("2");
+        turnNumber = new Text("1");
 
         turnText.getStyleClass().add("text-white");
         turnNumber.getStyleClass().add("text-white");
@@ -150,7 +162,7 @@ public class Header extends HBox {
         buttonNext.setPrefWidth(130);
     }
 
-    private void arrangeComponents() {
+    private void arrangeComponents(boolean showTimer) {
         Region spaceBetween = new Region();
         HBox.setHgrow(spaceBetween, Priority.ALWAYS);  // space money and turn
 
@@ -174,6 +186,29 @@ public class Header extends HBox {
 
         this.getChildren().addAll(leftBox, spaceBetween, middleBox, spaceBetweenTimerAndButton, buttonNext);
         this.setAlignment(Pos.CENTER);
+
+        controller.attachEventsButtonNext();
+        controller.changePlayerTextColor();
+    }
+
+    public Text getTurnNumber() {
+        return turnNumber;
+    }
+
+    public Button getButtonNext() {
+        return buttonNext;
+    }
+
+    public Text getPlayer1Text() {
+        return player1Text;
+    }
+
+    public Text getPlayer2Text() {
+        return player2Text;
+    }
+
+    public HeaderController getController() {
+        return controller;
     }
 
 }

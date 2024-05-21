@@ -1,12 +1,19 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
+import com.ooopppp.tubes_oop_2.Helper.Observer;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Farm {
 
     private LivingBeing[][] grid;
+    private List<Observer> plantObserver;
     private int row;
     private int col;
     public Farm(int row, int col){
         grid = new LivingBeing[row][col];
+        plantObserver = new ArrayList<>(20);
         this.row = row;
         this.col = col;
     }
@@ -52,4 +59,19 @@ public class Farm {
 
         }
     }
+
+    public void addPlantObserver(Observer obs){
+        plantObserver.add(obs);
+    }
+
+    public void removePlantObserver(Observer obs){
+        plantObserver.remove(obs);
+    }
+
+    public void notifyPlant(){
+        for (Observer obs: plantObserver){
+            obs.update("");
+        }
+    }
+
 }

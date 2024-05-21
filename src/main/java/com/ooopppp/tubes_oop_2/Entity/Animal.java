@@ -16,5 +16,5 @@ public abstract class Animal extends LivingBeing{
         this.weight = weight;
     }
 
-    public abstract void eat(int addedWeight);
+    public abstract void eat(Product product);
 }

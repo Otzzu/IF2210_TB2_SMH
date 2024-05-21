@@ -3,8 +3,8 @@ package com.ooopppp.tubes_oop_2.Controller;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.Component.DeckContainer;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Entity.Card;
-import com.ooopppp.tubes_oop_2.Entity.GameState;
+import com.ooopppp.tubes_oop_2.Entity.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -27,22 +27,41 @@ public class DeckController {
             ClipboardContent content = new ClipboardContent();
             content.putString("VBox");
             db.setContent(content);
-            VBox previousSelected = parent.getSelectedCardDeck();
+            CardComponent previousSelected = parent.getSelectedCardDeck();
 
-            if (previousSelected != event.getSource() ){
-                if (previousSelected != null){
-                    previousSelected.setScaleX(1);
-                    previousSelected.setScaleY(1);
-                    previousSelected.getStyleClass().remove("card-choose");
-                    previousSelected.getStyleClass().add("card-hover");
+            if (cardComponent.getCardData() instanceof LivingBeing){
+                if (previousSelected != event.getSource() ){
+                    if (previousSelected != null){
+                        previousSelected.setScaleX(1);
+                        previousSelected.setScaleY(1);
+                        previousSelected.getStyleClass().remove("card-choose");
+                        previousSelected.getStyleClass().add("card-hover");
+                    }
+                    parent.setSelectedCardDeck((CardComponent) event.getSource());
+                    parent.getSelectedCardDeck().setScaleY(1.08);
+                    parent.getSelectedCardDeck().setScaleX(1.08);
+                    parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                    parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
+                    parent.notifyCardsInBoard("choose");
                 }
-                parent.setSelectedCardDeck((CardComponent) event.getSource());
-                parent.getSelectedCardDeck().setScaleY(1.08);
-                parent.getSelectedCardDeck().setScaleX(1.08);
-                parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                parent.notifyCardsInBoard("choose");
+            } else if (cardComponent.getCardData() instanceof Product || cardComponent.getCardData() instanceof Item){
+                if (previousSelected != event.getSource() ){
+                    if (previousSelected != null){
+                        previousSelected.setScaleX(1);
+                        previousSelected.setScaleY(1);
+                        previousSelected.getStyleClass().remove("card-choose");
+                        previousSelected.getStyleClass().add("card-hover");
+                    }
+                    parent.setSelectedCardDeck((CardComponent) event.getSource());
+                    parent.getSelectedCardDeck().setScaleY(1.08);
+                    parent.getSelectedCardDeck().setScaleX(1.08);
+                    parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                    parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
+                    parent.notifyCardsInBoard("choose2");
+
+                }
             }
+
             event.consume();
         });
 
@@ -55,10 +74,14 @@ public class DeckController {
         });
     }
 
+    public void updateDeckLabel(){
+        deckContainer.getCountCardDeck().setText(String.format("Deck\n%d/40", GameData.getGameData().getCurrentPlayer().getDeck().getAllDeck().size()));
+    }
+
     public void renderDeck(){
         deckContainer.getDeck().getChildren().clear();
         //get player active deck, example
-        List<Card> activeDeck = GameState.getGameState().getCurrentPlayer().getActiveDeck();
+        List<Card> activeDeck = GameData.getGameData().getCurrentPlayer().getDeck().getActiveDeck();
 
         int emptyCard = 6 - activeDeck.size();
 
@@ -70,32 +93,64 @@ public class DeckController {
 
             cardComponent.setOnMouseClicked(event -> {
                 CardComponent previousSelected = parent.getSelectedCardDeck();
+                CardComponent cardChoose = (CardComponent) event.getSource();
 
-                if (previousSelected != event.getSource() ){
-                    parent.notifyCardsInBoard("unchoose");
-                    if (previousSelected != null){
+                if (cardChoose.getCardData() instanceof LivingBeing){
+                    if (previousSelected != event.getSource() ){
+                        parent.notifyCardsInBoard("unchoose");
+                        if (previousSelected != null){
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().remove("card-choose");
+                            if (!previousSelected.isInBoard()) {
+                                previousSelected.getStyleClass().add("card-hover");
+                            }
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
+                        parent.notifyCardsInBoard("choose");
+                    } else {
                         previousSelected.setScaleX(1);
                         previousSelected.setScaleY(1);
                         previousSelected.getStyleClass().remove("card-choose");
-                        if (!previousSelected.isInBoard()) {
-                            previousSelected.getStyleClass().add("card-hover");
-                        }
-                    }
-                    parent.setSelectedCardDeck((CardComponent) event.getSource());
-                    parent.getSelectedCardDeck().setScaleY(1.08);
-                    parent.getSelectedCardDeck().setScaleX(1.08);
-                    parent.getSelectedCardDeck().getStyleClass().add("card-choose");
-                    parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
-                    parent.notifyCardsInBoard("choose");
-                } else {
-                    previousSelected.setScaleX(1);
-                    previousSelected.setScaleY(1);
-                    previousSelected.getStyleClass().remove("card-choose");
-                    previousSelected.getStyleClass().add("card-hover");
-                    parent.setSelectedCardDeck(null);
-                    parent.notifyCardsInBoard("unchoose");
+                        previousSelected.getStyleClass().add("card-hover");
+                        parent.setSelectedCardDeck(null);
+                        parent.notifyCardsInBoard("unchoose");
 
+                    }
+                } else if (cardChoose.getCardData() instanceof Product || cardChoose.getCardData() instanceof Item){
+                    if (previousSelected != event.getSource() ){
+                        parent.notifyCardsInBoard("unchoose");
+                        if (previousSelected != null){
+                            previousSelected.setScaleX(1);
+                            previousSelected.setScaleY(1);
+                            previousSelected.getStyleClass().remove("card-choose");
+                            if (!previousSelected.isInBoard()) {
+                                previousSelected.getStyleClass().add("card-hover");
+                            }
+                        }
+                        parent.setSelectedCardDeck((CardComponent) event.getSource());
+                        parent.getSelectedCardDeck().setScaleY(1.08);
+                        parent.getSelectedCardDeck().setScaleX(1.08);
+                        parent.getSelectedCardDeck().getStyleClass().add("card-choose");
+                        parent.getSelectedCardDeck().getStyleClass().remove("card-hover");
+                        parent.notifyCardsInBoard("choose2");
+
+                    } else {
+                        previousSelected.setScaleX(1);
+                        previousSelected.setScaleY(1);
+                        previousSelected.getStyleClass().remove("card-choose");
+                        previousSelected.getStyleClass().add("card-hover");
+                        parent.setSelectedCardDeck(null);
+                        parent.notifyCardsInBoard("unchoose2");
+
+
+                    }
                 }
+
             });
             deckContainer.getDeck().getChildren().add(cardComponent);
         }

@@ -2,10 +2,9 @@ package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.Board;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
+import com.ooopppp.tubes_oop_2.Boundary.Component.ErrorDialog;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Entity.Card;
-import com.ooopppp.tubes_oop_2.Entity.Farm;
-import com.ooopppp.tubes_oop_2.Entity.GameState;
+import com.ooopppp.tubes_oop_2.Entity.*;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -24,7 +23,7 @@ public class BoardController {
         board.setOnDragOver(event -> {
             if (event.getGestureSource() != this &&
                     event.getDragboard().hasString() &&
-                    event.getDragboard().getString().equals("VBox")) {
+                    event.getDragboard().getString().equals("VBox") && parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")) {
                 event.acceptTransferModes(TransferMode.MOVE);
 
             }
@@ -38,33 +37,63 @@ public class BoardController {
             CardComponent cardComponent = (CardComponent) event.getSource();
             if (event.getGestureSource() != cardComponent &&
                     event.getDragboard().hasString() &&
-                    event.getDragboard().getString().equals("VBox") && cardComponent.getCardData() == null) {
-                event.acceptTransferModes(TransferMode.MOVE);
+                    event.getDragboard().getString().equals("VBox") ) {
+                if (cardComponent.getCardData() == null && parent.getSelectedCardDeck().getCardData() instanceof LivingBeing){
+                    event.acceptTransferModes(TransferMode.MOVE);
+                    cardComponent.setScaleX(1.05);
+                    cardComponent.setScaleY(1.05);
+                }
             }
             event.consume();
+        });
+
+        card.setOnDragExited(e -> {
+            CardComponent cardComponent = (CardComponent) e.getSource();
+
+            cardComponent.setScaleX(1);
+            cardComponent.setScaleY(1);
         });
 
         card.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
             if (db.hasString() && db.getString().equals("VBox")) {
-                if (parent.getSelectedCardDeck() != null && ((CardComponent)event.getSource()).getCardData() == null){
-                    Card data = parent.getSelectedCardDeck().getCardData();
-                    CardComponent current = (CardComponent) event.getSource();
-                    current.getStyleClass().removeAll("card-hover", "board-empty");
-                    parent.getSelectedCardDeck().setCardData(null);
-                    parent.getSelectedCardDeck().getStyleClass().removeAll("card-choose", "card-hover");
-                    parent.getSelectedCardDeck().setScaleX(1);
-                    parent.getSelectedCardDeck().setScaleY(1);
-                    parent.notifyCardsInBoard("unchoose");
-                    if (!parent.getSelectedCardDeck().isInBoard()){
-                        GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
-                        parent.getDeckContainer().getController().renderDeck();
-                    } else {
-                        GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
-                        this.populateGrid();
+                Card data = parent.getSelectedCardDeck().getCardData();
+                CardComponent current = (CardComponent) event.getSource();
+
+                if (parent.getSelectedCardDeck() != null ){
+                    if (((CardComponent)event.getSource()).getCardData() == null && data instanceof LivingBeing){
+                        current.getStyleClass().removeAll("card-hover", "board-empty");
+                        parent.getSelectedCardDeck().setCardData(null);
+                        parent.getSelectedCardDeck().getStyleClass().removeAll("card-choose", "card-hover");
+                        parent.getSelectedCardDeck().setScaleX(1);
+                        parent.getSelectedCardDeck().setScaleY(1);
+                        parent.notifyCardsInBoard("unchoose");
+                        if (!parent.getSelectedCardDeck().isInBoard()){
+                            GameData.getGameData().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
+                            parent.getDeckContainer().getController().renderDeck();
+                        } else {
+                            GameData.getGameData().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
+                            this.populateGrid(false);
+                        }
+                        current.setCardData(data);
+                    } else if (((CardComponent)event.getSource()).getCardData() != null) {
+                        try {
+                            if (parent.getSelectedCardDeck().getCardData() instanceof Product product){
+                                if (current.getCardData() instanceof Animal animal){
+                                    GameData.getGameData().getCurrentPlayer().giveEat(product, animal);
+                                    parent.getDeckContainer().getController().renderDeck();
+                                    parent.getBoard().getController().populateGrid(false);
+                                } else if (current.getCardData() instanceof Plant){
+                                    throw new Exception("Plant cannot eat");
+                                }
+                            }
+                        } catch (Exception exception){
+                            ErrorDialog.getInstance().showError(exception.getMessage());
+
+                        }
                     }
-                    current.setCardData(data);
+
 
                     parent.setSelectedCardDeck(null);
 
@@ -113,21 +142,27 @@ public class BoardController {
         });
     }
 
-    public void populateGrid() {
-        //get data ladang player , example
+    public void populateGrid(boolean enemy) {
         board.getChildren().clear();
         parent.clearObserver();
-        Farm farm = GameState.getGameState().getCurrentPlayer().getFarm();
+        Farm farm;
+        if (!enemy){
+            farm = GameData.getGameData().getCurrentPlayer().getFarm();
+        } else {
+            farm = GameData.getGameData().getAnotherPlayer().getFarm();
+        }
 
         for (int i = 0; i < board.getRow(); i++) {
             for (int j = 0; j < board.getCol(); j++) {
 
                 CardComponent card = new CardComponent(farm.get(i, j), true);
-                this.setupDropTargetCard(card, i, j);
-                this.setupDraggableCard(card);
-                this.setUpOnClickCard(card, i, j);
+                if (!enemy){
+                    this.setupDropTargetCard(card, i, j);
+                    this.setupDraggableCard(card);
+                    this.setUpOnClickCard(card, i, j);
+                    parent.addObserver(card);
+                }
 
-                parent.addObserver(card);
                 board.add(card, j, i);
             }
         }
@@ -147,11 +182,11 @@ public class BoardController {
                 parent.getSelectedCardDeck().setScaleY(1);
                 parent.notifyCardsInBoard("unchoose");
                 if (!parent.getSelectedCardDeck().isInBoard()){
-                    GameState.getGameState().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
+                    GameData.getGameData().getCurrentPlayer().moveCardToFarm(data.getId(), finalI, finalJ);
                     parent.getDeckContainer().getController().renderDeck();
                 } else {
-                    GameState.getGameState().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
-                    this.populateGrid();
+                    GameData.getGameData().getCurrentPlayer().moveCardInFarm(data.getId(), finalI, finalJ);
+                    this.populateGrid(false);
                 };
                 current.setCardData(data);
 
@@ -189,6 +224,23 @@ public class BoardController {
                     }
                 } else if (e.getClickCount() == 1){
                     // SHOW DESKRIPS MODAL
+                    if (parent.getSelectedCardDeck().getCardData() != null){
+                        try {
+                            if (parent.getSelectedCardDeck().getCardData() instanceof Product product){
+                                if (current.getCardData() instanceof Animal animal){
+                                    GameData.getGameData().getCurrentPlayer().giveEat(product, animal);
+                                    parent.getDeckContainer().getController().renderDeck();
+                                    parent.getBoard().getController().populateGrid(false);
+                                } else if (current.getCardData() instanceof Plant){
+                                    throw new Exception("Plant cannot eat");
+                                }
+                            }
+                        } catch (Exception exception){
+                            ErrorDialog.getInstance().showError(exception.getMessage());
+
+                        }
+                    }
+
                 }
             }
 

@@ -6,6 +6,8 @@ module com.ooopppp.tubes_oop_2 {
     requires org.kordamp.ikonli.javafx;
     requires com.almasb.fxgl.all;
     requires java.smartcardio;
+    requires javafx.media;
+    requires java.desktop;
 
     opens com.ooopppp.tubes_oop_2 to javafx.fxml;
     exports com.ooopppp.tubes_oop_2;

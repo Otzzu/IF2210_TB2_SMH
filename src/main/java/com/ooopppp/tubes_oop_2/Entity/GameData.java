@@ -1,44 +1,52 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
-import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
-import javafx.scene.layout.VBox;
-
-public class GameState {
-    private static GameState gameState;
+public class GameData {
+    private static GameData gameData;
     private Player currentPlayer;
     private Player[] players;
     private int turn;
-    private Store store;
+    private String gameState;
 
-    private GameState() {
+    private GameData(){
         players = new Player[2];
-        store = new Store();
         turn = 1;
+        gameState = "Shuffle";
     }
 
-    public static GameState getGameState() {
-        if (gameState != null) {
-            return gameState;
-        }
-        gameState = new GameState();
+//    public void start(){
+//        gameState.start();
+//    }
+
+    public void setGameState(String gameState) {
+        this.gameState = gameState;
+    }
+
+    public String getGameState() {
         return gameState;
     }
 
-    public void addPlayer(Player player) {
-        if (players[0] == null) {
+    public static GameData getGameData(){
+        if (gameData != null){
+            return gameData;
+        }
+        gameData = new GameData();
+        return gameData;
+    }
+
+    public void addPlayer(Player player){
+        if (players[0] == null){
             players[0] = player;
         } else {
             players[1] = player;
         }
     }
 
-
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
     public Player getAnotherPlayer() {
-        if (players[0].equals(currentPlayer)) {
+        if (players[0].equals(currentPlayer)){
             return players[1];
         } else {
             return players[0];
@@ -49,17 +57,11 @@ public class GameState {
         this.currentPlayer = currentPlayer;
     }
 
-    public void addTurn() {
+    public void addTurn(){
         turn++;
     }
 
     public int getTurn() {
         return turn;
     }
-
-    public Store getStore() {
-        return store;
-    }
-
-
 }

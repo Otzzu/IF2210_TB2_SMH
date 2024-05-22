@@ -44,7 +44,7 @@ public class SidebarController {
     public void handleTokoButton() {
         parent.getBtnSound().stop();
         parent.getBtnSound().play();
-        parent.switchToStoreView(parent.getStage());
+        parent.getController().switchToStoreView(parent.getStage());
     }
 
     public void handlePluginButton(){

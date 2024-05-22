@@ -5,13 +5,16 @@ import java.net.URL;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 
+import com.ooopppp.tubes_oop_2.Boundary.StoreView;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class MainViewController {
 
@@ -65,5 +68,10 @@ public class MainViewController {
     public void setUpBearAttack(){
         mainView.getHeader().initializeComponents(true);
         highlightAttackAreas();
+    }
+
+    public void switchToStoreView(Stage stage) {
+        Parent storeView = new StoreView(stage);
+        stage.getScene().setRoot(storeView);
     }
 }

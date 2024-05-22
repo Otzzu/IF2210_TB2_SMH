@@ -24,7 +24,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class StoreView extends VBox {
-    private Stage stage;
     private Button buttonJual;
     private ImageView imageView;
     private Map<String, List<Product>> items;
@@ -33,9 +32,8 @@ public class StoreView extends VBox {
     private GridPane grid;
     public StoreView(Stage stage) {
         super();
-        this.stage = stage;
         this.items = GameData.getGameData().getStore().getItemSells();
-        controller = new StoreController(this);
+        controller = new StoreController(this, stage);
         this.setStyle("-fx-background-color: #AA6039;");
 
         // Header
@@ -76,7 +74,7 @@ public class StoreView extends VBox {
         grid.setHgap(30); // Increased gap between columns
         grid.setPadding(new Insets(20));
         grid.setAlignment(Pos.CENTER);
-        populateGrid();
+        controller.populateGrid();
 
 
         // ScrollPane to make the GridPane scrollable
@@ -97,48 +95,12 @@ public class StoreView extends VBox {
         imageView.setOnMouseClicked(e ->controller.attachEventsBackButton());
     }
 
-    public void populateGrid(){
-        grid.getChildren().clear();
-        int col = 0;
-        int row = 0;
-        for (Map.Entry<String, List<Product>> entry : items.entrySet()) {
-            String productName = entry.getKey();
-            List<Product> productList = entry.getValue();
-            if (productList.isEmpty()) continue;
 
-            // Assuming all products with the same name have the same price and added weight
-            Product sampleProduct = productList.get(0);
-            int quantity = productList.size();
-
-            ItemComponent item = new ItemComponent(sampleProduct, quantity);
-            grid.add(item, col, row);
-            col++;
-            if (col == 3) { // 3 columns per row
-                col = 0;
-                row++;
-            }
-            item.setOnMouseClicked(e -> {
-                this.getBtnSound().stop();
-                this.getBtnSound().play();
-                BuyDialog buyDialog = new BuyDialog(sampleProduct, quantity);
-                buyDialog.setController(new BuyController(buyDialog, this));
-                buyDialog.showDialog(this.stage);
-            });
-        }
-    }
-
-    public void refresh() {
-        this.items = GameData.getGameData().getStore().getItemSells();
-        populateGrid();
-    }
 
     public Button getButtonJual() {
         return buttonJual;
     }
 
-    public Stage getStage() {
-        return stage;
-    }
 
     public ImageView getImageView() {
         return imageView;
@@ -150,6 +112,22 @@ public class StoreView extends VBox {
 
     public void setBtnSound(MediaPlayer btnSound) {
         this.btnSound = btnSound;
+    }
+
+    public GridPane getGrid() {
+        return grid;
+    }
+
+    public Map<String, List<Product>> getItems() {
+        return items;
+    }
+
+    public void setItems(Map<String, List<Product>> items) {
+        this.items = items;
+    }
+
+    public StoreController getController() {
+        return controller;
     }
 }
 

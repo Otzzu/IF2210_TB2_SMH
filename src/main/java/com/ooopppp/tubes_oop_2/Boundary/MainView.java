@@ -99,12 +99,16 @@ public class MainView extends VBox {
         return header;
     }
 
-    public void switchToStoreView(Stage stage) {
-        Parent storeView = new StoreView(stage);
-        stage.getScene().setRoot(storeView);
-    }
+//    public void switchToStoreView(Stage stage) {
+//        Parent storeView = new StoreView(stage);
+//        stage.getScene().setRoot(storeView);
+//    }
 
     public Stage getStage() {
         return stage;
+    }
+
+    public MainViewController getController() {
+        return controller;
     }
 }

@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
+import com.ooopppp.tubes_oop_2.Boundary.AttackPopup;
 import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.Component.Header;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
@@ -51,6 +52,7 @@ public class HeaderController {
 
                 header.initializeComponents(true);
                 parent.getController().highlightAttackAreas();
+                AttackPopup.showView(parent);
             }else{
                 header.initializeComponents(false);
             }

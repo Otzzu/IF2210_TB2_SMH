@@ -5,8 +5,7 @@ import java.net.URL;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 
-import com.ooopppp.tubes_oop_2.Entity.Farm;
-import com.ooopppp.tubes_oop_2.Entity.GameData;
+import com.ooopppp.tubes_oop_2.Entity.*;
 import com.ooopppp.tubes_oop_2.Boundary.StoreView;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -18,6 +17,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.List;
 import javafx.stage.Stage;
@@ -178,12 +178,32 @@ public class MainViewController {
 
     public void clearAttackAreas() {
         Farm farm = GameData.getGameData().getCurrentPlayer().getFarm();
+        boolean hasTrap = false;
         for (int[] pos : attackPositions) {
             int row = pos[0];
             int col = pos[1];
-            farm.take(row, col);
+            if(farm.get(row, col) != null && farm.get(row, col).haveTrap()){
+                hasTrap = true;
+                break;
+            }
+        }
+
+        if(!hasTrap) {
+            for (int[] pos : attackPositions) {
+                int row = pos[0];
+                int col = pos[1];
+                farm.take(row, col);
+            }
+        } else {
+            if(GameData.getGameData().getCurrentPlayer().getDeck().getActiveDeckCount() != 6){
+                CardFactory card = new CardFactory();
+                List<Card> oneCard = new ArrayList<>();
+                oneCard.add(card.createCard("BERUANG"));
+                GameData.getGameData().getCurrentPlayer().getDeck().moveToActiveDeck(oneCard);
+            }
         }
         attackPositions.clear();
+        mainView.getDeckContainer().getController().renderDeck();
         mainView.getBoard().getController().populateGrid(false); // Refresh the grid
     }
 

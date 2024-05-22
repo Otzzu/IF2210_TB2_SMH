@@ -204,6 +204,10 @@ public class BoardController {
                 board.add(card, j, i);
             }
         }
+        if(parent.getController().getAttackPositions().size() != 0){
+            parent.getController().renderAttack();
+        }
+
     }
 
     public void setUpOnClickCard(CardComponent card, int finalI, int finalJ){

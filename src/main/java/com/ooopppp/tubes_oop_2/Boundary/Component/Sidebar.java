@@ -51,6 +51,13 @@ public class Sidebar extends VBox {
         buttonLoadPlugin.setOnAction(e ->controller.handlePluginButton());
     }
 
+    public void disableButtons(boolean disable) {
+        buttonLadang.setDisable(disable);
+        buttonToko.setDisable(disable);
+        buttonSaveState.setDisable(disable);
+        buttonLoadState.setDisable(disable);
+        buttonLoadPlugin.setDisable(disable);
+    }
     public Button getButtonLadang() {
         return buttonLadang;
     }

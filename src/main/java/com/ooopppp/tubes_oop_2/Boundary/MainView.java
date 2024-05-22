@@ -10,11 +10,13 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainView extends VBox {
     protected Board board;
@@ -27,6 +29,19 @@ public class MainView extends VBox {
     private Stage stage;
     private MediaPlayer btnSound;
     private MainViewController controller;
+    private MediaPlayer dangerSound;
+
+    public MediaPlayer getDangerSound() {
+        return dangerSound;
+    }
+
+    public void setDangerSound(MediaPlayer dangerSound) {
+        this.dangerSound = dangerSound;
+    }
+
+    public MainViewController getController() {
+        return controller;
+    }
 
     public DeckContainer getDeckContainer() {
         return deckContainer;
@@ -107,8 +122,5 @@ public class MainView extends VBox {
     public Stage getStage() {
         return stage;
     }
-
-    public MainViewController getController() {
-        return controller;
-    }
+    
 }

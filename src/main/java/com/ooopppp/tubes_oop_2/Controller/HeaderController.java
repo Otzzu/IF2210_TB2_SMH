@@ -6,7 +6,7 @@ import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
-
+import java.util.Random;
 import java.util.List;
 
 public class HeaderController {
@@ -21,6 +21,9 @@ public class HeaderController {
 
     public void attachEventsButtonNext(){
         header.getButtonNext().setOnAction(e -> {
+            if(header.isTimerRunning()){
+                return;
+            }
             parent.getBtnSound().stop();
             parent.getBtnSound().play();
             GameData gameData = GameData.getGameData();
@@ -33,11 +36,23 @@ public class HeaderController {
             parent.getBoard().getController().populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
             changePlayerTextColor();
-            List<Card> cards = gameData.getCurrentPlayer().getDeck().shuffleCard();
-            if (cards.size() == 0){
-                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full");
-            } else {
-                ShuffleView.showView(cards, parent);
+            List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
+            gameData.getCurrentPlayer().getDeck().shuffleCard();
+
+            ShuffleView.showView(cards, parent); // This will block input to other windows until closed
+            Random random = new Random();
+            int randomNumber = random.nextInt(2); // Will generate either 0 or 1
+
+            if (randomNumber == 0) {
+
+                header.initializeComponents(true);
+                parent.getController().highlightAttackAreas();
+            }else{
+                header.initializeComponents(false);
             }
         });
     }

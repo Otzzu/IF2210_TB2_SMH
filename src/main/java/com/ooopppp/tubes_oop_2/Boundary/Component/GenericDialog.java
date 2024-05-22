@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,6 +22,7 @@ public class GenericDialog {
     private Stage dialogStage;
     private DialogController controller;
     private String actionType; // "Save" or "Load"
+    private static GaussianBlur blurEffect;
 
     public GenericDialog(Stage owner, String actionType) {
         this.dialogStage = new Stage();
@@ -45,6 +47,14 @@ public class GenericDialog {
 
     public static void showGenericDialog(Stage owner, String type) {
         GenericDialog dialog = new GenericDialog(owner, type);
+        if (blurEffect == null) {
+            blurEffect = new GaussianBlur(10);
+        }
+        owner.getScene().getRoot().setEffect(blurEffect);
+
+        dialog.dialogStage.setOnHidden(event -> {
+            owner.getScene().getRoot().setEffect(null);
+        });
         dialog.showDialog();
     }
 
@@ -113,7 +123,7 @@ public class GenericDialog {
     private void setupComboBox(ComboBox<String> comboBox) {
         comboBox.setMaxSize(430, 45);
         comboBox.setMinSize(430, 45);
-        comboBox.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #0DA300; -fx-font-size: 20;");
+        comboBox.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #DBE056; -fx-font-size: 20;");
         comboBox.setCellFactory(lv -> new ListCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -122,7 +132,7 @@ public class GenericDialog {
                     setText(null);
                 } else {
                     setText(item);
-                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60; -fx-background-color: #0DA300");
+                    setStyle("-fx-pref-width: 390; -fx-prev-height: 60; -fx-background-color: #DBE056");
                 }
             }
         });
@@ -131,7 +141,7 @@ public class GenericDialog {
     private void setupTextField(TextField textField) {
         textField.setMaxSize(430, 45);
         textField.setMinSize(430, 45);
-        textField.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #0DA300; -fx-font-size: 20;");
+        textField.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #DBE056; -fx-font-size: 20;");
     }
 
     private void setupActionButton(Button actionButton, ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {

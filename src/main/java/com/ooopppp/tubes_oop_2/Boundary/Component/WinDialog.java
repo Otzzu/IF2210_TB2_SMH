@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import javafx.scene.effect.GaussianBlur;
 import javafx.stage.Stage;
 import javafx.stage.*;
 import javafx.scene.*;
@@ -14,7 +15,8 @@ import java.util.Objects;
 public class WinDialog {
     private Stage dialogStage;
     private String name;
-    private  Stage ownerStage;
+    private Stage ownerStage;
+    private static GaussianBlur blurEffect;
 
     public WinDialog(Stage owner, String name){
         this.dialogStage = new Stage();
@@ -92,6 +94,13 @@ public class WinDialog {
 
     public static void showWinDialog(Stage owner, String name) {
         WinDialog dialog = new WinDialog(owner, name);
+        if (blurEffect == null) {
+            blurEffect = new GaussianBlur(10);
+        }
+        owner.getScene().getRoot().setEffect(blurEffect);
+        dialog.dialogStage.setOnHidden(event -> {
+            owner.getScene().getRoot().setEffect(null);
+        });
         dialog.showDialog();
     }
 

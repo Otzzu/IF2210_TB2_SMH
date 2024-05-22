@@ -34,11 +34,11 @@ public class Farm {
         grid[row][col] = item;
     }
 
-    public LivingBeing get(int row, int col){
+    public synchronized LivingBeing get(int row, int col){
         return grid[row][col];
     }
 
-    public LivingBeing take(int row, int col){
+    public synchronized LivingBeing take(int row, int col){
         LivingBeing data = grid[row][col];
         grid[row][col] = null;
         return data;

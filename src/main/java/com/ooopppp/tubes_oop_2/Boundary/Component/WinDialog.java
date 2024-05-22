@@ -14,10 +14,12 @@ import java.util.Objects;
 public class WinDialog {
     private Stage dialogStage;
     private String name;
+    private  Stage ownerStage;
 
     public WinDialog(Stage owner, String name){
         this.dialogStage = new Stage();
         this.name = name;
+        this.ownerStage = owner;
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(owner);
         dialogStage.initStyle(StageStyle.TRANSPARENT);
@@ -67,7 +69,10 @@ public class WinDialog {
         feedbackBox.setPadding(new Insets(20, 0, 32, 0));
 
         Button closeButton = new Button("OK");
-        closeButton.setOnAction(event -> dialogStage.close());
+        closeButton.setOnAction(event -> {
+            dialogStage.close();
+            ownerStage.close();
+        });
         closeButton.setMaxSize(80, 45);
         closeButton.setMinSize(80, 45);
         closeButton.setStyle("-fx-background-color: #FFEFC8; -fx-text-fill: #E99C1E; -fx-font-family: 'Courier'; -fx-font-size: 25; -fx-font-weight: 800; -fx-background-radius: 13;");

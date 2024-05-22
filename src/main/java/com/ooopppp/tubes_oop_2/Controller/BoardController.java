@@ -2,7 +2,7 @@ package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.Board;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
-import com.ooopppp.tubes_oop_2.Boundary.Component.ErrorDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Entity.*;
 import javafx.scene.input.ClipboardContent;
@@ -101,7 +101,7 @@ public class BoardController {
                                     livingBeing.print();
                                 }
                             } catch (Exception exception){
-                                ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
+                                MessageDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                                 parent.getDeckContainer().getController().renderDeck();
                                 parent.getBoard().getController().populateGrid(false);
                             }
@@ -124,7 +124,7 @@ public class BoardController {
                                 throw new Exception("This card cannot use here");
                             }
                         } catch (Exception exception){
-                            ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
+                            MessageDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                             parent.getDeckContainer().getController().renderDeck();
                             parent.getBoard().getController().populateGrid(true);
                         }
@@ -287,7 +287,7 @@ public class BoardController {
                                     livingBeing.print();
                                 }
                             } catch (Exception exception){
-                                ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
+                                MessageDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                                 parent.getDeckContainer().getController().renderDeck();
                                 parent.getBoard().getController().populateGrid(false);
                             }
@@ -301,7 +301,7 @@ public class BoardController {
                                         parent.getBoard().getController().populateGrid(true);
                                         livingBeing.print();
                                     } catch (Exception exception){
-                                        ErrorDialog.showErrorDialog(parent.getStage(), exception.getMessage());
+                                        MessageDialog.showErrorDialog(parent.getStage(), exception.getMessage());
                                         parent.getDeckContainer().getController().renderDeck();
                                         parent.getBoard().getController().populateGrid(true);
                                     }
@@ -314,6 +314,11 @@ public class BoardController {
 
                     } else if (parent.getSelectedCardDeck() == null && parent.getSelectedCardDeck().getCardData() != null) {
                         //SHOW INFO
+                        if (parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){//buat ladang sendiri
+
+                        } else { //buat ladang lawan
+
+                        }
                     }
 
                 }

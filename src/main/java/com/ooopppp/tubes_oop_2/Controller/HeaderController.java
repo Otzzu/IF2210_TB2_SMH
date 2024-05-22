@@ -1,13 +1,12 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
-import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
+import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.Component.Header;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HeaderController {
@@ -34,14 +33,12 @@ public class HeaderController {
             parent.getBoard().getController().populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
             changePlayerTextColor();
-            List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
-//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-//            cards.add(new CardComponent(new Card("Beruang", "/bear.png"), false));
-            gameData.getCurrentPlayer().getDeck().shuffleCard();
-
-            ShuffleView.showView(cards, parent); // This will block input to other windows until closed
+            List<Card> cards = gameData.getCurrentPlayer().getDeck().shuffleCard();
+            if (cards.size() == 0){
+                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full");
+            } else {
+                ShuffleView.showView(cards, parent);
+            }
         });
     }
 

@@ -12,8 +12,8 @@ public class Plant extends LivingBeing implements Observer {
     }
 
     public void ripped() {
-        this.name = this.harvestResult.name;
-        this.image = this.harvestResult.image;
+        this.name = this.harvestResult.getName();
+        this.image = this.harvestResult.getImage();
     }
 
     public int getAge() {
@@ -27,6 +27,10 @@ public class Plant extends LivingBeing implements Observer {
         } else if (age < 0) {
             age = 0;
         }
+    }
+
+    public int getAgeToHarvest() {
+        return ageToHarvest;
     }
 
     @Override
@@ -47,8 +51,12 @@ public class Plant extends LivingBeing implements Observer {
     public void update(String data) {
         addAge(1);
     }
+
+    public boolean isReadyToHarvest() {
+        return age >= ageToHarvest;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
-//    public String getImagePath() {
-//        return image;
-//    }
-//}

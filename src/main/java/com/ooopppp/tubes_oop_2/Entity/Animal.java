@@ -17,11 +17,15 @@ public abstract class Animal extends LivingBeing {
         this.weight = weight;
     }
 
+    public int getWeightToHarvest() {
+        return weightToHarvest;
+    }
+
     @Override
     public void useItem(Item item) {
         super.useItem(item);
-        if (item instanceof ItemAdded itemAdded) {
-            weight += itemAdded.getAddedWeight();
+        if (item instanceof ItemAdded) {
+            weight += ((ItemAdded) item).getAddedWeight();
             if (weight < 0) {
                 weight = 0;
             }
@@ -36,7 +40,3 @@ public abstract class Animal extends LivingBeing {
 
     public abstract void eat(Product product);
 }
-//    public String getImagePath() {
-//        return image;
-//    }
-//}

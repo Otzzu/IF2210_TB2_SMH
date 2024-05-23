@@ -21,6 +21,7 @@ import java.util.TimerTask;
 
 public class AttackPopup extends Stage {
     public AttackPopup(MainView parent) {
+        initOwner(parent.getStage());
         initModality(Modality.APPLICATION_MODAL); // This popup must be closed before you can interact with the owner again
         initStyle(StageStyle.UNDECORATED); // Remove window decorations
 

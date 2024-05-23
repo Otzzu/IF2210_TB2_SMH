@@ -55,6 +55,7 @@ public class ShuffleView extends Stage {
         initModality(Modality.APPLICATION_MODAL); // Ensure it blocks input to other windows
         initStyle(StageStyle.UNDECORATED); // Remove window decorations
         initializeComponents();
+        initOwner(parent.getStage());
         buildLayout();
 
         this.setScene(scene);

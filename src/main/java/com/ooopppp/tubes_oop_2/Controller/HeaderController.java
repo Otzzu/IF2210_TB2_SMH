@@ -42,7 +42,7 @@ public class HeaderController {
             parent.getBoard().getController().populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
             changePlayerTextColor();
-            if(gameData.getTurn() == 20){
+            if(gameData.getTurn() == 21){
                Player[] players = gameData.getPlayers();
                int winnedId = 0;
                int maxGulden = 0;

@@ -9,7 +9,7 @@ public class SaveLoadFileAdapter  implements SaveLoadFile {
     }
 
     @Override
-    public void loadData() {
+    public void loadData(String folderName) {
 
     }
 

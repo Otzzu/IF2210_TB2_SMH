@@ -6,15 +6,10 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/JSONSaveFile/pom.xml" />
-        <option value="$PROJECT_DIR$/App/pom.xml" />
-        <option value="$PROJECT_DIR$/App/JSONSaveLoad/pom.xml" />
-        <option value="$PROJECT_DIR$/JSONSaveLoad/pom.xml" />
-        <option value="$PROJECT_DIR$/XMLSaveLoad/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/App/JSONSaveLoad/pom.xml" />
         <option value="$PROJECT_DIR$/coba/pom.xml" />
       </set>
     </option>

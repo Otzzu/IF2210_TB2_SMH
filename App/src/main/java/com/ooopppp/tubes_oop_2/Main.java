@@ -29,7 +29,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Parent root = new SeranganBeruangView(primaryStage);
-        Parent root = new MainView(primaryStage);
+        MainView root = new MainView(primaryStage);
         Scene scene = new Scene(root, 980, 900);
         URL css = getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css");
         if (css != null) {
@@ -43,15 +43,15 @@ public class Main extends Application {
         primaryStage.show();
 
         List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
-        ShuffleView.showView(cards, (MainView) root);
+        ShuffleView.showView(cards, root);
 
         Random random = new Random();
         int randomNumber = random.nextInt(4);
         if (randomNumber == 0) {
 
-            ((MainView) root).getHeader().initializeComponents(true);
-            ((MainView) root).getController().highlightAttackAreas();
-            AttackPopup.showView(((MainView) root));
+            root.getHeader().initializeComponents(true);
+            root.getController().highlightAttackAreas();
+            AttackPopup.showView(root);
         }
 
     }

@@ -1,43 +1,59 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import com.ooopppp.tubes_oop_2.Entity.Plant;
 
 public class TanamanPopup extends Popup {
     private String name;
     private int age;
     private String activeItem;
-    private int countActiveItem;
     private String imagePath;
+    private VBox contentContainer;
 
-    public TanamanPopup(Stage stage, String name, int age, String activeItem, int countActiveItem, String imagePath) {
+    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath) {
         super(stage);
         this.name = name;
         this.age = age;
         this.activeItem = activeItem;
-        this.countActiveItem = countActiveItem;
-        this.imagePath = imagePath;
+        this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
+        configure();
     }
 
     @Override
     protected void configure() {
+        if (contentContainer == null) {
+            contentContainer = new VBox(10);
+            contentContainer.setAlignment(Pos.TOP_CENTER);
+            root.getChildren().add(contentContainer);
+        } else {
+            contentContainer.getChildren().clear();
+        }
+
         Label nameLabel = new Label(name);
         nameLabel.getStyleClass().addAll("text-popup-title");
         nameLabel.setMaxWidth(Double.MAX_VALUE);
-        nameLabel.setAlignment(javafx.geometry.Pos.CENTER);
+        nameLabel.setAlignment(Pos.CENTER);
 
         Image image;
-        if (imagePath != null && !imagePath.isEmpty()) {
-            image = new Image(imagePath);
-        } else {
-            // Provide a default image or handle the missing image scenario
-            image = new Image("/path/to/default/image.png"); // Replace with your default image path
+        try {
+            if (imagePath != null && !imagePath.isEmpty()) {
+                image = new Image(getClass().getResourceAsStream(imagePath));
+            } else {
+                throw new IllegalArgumentException("Image path is empty or null");
+            }
+        } catch (Exception e) {
+            image = new Image(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img/black.png"));
         }
 
         ImageView imageView = new ImageView(image);
@@ -45,24 +61,58 @@ public class TanamanPopup extends Popup {
         imageView.setFitWidth(100);
         imageView.setPreserveRatio(true);
 
-        Label ageLabel = new Label("Umur: " + age + " hari");
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.TOP_CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 20, 20, 20));
+
+        Label ageLabel = new Label("Umur      :");
         ageLabel.getStyleClass().addAll("text-popup");
+        GridPane.setConstraints(ageLabel, 0, 0);
 
-        Label itemActiveLabel = new Label("Item aktif: " + activeItem + "(" + countActiveItem + ")");
+        Label ageValueLabel = new Label(String.valueOf(age));
+        ageValueLabel.getStyleClass().addAll("text-popup");
+        GridPane.setConstraints(ageValueLabel, 1, 0);
+
+        Label itemActiveLabel = new Label("Item aktif:");
         itemActiveLabel.getStyleClass().addAll("text-popup");
+        GridPane.setConstraints(itemActiveLabel, 0, 1);
+        GridPane.setValignment(itemActiveLabel, VPos.TOP);
 
-        VBox ageAndItemBox = new VBox(10, ageLabel, itemActiveLabel);
-        ageAndItemBox.setPadding(new Insets(20));
+        VBox activeItemsBox = new VBox();
+        activeItemsBox.setAlignment(Pos.TOP_LEFT);
 
-        HBox infoBox = new HBox(20, ageAndItemBox, imageView);
-        infoBox.setAlignment(javafx.geometry.Pos.CENTER);
+        if (activeItem != null && !activeItem.isEmpty()) {
+            String[] items = activeItem.split(", ");
+            for (String item : items) {
+                Label itemLabel = new Label(item);
+                itemLabel.getStyleClass().addAll("text-popup");
+                activeItemsBox.getChildren().add(itemLabel);
+            }
+        } else {
+            Label noActiveItemsLabel = new Label("No active items");
+            noActiveItemsLabel.getStyleClass().addAll("text-popup");
+            activeItemsBox.getChildren().add(noActiveItemsLabel);
+        }
+        GridPane.setConstraints(activeItemsBox, 1, 1);
+
+        grid.getChildren().addAll(ageLabel, ageValueLabel, itemActiveLabel, activeItemsBox);
+
+        HBox infoBox = new HBox(20, grid, imageView);
+        infoBox.setAlignment(Pos.CENTER);
 
         Button harvestButton = new Button("Panen");
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
-        harvestButton.setAlignment(javafx.geometry.Pos.CENTER);
 
-        root.getChildren().addAll(nameLabel, infoBox, harvestButton);
+        harvestButton.setOnAction(event -> harvest(new Plant(name, null, age, imagePath))); // Use the appropriate constructor and parameters for Plant
+
+        HBox buttonBox = new HBox(harvestButton);
+        buttonBox.setAlignment(Pos.CENTER);
+        VBox.setVgrow(buttonBox, Priority.ALWAYS);
+
+        contentContainer.getChildren().addAll(nameLabel, infoBox, buttonBox);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class SellDialog extends VBox {
     private SellController controller;
     public SellDialog() {
         productActiveDeck = GameData.getGameData().getCurrentPlayer().getDeck().getProductsFromActiveDeck();
-        this.setStyle("-fx-background-color:  #CB9270; -fx-font-family: 'Courier'; -fx-border-color: #E99C1E; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
+        this.setStyle("-fx-background-color:  #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #E99C1E; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
         this.setPadding(new Insets(10));
         // Create a grid to hold the cards
         GridPane gridPane = new GridPane();

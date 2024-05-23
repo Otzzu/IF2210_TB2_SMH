@@ -23,7 +23,7 @@ public class SellController {
         if (removed) {
             GameData.getGameData().getStore().addItems(selectedProduct);
             GameData.getGameData().getCurrentPlayer().setGulden(GameData.getGameData().getCurrentPlayer().getGulden() + selectedProduct.getPrice());
-            storeView.refresh();
+            storeView.getController().refresh();
         }
         ((Stage) sellDialog.getScene().getWindow()).close();
     }

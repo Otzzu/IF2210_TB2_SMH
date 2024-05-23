@@ -1,6 +1,8 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.BuyDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.StoreView;
 import com.ooopppp.tubes_oop_2.Entity.*;
 import javafx.stage.Stage;
@@ -11,13 +13,15 @@ import  java.util.List;
 public class BuyController {
     private BuyDialog buyDialog;
     private  StoreView storeView;
+    private Stage stage;
 
-    public BuyController(BuyDialog buyDialog, StoreView storeView){
+    public BuyController(BuyDialog buyDialog, StoreView storeView, Stage stage){
         this.buyDialog = buyDialog;
         this.storeView = storeView;
+        this.stage = stage;
     }
 
-    public void attachEventsBuyButton(){
+    public void attachEventsBuyButton()  {
         System.out.println("masuk buy");
         Player currentPlayer = GameData.getGameData().getCurrentPlayer();
         int currentActiveDeckSize = currentPlayer.getDeck().getActiveDeckCount();
@@ -25,25 +29,34 @@ public class BuyController {
         if (currentActiveDeckSize < 6) {
             System.out.println(currentActiveDeckSize);
             List<Card> newInsert = new ArrayList<>();
-            Store tempStore = GameData.getGameData().getStore();
-
             // Get the product name from the dialog
             String productName = buyDialog.getProduct().getName();
 
-            // Get the product from the store
-            Product selectedProduct = tempStore.takeItem(productName);
 
-            if (selectedProduct != null && currentPlayer.getGulden() >= selectedProduct.getPrice() ) {
+            // Get the product from the store
+            Product selectedProduct =  GameData.getGameData().getStore().takeItem(productName);
+
+            if (selectedProduct == null){
+                MessageDialog.showInfoDialog(stage, "Item not sell in store");
+                ((Stage) buyDialog.getScene().getWindow()).close();
+                storeView.getController().refresh();
+                return;
+            }
+            if (currentPlayer.getGulden() >= selectedProduct.getPrice() ) {
                 newInsert.add(selectedProduct);
                 currentPlayer.getDeck().moveToActiveDeck(newInsert);
                 currentPlayer.setGulden(currentPlayer.getGulden() - selectedProduct.getPrice());
             }else {
-                tempStore.addItems(selectedProduct);
+                MessageDialog.showInfoDialog(stage, "Money not enough");
+                GameData.getGameData().getStore().addItems(selectedProduct);
             }
+        } else {
+            MessageDialog.showInfoDialog(stage, "Active deck full");
+
         }
 
         ((Stage) buyDialog.getScene().getWindow()).close();
-        storeView.refresh();
+        storeView.getController().refresh();
     }
 
 

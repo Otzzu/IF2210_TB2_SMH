@@ -11,4 +11,24 @@ public class PluginLoader implements Plugin{
     public void loadData() {
 
     }
+
+    @Override
+    public void loadPlayer() {
+
+    }
+
+    @Override
+    public void loadGameState() {
+
+    }
+
+    @Override
+    public void savePlayer() {
+
+    }
+
+    @Override
+    public void saveGameState() {
+
+    }
 }

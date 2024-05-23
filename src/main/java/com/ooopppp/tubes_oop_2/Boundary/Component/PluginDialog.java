@@ -5,6 +5,7 @@
     import javafx.scene.Scene;
     import javafx.scene.control.Button;
     import javafx.scene.control.Label;
+    import javafx.scene.effect.GaussianBlur;
     import javafx.scene.layout.GridPane;
     import javafx.scene.layout.HBox;
     import javafx.scene.layout.VBox;
@@ -17,6 +18,7 @@
 
     public class PluginDialog {
         private Stage dialogStage;
+        private static GaussianBlur blurEffect;
 
         public PluginDialog(Stage owner) {
             this.dialogStage = new Stage();
@@ -34,6 +36,13 @@
 
         public static void showPluginDialog(Stage owner) {
             PluginDialog pluginLoaderDialog = new PluginDialog(owner);
+            if (blurEffect == null) {
+                blurEffect = new GaussianBlur(10);
+            }
+            owner.getScene().getRoot().setEffect(blurEffect);
+            pluginLoaderDialog.dialogStage.setOnHidden(event -> {
+                owner.getScene().getRoot().setEffect(null);
+            });
             pluginLoaderDialog.showDialog();
         }
 

@@ -18,13 +18,17 @@ public class ShuffleController {
     }
 
     public void handleSwitchCards() {
-
+        parent.getBtnSound().stop();
+        parent.getBtnSound().play();
         List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
         shuffleView.setCards(cards);
         shuffleView.buildLayout();
     }
 
     public void handleOk(){
+        parent.getBtnSound().stop();
+        parent.getBtnSound().play();
+
         GameData.getGameData().getCurrentPlayer().getDeck().moveToActiveDeck(shuffleView.getDataCards());
 
         parent.getBoard().getController().populateGrid(false);

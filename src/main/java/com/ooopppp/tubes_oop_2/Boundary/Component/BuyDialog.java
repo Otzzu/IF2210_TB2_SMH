@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Controller.BuyController;
 import com.ooopppp.tubes_oop_2.Entity.Product;
 import javafx.geometry.Pos;
@@ -21,8 +22,9 @@ public class BuyDialog extends VBox {
     private Button buyButton;
     private  Button cancelButton;
     private BuyController controller;
+    private MainView parent;
 
-    public BuyDialog(Product product, int quantity) {
+    public BuyDialog(Product product, int quantit) {
         this.product = product;
         this.quantity = quantity;
         this.setStyle("-fx-background-color:  #CB9270; -fx-font-family: 'Courier'; -fx-border-color: #FFFFFF; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");

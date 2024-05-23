@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2;
 
+import com.ooopppp.tubes_oop_2.Boundary.AttackPopup;
 import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main extends Application {
 
@@ -42,6 +44,16 @@ public class Main extends Application {
 
         List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
         ShuffleView.showView(cards, (MainView) root);
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(4);
+        if (randomNumber == 0) {
+
+            ((MainView) root).getHeader().initializeComponents(true);
+            ((MainView) root).getController().highlightAttackAreas();
+            AttackPopup.showView(((MainView) root));
+        }
+
     }
 
     public static void main(String[] args) {
@@ -76,5 +88,3 @@ public class Main extends Application {
         }).start();
     }
 }
-
-

@@ -23,6 +23,9 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
+
+import javafx.application.Platform;
 
 public class Header extends HBox {
     private VBox moneyContainer;
@@ -32,16 +35,20 @@ public class Header extends HBox {
     private Text moneyPlayer2;
     private Text turnNumber;
     private Button buttonNext;
-    private Timeline timeline;
+    private Thread timerThread;
+    private boolean timerRunning = false;
 
     private Text player1Text;
     private Text player2Text;
     private HeaderController controller;
     private Player[] players;
+    private MainView parent;
+    private Text timerValue;
 
 
     public Header(MainView parent) {
         super();
+        this.parent = parent;
         controller = new HeaderController(this, parent);
         players = GameData.getGameData().getPlayers();
         initializeComponents(false);
@@ -49,6 +56,7 @@ public class Header extends HBox {
     }
 
     public void initializeComponents(boolean showTimer) {
+        this.getChildren().clear();
         setUpPlayerMoney();
         setUpTurnContainer();
         if (showTimer) { // muncul di beruang doang
@@ -117,6 +125,10 @@ public class Header extends HBox {
         turnContainer.getChildren().addAll(turnText, turnNumber);
     }
 
+    public boolean isTimerRunning() {
+        return timerRunning;
+    }
+
     public void setUpTimerContainer() {
         timerContainer = new VBox(2);
         timerContainer.getStyleClass().add("circular-timer");
@@ -127,8 +139,7 @@ public class Header extends HBox {
         timerContainer.setMaxHeight(130);
 
         Text timerText = new Text("Timer");
-        Text timerValue = new Text("30.0s");  // hrsnya ganti random 30 - 60
-
+        timerValue = new Text();
         timerText.getStyleClass().add("text-black");
         timerValue.getStyleClass().add("text-black");
 
@@ -136,28 +147,55 @@ public class Header extends HBox {
         timerValue.setStyle("-fx-font-size: 22px");
 
         timerContainer.getChildren().addAll(timerText, timerValue);
-        startCountdown(timerValue);
+        Random random = new Random();
+        int randomNumber = random.nextInt(30,61);
+        startThreadedCountdown(randomNumber);
     }
 
+    private void startThreadedCountdown(double initialTime) {
+        disableAllButtons();
+        if (timerThread != null && timerThread.isAlive()) {
+            timerRunning = false;
+            try {
+                timerThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-    private void startCountdown(Text timerValue) {
-        final int[] timeRemaining = {3000};
-        final Timeline[] timelineHolder = new Timeline[1];
+        timerRunning = true;
+        timerThread = new Thread(() -> {
+            double timeRemaining = initialTime * 10; // Convert to tenths of a second
+            while (timeRemaining > 0 && timerRunning) {
+                timeRemaining--;
+                double displayTime = timeRemaining / 10.0;
+                Platform.runLater(() -> timerValue.setText(String.format("%.1fs", displayTime)));
+                try {
+                    Thread.sleep(100); // Sleep for 0.1 second
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            Platform.runLater(() -> {
+                timerRunning = false;
+                timerValue.setText("0.0s");
+                parent.getController().clearAttackAreas();
+                enableAllButtons();
+                this.getChildren().remove(timerContainer);
+            });
+        });
+        timerThread.setDaemon(true);
+        timerThread.start();
+    }
 
-        timelineHolder[0] = new Timeline(
-                new KeyFrame(Duration.millis(10), event -> {
-                    timeRemaining[0]--;
-                    int s = timeRemaining[0] / 100;
-                    int ms = timeRemaining[0] % 100;
-                    timerValue.setText(String.format("%02d:%02d", s, ms)); // format s:ms (12:63)
-                    if (timeRemaining[0] <= 0) {
-                        timelineHolder[0].stop();
-                        timerValue.setText("00:00");
-                    }
-                })
-        );
-        timelineHolder[0].setCycleCount(Timeline.INDEFINITE);
-        timelineHolder[0].play();
+    private void disableAllButtons() {
+
+        parent.getSidebar().disableButtons(true);
+    }
+
+    private void enableAllButtons() {
+
+        parent.getSidebar().disableButtons(false);
     }
 
 

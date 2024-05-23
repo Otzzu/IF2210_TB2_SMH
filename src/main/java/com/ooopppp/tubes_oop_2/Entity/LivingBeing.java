@@ -12,6 +12,7 @@ public class LivingBeing extends Card{
         this.activeItem = new HashMap<>();
     }
 
+    public Map<String, Integer> getActiveItem() {return  activeItem;}
     public boolean haveProtect(){
         return activeItem.containsKey("Protect");
     }
@@ -52,4 +53,6 @@ public class LivingBeing extends Card{
 //        }
 //        return sb.toString();
 //    }
+
+
 }

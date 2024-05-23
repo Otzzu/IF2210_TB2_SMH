@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -21,14 +22,16 @@ public class HewanPopUp extends Popup {
     private String imagePath;
     private VBox contentContainer;
     private Animal animal;
+    private MainView parent;
 
-    public HewanPopUp(Stage stage, String name, int weight, String activeItem, String imagePath, Animal animal) {
+    public HewanPopUp(Stage stage, String name, int weight, String activeItem, String imagePath, Animal animal, MainView parent) {
         super(stage);
         this.name = name;
         this.weight = weight;
         this.activeItem = activeItem;
         this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.animal = animal;
+        this.parent = parent;
         configure();
     }
 
@@ -107,7 +110,10 @@ public class HewanPopUp extends Popup {
         buttonBox.setAlignment(Pos.CENTER);
         VBox.setVgrow(buttonBox, Priority.ALWAYS);
 
-        contentContainer.getChildren().addAll(nameLabel, infoBox, buttonBox);
+        contentContainer.getChildren().addAll(nameLabel, infoBox);
+        if (parent != null && parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){
+            contentContainer.getChildren().add(buttonBox);
+        }
     }
 
     @Override

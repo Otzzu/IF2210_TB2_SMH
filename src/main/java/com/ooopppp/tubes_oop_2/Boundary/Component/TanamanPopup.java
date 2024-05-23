@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
@@ -21,14 +22,16 @@ public class TanamanPopup extends Popup {
     private String imagePath;
     private VBox contentContainer;
     private Plant plant;
+    private MainView parent;
 
-    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant) {
+    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant, MainView parent) {
         super(stage);
         this.name = name;
         this.age = age;
         this.activeItem = activeItem;
         this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.plant = plant;
+        this.parent = parent;
         configure();
     }
 
@@ -110,8 +113,10 @@ public class TanamanPopup extends Popup {
         HBox buttonBox = new HBox(harvestButton);
         buttonBox.setAlignment(Pos.CENTER);
         VBox.setVgrow(buttonBox, Priority.ALWAYS);
-
-        contentContainer.getChildren().addAll(nameLabel, infoBox, buttonBox);
+        contentContainer.getChildren().addAll(nameLabel, infoBox);
+        if (parent != null && parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){
+            contentContainer.getChildren().add(buttonBox);
+        }
     }
 
     @Override

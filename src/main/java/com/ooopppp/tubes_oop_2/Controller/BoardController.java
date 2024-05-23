@@ -21,7 +21,7 @@ public class BoardController {
     public BoardController(Board board, MainView parent) {
         this.board = board;
         this.parent = parent;
-        this.popupController = new PopupController(GameData.getGameData().getCurrentPlayer(), this);
+        this.popupController = new PopupController(GameData.getGameData().getCurrentPlayer(), this, parent);
         attachEvents();
     }
 

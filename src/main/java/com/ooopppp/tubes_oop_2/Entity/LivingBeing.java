@@ -3,37 +3,38 @@ package com.ooopppp.tubes_oop_2.Entity;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LivingBeing extends Card{
-    protected Map<String, Integer> activeItem;
+public class LivingBeing extends Card {
+    protected Map<String, Integer> activeItem = new HashMap<>();
     protected Product harvestResult;
-    public LivingBeing(String name, Product harvestResult, String image){
+
+    public LivingBeing(String name, Product harvestResult, String image) {
         super(name, image);
         this.harvestResult = harvestResult;
         this.activeItem = new HashMap<>();
     }
 
-    public boolean haveProtect(){
+    public boolean haveProtect() {
         return activeItem.containsKey("Protect");
     }
 
-    public boolean haveTrap(){
+    public boolean haveTrap() {
         return activeItem.containsKey("Trap");
     }
 
-    public void useItem(Item item){
+    public void useItem(Item item) {
 
-        if (activeItem.containsKey(item.getName())){
+        if (activeItem.containsKey(item.getName())) {
             activeItem.put(item.getName(), activeItem.get(item.getName()) + 1);
         } else {
             activeItem.put(item.getName(), 1);
         }
     }
 
-    public Product harvest(){
+    public Product harvest() {
         return harvestResult;
     }
 
-    public void print(){
+    public void print() {
         System.out.println("--------");
         System.out.println("Id: " + id);
         System.out.println("Name: " + name);
@@ -45,11 +46,14 @@ public class LivingBeing extends Card{
 
     }
 
-//    public String getActiveItem() {
-//        StringBuilder sb = new StringBuilder();
-//        for (Map.Entry<Item, Integer> entry : activeItem.entrySet()) {
-//            sb.append(entry.getKey().getName()).append(" : ").append(entry.getValue()).append("\n");
-//        }
-//        return sb.toString();
-//    }
+    public String getActiveItem() {
+        return activeItem.toString();
+    }
+
+    public Integer getCountActivateItem(String itemName) {
+        Integer count = activeItem.get(itemName);
+        return (count != null) ? count : 0;  // Return 0 if the count is null
+    }
 }
+
+//}

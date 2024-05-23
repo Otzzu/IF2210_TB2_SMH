@@ -1,8 +1,9 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
-public abstract class Animal extends LivingBeing{
+public abstract class Animal extends LivingBeing {
     protected int weight;
     protected int weightToHarvest;
+
     public Animal(String name, Product harvestResult, int weightToHarvest, String image) {
         super(name, harvestResult, image);
         this.weightToHarvest = weightToHarvest;
@@ -19,7 +20,7 @@ public abstract class Animal extends LivingBeing{
     @Override
     public void useItem(Item item) {
         super.useItem(item);
-        if (item instanceof ItemAdded itemAdded){
+        if (item instanceof ItemAdded itemAdded) {
             weight += itemAdded.getAddedWeight();
             if (weight < 0) {
                 weight = 0;
@@ -34,8 +35,8 @@ public abstract class Animal extends LivingBeing{
     }
 
     public abstract void eat(Product product);
-
+}
 //    public String getImagePath() {
 //        return image;
 //    }
-}
+//}

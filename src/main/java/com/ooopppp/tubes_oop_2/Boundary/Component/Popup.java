@@ -1,22 +1,21 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
-import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.geometry.Pos;
 
-public abstract class Popup extends Application {
+public abstract class Popup {
     protected VBox root;
     protected Scene scene;
-    protected Stage primaryStage;
+    protected Stage stage;
 
-    @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.initStyle(StageStyle.TRANSPARENT);
+    public Popup(Stage stage) {
+        this.stage = stage;
+        this.stage.initStyle(StageStyle.TRANSPARENT);
 
         root = new VBox(20);
         root.getStyleClass().add("popup");
@@ -24,7 +23,7 @@ public abstract class Popup extends Application {
 
         Button closeButton = new Button("X");
         closeButton.getStyleClass().add("x-symbol");
-        closeButton.setOnAction(event -> primaryStage.close());
+        closeButton.setOnAction(event -> stage.close());
 
         closeButton.setOnMousePressed(event -> {
             closeButton.setTranslateY(1);
@@ -44,16 +43,15 @@ public abstract class Popup extends Application {
         scene = new Scene(root, 600, 330);
         scene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
         scene.setFill(null);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        this.stage.setScene(scene);
     }
 
     protected abstract void configure();
     protected abstract String getTitle();
 
-//    public void show(double screenX, double screenY) {
-//        primaryStage.setX(screenX);
-//        primaryStage.setY(screenY);
-//        primaryStage.show();
-//    }
+    public void show() {
+        stage.setTitle(getTitle());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
 }

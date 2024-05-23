@@ -335,8 +335,7 @@ public class BoardController {
                         plant.getName(),
                         plant.getAge(),
                         plant.getFormattedActiveItems(),
-                        plant.getImage(),
-                        plant
+                        plant.getImage()
                 );
             }
         }

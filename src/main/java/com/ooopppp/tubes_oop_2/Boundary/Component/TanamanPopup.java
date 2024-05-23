@@ -20,9 +20,8 @@ public class TanamanPopup extends Popup {
     private String activeItem;
     private String imagePath;
     private VBox contentContainer;
-    private Plant plant;
 
-    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant) {
+    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath) {
         super(stage);
         this.name = name;
         this.age = age;
@@ -104,7 +103,7 @@ public class TanamanPopup extends Popup {
         Button harvestButton = new Button("Panen");
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
-        harvestButton.setOnAction(event -> harvest(plant)); // Use the appropriate constructor and parameters for Plant
+        harvestButton.setOnAction(event -> harvest(new Plant(name, null, age, imagePath))); // Use the appropriate constructor and parameters for Plant
 
         HBox buttonBox = new HBox(harvestButton);
         buttonBox.setAlignment(Pos.CENTER);

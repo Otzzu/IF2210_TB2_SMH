@@ -1,5 +1,7 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
+import java.io.IOException;
+
 public class SaveLoadFileAdapter  implements SaveLoadFile {
 
     private ExternalSaveLoadFile externalSaveLoadFile;
@@ -9,27 +11,14 @@ public class SaveLoadFileAdapter  implements SaveLoadFile {
     }
 
     @Override
-    public void loadData(String folderName) {
-
+    public void loadData(String folderName) throws IOException {
+        externalSaveLoadFile.loadCustomFile(folderName);
     }
 
     @Override
-    public void loadPlayer() {
-
+    public void saveData(String folderName) throws IOException {
+        externalSaveLoadFile.saveCustomFile(folderName);
     }
 
-    @Override
-    public void loadGameState() {
 
-    }
-
-    @Override
-    public void savePlayer() {
-
-    }
-
-    @Override
-    public void saveGameState() {
-
-    }
 }

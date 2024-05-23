@@ -9,6 +9,8 @@ module com.ooopppp.tubes_oop_2 {
     requires javafx.media;
     requires java.desktop;
 
-    opens com.ooopppp.tubes_oop_2 to javafx.fxml;
+    opens com.ooopppp.tubes_oop_2;
+    opens com.ooopppp.tubes_oop_2.Entity;
+    exports com.ooopppp.tubes_oop_2.Entity;
     exports com.ooopppp.tubes_oop_2;
 }

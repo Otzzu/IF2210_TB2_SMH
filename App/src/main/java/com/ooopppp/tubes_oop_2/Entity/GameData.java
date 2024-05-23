@@ -5,27 +5,35 @@ public class GameData {
     private Player currentPlayer;
     private Player[] players;
     private int turn;
-    private String gameState;
     private Store store;
+    private PluginManager pluginManager;
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
 
     private GameData(){
         players = new Player[2];
         store = new Store();
         turn = 1;
-        gameState = "Shuffle";
+        pluginManager = new PluginManager();
     }
 
-//    public void start(){
+    public static void clear(){
+        gameData = new GameData();
+    }
+
+
+
+    public PluginManager getPluginManager() {
+        return pluginManager;
+    }
+
+    //    public void start(){
 //        gameState.start();
 //    }
 
-    public void setGameState(String gameState) {
-        this.gameState = gameState;
-    }
 
-    public String getGameState() {
-        return gameState;
-    }
 
     public static GameData getGameData(){
         if (gameData != null){

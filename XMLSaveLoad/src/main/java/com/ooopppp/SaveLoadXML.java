@@ -2,19 +2,22 @@ package com.ooopppp;
 
 import com.ooopppp.tubes_oop_2.Entity.ExternalSaveLoadFile;
 
-public class SaveLoadXML implements ExternalSaveLoadFile {
+import java.io.IOException;
+
+public class SaveLoadXML extends ExternalSaveLoadFile {
+
     @Override
-    public String getType() {
+    public String getName() {
         return "";
     }
 
     @Override
-    public void loadCustomFile() {
+    public void loadCustomFile(String stringPath) throws IOException {
 
     }
 
     @Override
-    public void saveCustomFile() {
+    public void saveCustomFile(String stringPath) throws IOException {
 
     }
 }

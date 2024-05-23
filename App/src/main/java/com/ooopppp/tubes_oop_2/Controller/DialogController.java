@@ -1,9 +1,16 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
+import com.ooopppp.tubes_oop_2.Entity.SaveLoadFile;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class DialogController {
     private GenericDialog dialog;
@@ -17,6 +24,31 @@ public class DialogController {
         System.out.println("save");
         System.out.println("Format " + format);
         System.out.println("folder " + folder);
+
+        SaveLoadFile saveLoadFile =  GameData.getGameData().getPluginManager().getSaveLoadFiles("com.ooopppp.SaveLoadJSON");
+        try{
+            if (saveLoadFile == null){
+                throw new Exception("no config");
+            }
+            Path path = Paths.get(folder);
+
+
+            if (!Files.exists(path)) {
+                try {
+                    Files.createDirectories(path);
+                    System.out.println("Directory created successfully: " + path);
+                } catch (IOException e) {
+                    System.out.println("Failed to create directory: " + e.getMessage());
+                }
+            } else {
+                System.out.println("Directory already exists: " + path);
+            }
+
+            saveLoadFile.saveData("halo");
+        } catch (Exception e){
+            e.printStackTrace();
+            System.out.println("JiJiJi");
+        }
     }
 
     public void loadGame(String format, String folder) {
@@ -54,6 +86,7 @@ public class DialogController {
             feedbackLabel.setText(dialog.getActionType() + " State Successfully");
             feedbackLabel.setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: green;");
         }
+
     }
 
 }

@@ -14,6 +14,10 @@ public class Store {
         itemSells = new HashMap<>();
     }
 
+    public void setItemSells(Map<String, List<Product>> itemSells) {
+        this.itemSells = itemSells;
+    }
+
     public void addItems(Product item) {
         String productName = item.getName();
         if (!itemSells.containsKey(productName)) {

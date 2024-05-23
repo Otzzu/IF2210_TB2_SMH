@@ -1,10 +1,22 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
-public interface ExternalSaveLoadFile {
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-    String getType();
+public abstract class ExternalSaveLoadFile {
 
-    void loadCustomFile();
+    Map<String, String> nameKodeMap;
+    public ExternalSaveLoadFile() {
+        nameKodeMap = new HashMap<>();
+        nameKodeMap.put("", "");
+    }
 
-    void saveCustomFile();
+    public abstract String getName();
+
+    public abstract void loadCustomFile(String stringPath) throws IOException;
+
+    public abstract void saveCustomFile(String stringPath) throws IOException;
+
+
 }

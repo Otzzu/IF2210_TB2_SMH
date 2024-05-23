@@ -1,5 +1,6 @@
     package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+    import com.ooopppp.tubes_oop_2.Controller.PluginController;
     import javafx.geometry.Insets;
     import javafx.geometry.Pos;
     import javafx.scene.Scene;
@@ -19,8 +20,14 @@
     public class PluginDialog {
         private Stage dialogStage;
         private static GaussianBlur blurEffect;
+        private PluginController controller;
+
+        public Stage getDialogStage() {
+            return dialogStage;
+        }
 
         public PluginDialog(Stage owner) {
+            this.controller = new PluginController(this);
             this.dialogStage = new Stage();
             initializeDialog(owner);
             VBox dialogVBox = new VBox(0);
@@ -89,7 +96,7 @@
             chooseFileButton.setMaxSize(150, 45);
             chooseFileButton.setMinSize(150, 45);
             chooseFileButton.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-background-color: #DBE056; -fx-font-size: 20; -fx-background-radius: 15; -fx-font-weight: 900; -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);");
-            chooseFileButton.setOnAction(e -> handleChoose(folderLabel));
+            chooseFileButton.setOnAction(e -> controller.handleChoose(folderLabel));
 
             chooseFileButton.setOnMouseEntered(event -> {
                 chooseFileButton.setScaleX(1.05);
@@ -103,6 +110,7 @@
 
             chooseFileButton.setOnMousePressed(event -> {
                 chooseFileButton.setScaleX(0.9);
+
                 chooseFileButton.setScaleY(0.9);
             });
 
@@ -131,6 +139,8 @@
                 uploadButton.setScaleY(1.05);
             });
 
+            uploadButton.setOnAction(e -> controller.handleClick());
+
             uploadButton.setOnMouseExited(event -> {
                 uploadButton.setScaleX(1.0);
                 uploadButton.setScaleY(1.0);
@@ -149,15 +159,7 @@
             dialogVBox.getChildren().addAll(closecontainer, titleBox, grid, uploadButtonBox, feedbackBox);
         }
 
-        private void handleChoose(Label folderLabel){
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open Resource File");
-            File selectedFile = fileChooser.showOpenDialog(dialogStage);
-            if (selectedFile != null) {
-                folderLabel.setText("File plugin   :   " + selectedFile.getName());
-                System.out.println("File selected: " + selectedFile.getAbsolutePath());
-            }
-        }
+
 
         public void showDialog() {
             dialogStage.showAndWait();

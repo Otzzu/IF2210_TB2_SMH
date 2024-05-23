@@ -124,6 +124,7 @@ public class GenericDialog {
         comboBox.setMaxSize(430, 45);
         comboBox.setMinSize(430, 45);
         comboBox.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #DBE056; -fx-font-size: 20;");
+        comboBox.getItems().add("json");
         comboBox.setCellFactory(lv -> new ListCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {

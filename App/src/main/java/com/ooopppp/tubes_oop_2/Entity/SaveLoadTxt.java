@@ -11,21 +11,25 @@ public class SaveLoadTxt implements SaveLoadFile{
     }
 
     @Override
+    public void saveData(String folderName) {
+        this.folderPath = folderPath;
+        saveGameState();
+        savePlayer();
+        savePlayer();
+    }
+
     public void loadPlayer() {
 
     }
 
-    @Override
     public void loadGameState() {
 
     }
 
-    @Override
     public void savePlayer() {
 
     }
 
-    @Override
     public void saveGameState() {
 
     }

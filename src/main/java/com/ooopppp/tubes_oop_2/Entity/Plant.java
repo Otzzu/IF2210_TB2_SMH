@@ -32,7 +32,7 @@ public class Plant extends LivingBeing implements Observer {
     public int getAgeToHarvest() {
         return ageToHarvest;
     }
-
+    
     @Override
     public void print() {
         super.print();

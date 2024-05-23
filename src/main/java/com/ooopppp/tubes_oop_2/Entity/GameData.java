@@ -67,6 +67,8 @@ public class GameData {
         return turn;
     }
 
+    public void setTurn(int turn) {this.turn = turn;}
+
     public Store getStore() {
         return store;
     }

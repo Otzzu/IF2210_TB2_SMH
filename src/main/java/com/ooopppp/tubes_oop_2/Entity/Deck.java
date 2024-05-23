@@ -65,6 +65,10 @@ public class Deck {
             }
         }
     }
+
+    public void moveOneCardToActiveDeck(Card chooseCard, int i){
+        activeDeck[i] = chooseCard;
+    }
     
     public int getActiveDeckCount(){
         int count = 0;

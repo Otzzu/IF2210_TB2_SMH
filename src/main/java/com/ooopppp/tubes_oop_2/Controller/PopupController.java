@@ -18,8 +18,8 @@ public class PopupController {
         this.boardController = boardController;
     }
 
-    public void showTanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath) {
-        TanamanPopup popup = new TanamanPopup(stage, name, age, activeItem, imagePath);
+    public void showTanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant) {
+        TanamanPopup popup = new TanamanPopup(stage, name, age, activeItem, imagePath, plant);
         popup.setOnHarvest(livingBeing -> {
             try {
                 player.harvestLivingBeing(livingBeing);

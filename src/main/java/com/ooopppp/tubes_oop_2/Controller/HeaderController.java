@@ -70,9 +70,9 @@ public class HeaderController {
 
             if (randomNumber == 0) {
 
-                header.initializeComponents(true);
-                parent.getController().highlightAttackAreas();
-                AttackPopup.showView(parent);
+//                header.initializeComponents(true);
+//                parent.getController().highlightAttackAreas();
+//                AttackPopup.showView(parent);
             }else{
                 header.initializeComponents(false);
             }

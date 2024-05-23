@@ -88,6 +88,9 @@ public class Player {
     }
 
     public void harvestLivingBeing(LivingBeing livingBeing) {
+        if (deck.getActiveDeckCount() == 6){
+            throw new IllegalStateException("Active deck full!!");
+        }
         if (livingBeing instanceof Plant) {
             Plant plant = (Plant) livingBeing;
             System.out.println("curr age: " + plant.getAge());

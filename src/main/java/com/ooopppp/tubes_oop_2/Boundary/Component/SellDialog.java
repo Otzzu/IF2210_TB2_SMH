@@ -22,12 +22,13 @@ public class SellDialog extends VBox {
     private List<Product> productActiveDeck;
     private Product selectedProduct = null;
     private SellController controller;
+    private GridPane gridPane;
     public SellDialog() {
         productActiveDeck = GameData.getGameData().getCurrentPlayer().getDeck().getProductsFromActiveDeck();
-        this.setStyle("-fx-background-color:  #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #E99C1E; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
+        this.setStyle("-fx-background-color:  #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #5B311C; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
         this.setPadding(new Insets(10));
         // Create a grid to hold the cards
-        GridPane gridPane = new GridPane();
+        gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setHgap(20);
         gridPane.setVgap(10);
@@ -51,8 +52,13 @@ public class SellDialog extends VBox {
         // Create an OK button
         Button okButton = new Button("OK");
         okButton.getStyleClass().add("circular-button");
+
+        Button cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().add("circular-button");
+        cancelButton.setOnAction(e -> ((Stage) getScene().getWindow()).close());
         // Set up the layout
-        HBox buttonBox = new HBox(okButton);
+        HBox buttonBox = new HBox(okButton,cancelButton);
+        buttonBox.setSpacing(30);
         buttonBox.setAlignment(Pos.CENTER);
 
         this.setAlignment(Pos.CENTER);
@@ -71,9 +77,9 @@ public class SellDialog extends VBox {
     }
 
     private void handleCardSelection(SellCardComponent selectedCard) {
-        for (int i = 0; i < this.getChildren().size(); i++) {
-            if (this.getChildren().get(i) instanceof SellCardComponent) {
-                SellCardComponent card = (SellCardComponent) this.getChildren().get(i);
+        for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            if (gridPane.getChildren().get(i) instanceof SellCardComponent) {
+                SellCardComponent card = (SellCardComponent) gridPane.getChildren().get(i);
                 card.setSelected(false);
             }
         }

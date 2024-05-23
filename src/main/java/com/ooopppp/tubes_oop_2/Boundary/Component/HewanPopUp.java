@@ -55,9 +55,6 @@ public class HewanPopUp extends Popup {
         }
 
         ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(100);
-        imageView.setFitWidth(100);
-        imageView.setPreserveRatio(true);
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
@@ -80,6 +77,7 @@ public class HewanPopUp extends Popup {
 
         VBox activeItemsBox = new VBox();
         activeItemsBox.setAlignment(Pos.TOP_LEFT);
+
         if (activeItem != null && !activeItem.isEmpty()) {
             String[] items = activeItem.split(", ");
             for (String item : items) {

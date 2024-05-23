@@ -20,8 +20,9 @@ public class TanamanPopup extends Popup {
     private String activeItem;
     private String imagePath;
     private VBox contentContainer;
+    private Plant plant;
 
-    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath) {
+    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant) {
         super(stage);
         this.name = name;
         this.age = age;
@@ -48,7 +49,7 @@ public class TanamanPopup extends Popup {
         Image image;
         try {
             if (imagePath != null && !imagePath.isEmpty()) {
-                image = new Image(getClass().getResourceAsStream(imagePath));
+                image = new Image(getClass().getResourceAsStream(imagePath), 100, 100, true, true);
             } else {
                 throw new IllegalArgumentException("Image path is empty or null");
             }
@@ -57,9 +58,6 @@ public class TanamanPopup extends Popup {
         }
 
         ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(100);
-        imageView.setFitWidth(100);
-        imageView.setPreserveRatio(true);
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_CENTER);
@@ -96,6 +94,7 @@ public class TanamanPopup extends Popup {
             activeItemsBox.getChildren().add(noActiveItemsLabel);
         }
         GridPane.setConstraints(activeItemsBox, 1, 1);
+        GridPane.setValignment(activeItemsBox, VPos.TOP);
 
         grid.getChildren().addAll(ageLabel, ageValueLabel, itemActiveLabel, activeItemsBox);
 
@@ -105,8 +104,7 @@ public class TanamanPopup extends Popup {
         Button harvestButton = new Button("Panen");
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
-
-        harvestButton.setOnAction(event -> harvest(new Plant(name, null, age, imagePath))); // Use the appropriate constructor and parameters for Plant
+        harvestButton.setOnAction(event -> harvest(plant)); // Use the appropriate constructor and parameters for Plant
 
         HBox buttonBox = new HBox(harvestButton);
         buttonBox.setAlignment(Pos.CENTER);

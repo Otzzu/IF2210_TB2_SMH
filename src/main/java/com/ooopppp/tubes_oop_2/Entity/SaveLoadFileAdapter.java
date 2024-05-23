@@ -1,10 +1,11 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
-public class PluginLoader implements Plugin{
-    private Object legacyPlugin;
+public class SaveLoadFileAdapter  implements SaveLoadFile {
 
-    public PluginLoader(Object legacyPlugin) {
-        this.legacyPlugin = legacyPlugin;
+    private ExternalSaveLoadFile externalSaveLoadFile;
+
+    public SaveLoadFileAdapter(ExternalSaveLoadFile externalSaveLoadFile) {
+        this.externalSaveLoadFile = externalSaveLoadFile;
     }
 
     @Override

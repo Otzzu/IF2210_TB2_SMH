@@ -22,7 +22,6 @@ public class LivingBeing extends Card {
     }
 
     public void useItem(Item item) {
-
         if (activeItem.containsKey(item.getName())) {
             activeItem.put(item.getName(), activeItem.get(item.getName()) + 1);
         } else {
@@ -43,17 +42,17 @@ public class LivingBeing extends Card {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
         System.out.println("--------");
-
     }
 
-    public String getActiveItem() {
-        return activeItem.toString();
+    public String getFormattedActiveItems() {
+        StringBuilder activeItemsString = new StringBuilder();
+        for (Map.Entry<String, Integer> entry : activeItem.entrySet()) {
+            activeItemsString.append(entry.getKey()).append(" (").append(entry.getValue()).append("), ");
+        }
+        if (activeItemsString.length() > 0) {
+            activeItemsString.setLength(activeItemsString.length() - 2);
+        }
+        return activeItemsString.toString();
     }
 
-    public Integer getCountActivateItem(String itemName) {
-        Integer count = activeItem.get(itemName);
-        return (count != null) ? count : 0;  // Return 0 if the count is null
-    }
 }
-
-//}

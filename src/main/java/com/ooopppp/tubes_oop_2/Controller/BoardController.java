@@ -344,8 +344,6 @@ public class BoardController {
 
     public void handleHarvestSuccess(LivingBeing livingBeing) {
         if (livingBeing instanceof Plant || livingBeing instanceof Animal) {
-            GameData.getGameData().getCurrentPlayer().getDeck().moveToActiveDeck(Collections.singletonList(livingBeing.harvest()));
-            GameData.getGameData().getCurrentPlayer().getFarm().remove(livingBeing);
             populateGrid(false);
             parent.getDeckContainer().getController().renderDeck();
         }

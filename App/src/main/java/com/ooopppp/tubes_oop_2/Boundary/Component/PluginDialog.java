@@ -21,6 +21,7 @@
         private Stage dialogStage;
         private static GaussianBlur blurEffect;
         private PluginController controller;
+        private Label folderLabel;
 
         public Stage getDialogStage() {
             return dialogStage;
@@ -86,8 +87,7 @@
             grid.setAlignment(Pos.CENTER);
             grid.setHgap(30);
             grid.setPadding(new Insets(0, 0, 0, 50));
-
-            Label folderLabel = new Label("File plugin   :   No File Uploaded");
+            folderLabel = new Label("File plugin   :   No File Uploaded");
             folderLabel.setMinSize(430, 45);
             folderLabel.setMaxSize(430, 45);
             folderLabel.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-font-size: 20; -fx-font-weight: 900;");
@@ -96,7 +96,7 @@
             chooseFileButton.setMaxSize(150, 45);
             chooseFileButton.setMinSize(150, 45);
             chooseFileButton.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-background-color: #DBE056; -fx-font-size: 20; -fx-background-radius: 15; -fx-font-weight: 900; -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);");
-            chooseFileButton.setOnAction(e -> controller.handleChoose(folderLabel));
+            chooseFileButton.setOnAction(e -> controller.handleChoose());
 
             chooseFileButton.setOnMouseEntered(event -> {
                 chooseFileButton.setScaleX(1.05);
@@ -160,6 +160,9 @@
         }
 
 
+        public Label getFolderLabel() {
+            return folderLabel;
+        }
 
         public void showDialog() {
             dialogStage.showAndWait();

@@ -8,6 +8,10 @@ public abstract class Animal extends LivingBeing{
         this.weightToHarvest = weightToHarvest;
     }
 
+    public Animal() {
+        super();
+    }
+
     public int getWeight() {
         return weight;
     }

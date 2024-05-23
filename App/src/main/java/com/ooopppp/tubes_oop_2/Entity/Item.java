@@ -7,6 +7,10 @@ public class Item extends Card{
         this.isForEnemy = isForEnemy;
     }
 
+    public Item() {
+        super();
+    }
+
     public boolean isForEnemy() {
         return isForEnemy;
     }

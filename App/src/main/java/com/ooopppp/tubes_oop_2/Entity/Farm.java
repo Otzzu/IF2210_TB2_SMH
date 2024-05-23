@@ -18,6 +18,10 @@ public class Farm {
         this.col = col;
     }
 
+    public Farm(){
+
+    }
+
     public int getRow() {
         return row;
     }

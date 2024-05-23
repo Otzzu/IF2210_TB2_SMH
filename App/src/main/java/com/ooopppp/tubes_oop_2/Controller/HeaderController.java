@@ -68,7 +68,7 @@ public class HeaderController {
             Random random = new Random();
             int randomNumber = random.nextInt(4); // Will generate either 0 or 1
 
-            if (randomNumber == 0) {
+            if (randomNumber == 5) {
 
                 header.initializeComponents(true);
                 parent.getController().highlightAttackAreas();

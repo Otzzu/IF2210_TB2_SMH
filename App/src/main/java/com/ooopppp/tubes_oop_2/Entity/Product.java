@@ -10,6 +10,10 @@ public class Product extends Card{
         this.addedWeight = addedWeight;
     }
 
+    public Product() {
+        super();
+    }
+
     public int getPrice() {
         return price;
     }

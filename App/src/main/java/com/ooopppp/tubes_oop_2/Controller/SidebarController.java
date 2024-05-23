@@ -32,13 +32,13 @@ public class SidebarController {
     public void handleSaveButton(){
         parent.getBtnSound().stop();
         parent.getBtnSound().play();
-        GenericDialog.showGenericDialog(parent.getStage(), "Save");
+        GenericDialog.showGenericDialog(parent.getStage(), "Save", parent);
     }
 
     public void handleLoadButton(){
         parent.getBtnSound().stop();
         parent.getBtnSound().play();
-        GenericDialog.showGenericDialog(parent.getStage(), "Load");
+        GenericDialog.showGenericDialog(parent.getStage(), "Load", parent);
     }
 
     public void handleTokoButton() {

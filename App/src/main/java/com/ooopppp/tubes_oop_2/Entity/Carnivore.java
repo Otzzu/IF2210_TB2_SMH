@@ -8,6 +8,10 @@ public class Carnivore extends Animal{
         super(name, harvestResult, weightToHarvest, image);
     }
 
+    public Carnivore() {
+        super();
+    }
+
     @Override
     public void eat(Product product) {
         List<String> canEat = Arrays.asList(

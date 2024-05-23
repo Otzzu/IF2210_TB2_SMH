@@ -82,4 +82,8 @@ public class GameData {
     public Player[] getPlayers() {
         return players;
     }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

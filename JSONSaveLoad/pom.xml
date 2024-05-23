@@ -38,10 +38,10 @@
                 <archive>
                     <manifest>
                         <addClasspath>true</addClasspath>
-                        <mainClass>com.example.plugin.MyPlugin</mainClass>
+                        <mainClass>com.ooopppp.SaveLoadJSON</mainClass>
                     </manifest>
                     <manifestEntries>
-                        <Plugin-Class>com.example.plugin.MyPlugin</Plugin-Class>
+                        <Plugin-Class>com.ooopppp.SaveLoadJSON</Plugin-Class>
                     </manifestEntries>
                 </archive>
             </configuration>

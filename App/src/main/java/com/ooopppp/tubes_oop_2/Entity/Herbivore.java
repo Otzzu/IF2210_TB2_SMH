@@ -9,6 +9,10 @@ public class Herbivore extends Animal{
         super(name, harvestResult, weightToHarvest, image);
     }
 
+    public Herbivore() {
+        super();
+    }
+
     public void eat(Product product) {
         List<String> canEat = Arrays.asList(
                 "Jagung", "Labu", "Stroberi"

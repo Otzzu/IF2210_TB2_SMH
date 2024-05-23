@@ -1,11 +1,13 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.Component.GenericDialog;
+import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 import com.ooopppp.tubes_oop_2.Entity.SaveLoadFile;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import com.ooopppp.tubes_oop_2.Main;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,24 +16,29 @@ import java.nio.file.Paths;
 
 public class DialogController {
     private GenericDialog dialog;
+    private Stage stage;
+    private MainView parent;
 
-    public DialogController(GenericDialog dialog) {
+    public DialogController(GenericDialog dialog, Stage stage, MainView parent) {
         this.dialog = dialog;
+        this.stage = stage;
+        this.parent = parent;
+
+
     }
 
-    public void saveGame(String format, String folder) {
+    public boolean saveGame(String format, String folder) {
         // Implementation to save the game
         System.out.println("save");
         System.out.println("Format " + format);
         System.out.println("folder " + folder);
 
-        SaveLoadFile saveLoadFile =  GameData.getGameData().getPluginManager().getSaveLoadFiles("com.ooopppp.SaveLoadJSON");
+        SaveLoadFile saveLoadFile =  GameData.getGameData().getPluginManager().getSaveLoadFiles(format);
         try{
             if (saveLoadFile == null){
                 throw new Exception("no config");
             }
             Path path = Paths.get(folder);
-
 
             if (!Files.exists(path)) {
                 try {
@@ -39,23 +46,50 @@ public class DialogController {
                     System.out.println("Directory created successfully: " + path);
                 } catch (IOException e) {
                     System.out.println("Failed to create directory: " + e.getMessage());
+                    throw e;
                 }
             } else {
                 System.out.println("Directory already exists: " + path);
             }
 
-            saveLoadFile.saveData("halo");
+            saveLoadFile.saveData(folder);
         } catch (Exception e){
             e.printStackTrace();
-            System.out.println("JiJiJi");
+            return false;
         }
+
+        return true;
     }
 
-    public void loadGame(String format, String folder) {
+    public boolean loadGame(String format, String folder) {
         // Implementation to load the game
         System.out.println("load");
         System.out.println("Format" + format);
         System.out.println("folder " + folder);
+
+        SaveLoadFile saveLoadFile =  GameData.getGameData().getPluginManager().getSaveLoadFiles(format);
+        try{
+            if (saveLoadFile == null){
+                throw new Exception("no config");
+            }
+            saveLoadFile.loadData(folder);
+            int turn = GameData.getGameData().getTurn();
+
+            if (turn % 2 == 0){
+                GameData.getGameData().setCurrentPlayer(GameData.getGameData().getPlayers()[1]);
+            } else {
+                GameData.getGameData().setCurrentPlayer(GameData.getGameData().getPlayers()[0]);
+            }
+
+            parent.getStage().getScene().setRoot(new MainView(parent.getStage()));
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
         // Example: Read from file, query database, etc.
     }
 
@@ -71,20 +105,34 @@ public class DialogController {
         }
         return true;
     }
-    public void handleAction(ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {
-        String selectedFormat = formatComboBox.getSelectionModel().getSelectedItem();
-        String folderName = folderTextField.getText().trim();
+    public void handleAction() {
+        String selectedFormat = dialog.getComboBox().getSelectionModel().getSelectedItem();
+        String folderName = dialog.getTextField().getText().trim();
         if (!isValidFilename(folderName)) {
-            feedbackLabel.setText("Error: Failed to " + dialog.getActionType().toLowerCase() + " state");
-            feedbackLabel.setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: red;");
+            dialog.getFeedbackLabel().setText("Error: Failed to " + dialog.getActionType().toLowerCase() + " state");
+            dialog.getFeedbackLabel().setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: red;");
         } else {
+            boolean res = false;
             if (dialog.getActionType().equalsIgnoreCase("Save")) {
-                saveGame(selectedFormat, folderName);
+                res = saveGame(selectedFormat, folderName);
             } else if (dialog.getActionType().equalsIgnoreCase("Load")) {
-                loadGame(selectedFormat, folderName);
+                res = loadGame(selectedFormat, folderName);
             }
-            feedbackLabel.setText(dialog.getActionType() + " State Successfully");
-            feedbackLabel.setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: green;");
+
+            if (res){
+                dialog.getFeedbackLabel().setText(dialog.getActionType() + " State successful");
+                dialog.getFeedbackLabel().setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: green;");
+                dialog.getTextField().setText("Folder name");
+                MessageDialog.showErrorDialog(stage, dialog.getActionType() + " State successful");
+                stage.close();
+            } else {
+                dialog.getFeedbackLabel().setText(dialog.getActionType() + " State Failed");
+                dialog.getFeedbackLabel().setStyle("-fx-font-size: 20; -fx-font-family: 'Courier'; -fx-font-weight: 900; -fx-text-fill: red;");
+                dialog.getTextField().setText("Folder name");
+                MessageDialog.showErrorDialog(stage, dialog.getActionType() + " State failed");
+
+
+            }
         }
 
     }

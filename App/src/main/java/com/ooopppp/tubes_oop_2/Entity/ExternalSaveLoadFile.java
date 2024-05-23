@@ -12,6 +12,7 @@ public abstract class ExternalSaveLoadFile {
         nameKodeMap.put("", "");
     }
 
+    public abstract  String getExt();
     public abstract String getName();
 
     public abstract void loadCustomFile(String stringPath) throws IOException;

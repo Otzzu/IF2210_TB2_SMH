@@ -1,6 +1,8 @@
 package com.ooopppp.tubes_oop_2.Boundary.Component;
 
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Controller.DialogController;
+import com.ooopppp.tubes_oop_2.Entity.GameData;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,16 +19,22 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.util.List;
+
 
 public class GenericDialog {
     private Stage dialogStage;
     private DialogController controller;
     private String actionType; // "Save" or "Load"
     private static GaussianBlur blurEffect;
+    private  ComboBox<String> comboBox;
+    private TextField textField;
+    private Button actionButton;
+    private Label feedbackLabel;
 
-    public GenericDialog(Stage owner, String actionType) {
+    public GenericDialog(Stage owner, String actionType, MainView parent) {
         this.dialogStage = new Stage();
-        this.controller = new DialogController(this);
+        this.controller = new DialogController(this, dialogStage, parent);
         this.actionType = actionType;
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(owner);
@@ -45,8 +53,8 @@ public class GenericDialog {
         dialogStage.setScene(dialogScene);
     }
 
-    public static void showGenericDialog(Stage owner, String type) {
-        GenericDialog dialog = new GenericDialog(owner, type);
+    public static void showGenericDialog(Stage owner, String type, MainView parent) {
+        GenericDialog dialog = new GenericDialog(owner, type, parent);
         if (blurEffect == null) {
             blurEffect = new GaussianBlur(10);
         }
@@ -91,27 +99,26 @@ public class GenericDialog {
 
         Label formatLabel = new Label("Format");
         formatLabel.setStyle("-fx-font-size: 25; -fx-font-weight: 900; -fx-font-family: 'Courier';");
-        ComboBox<String> formatComboBox = new ComboBox<>();
-        formatComboBox.getItems().addAll("TXT1", "TXT2", "TXT3");
-        setupComboBox(formatComboBox);
+        comboBox = new ComboBox<>();
+        setupComboBox();
 
         Label folderLabel = new Label("Folder");
         folderLabel.setStyle("-fx-font-size: 25; -fx-font-weight: 900; -fx-font-family: 'Courier';");
-        TextField folderTextField = new TextField();
-        folderTextField.setPromptText("Folder Name");
-        setupTextField(folderTextField);
+        textField = new TextField();
+        textField.setPromptText("Folder Name");
+        setupTextField();
 
-        Label feedbackLabel = new Label("");
+        feedbackLabel = new Label("");
         HBox feedbackBox = new HBox(feedbackLabel);
         feedbackBox.setAlignment(Pos.CENTER);
 
-        Button actionButton = new Button(actionType);
-        setupActionButton(actionButton, formatComboBox, folderTextField, feedbackLabel);
+        actionButton = new Button(actionType);
+        setupActionButton();
 
         grid.add(formatLabel, 0, 0);
-        grid.add(formatComboBox, 1, 0);
+        grid.add(comboBox, 1, 0);
         grid.add(folderLabel, 0, 1);
-        grid.add(folderTextField, 1, 1);
+        grid.add(textField, 1, 1);
 
         HBox actionButtonBox = new HBox(actionButton);
         actionButtonBox.setAlignment(Pos.CENTER);
@@ -120,11 +127,13 @@ public class GenericDialog {
         dialogVBox.getChildren().addAll(closecontainer, titleBox, grid, actionButtonBox, feedbackBox);
     }
 
-    private void setupComboBox(ComboBox<String> comboBox) {
+    private void setupComboBox() {
         comboBox.setMaxSize(430, 45);
         comboBox.setMinSize(430, 45);
         comboBox.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #DBE056; -fx-font-size: 20;");
-        comboBox.getItems().add("json");
+        comboBox.getItems().add(".txt");
+        List<String> types = GameData.getGameData().getPluginManager().getAllTypePlugin();
+        comboBox.getItems().addAll(types);
         comboBox.setCellFactory(lv -> new ListCell<String>() {
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -139,13 +148,13 @@ public class GenericDialog {
         });
     }
 
-    private void setupTextField(TextField textField) {
+    private void setupTextField() {
         textField.setMaxSize(430, 45);
         textField.setMinSize(430, 45);
         textField.setStyle("-fx-font-family: 'Courier'; -fx-background-color: #DBE056; -fx-font-size: 20;");
     }
 
-    private void setupActionButton(Button actionButton, ComboBox<String> formatComboBox, TextField folderTextField, Label feedbackLabel) {
+    private void setupActionButton() {
         actionButton.setMaxSize(170, 65);
         actionButton.setMinSize(170, 65);
         actionButton.getStyleClass().add("button-pop-item");
@@ -170,12 +179,24 @@ public class GenericDialog {
             actionButton.setScaleX(1.0);
             actionButton.setScaleY(1.0);
         });
-        actionButton.setOnAction(e -> controller.handleAction(formatComboBox, folderTextField, feedbackLabel));
+        actionButton.setOnAction(e -> controller.handleAction());
     }
 
+    public ComboBox<String> getComboBox() {
+        return comboBox;
+    }
 
+    public TextField getTextField() {
+        return textField;
+    }
 
+    public Button getActionButton() {
+        return actionButton;
+    }
 
+    public Label getFeedbackLabel() {
+        return feedbackLabel;
+    }
 
     public void showDialog() {
         dialogStage.showAndWait();

@@ -8,6 +8,9 @@ public class Card {
     private static int count = 0;
     protected String image;
 
+    public Card() {
+    }
+
     public Card(String name, String image){
         this.name = name;
         this.image = image;

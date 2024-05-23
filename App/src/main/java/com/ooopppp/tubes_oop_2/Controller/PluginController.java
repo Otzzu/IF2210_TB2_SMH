@@ -1,5 +1,6 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
+import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.Component.PluginDialog;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 import javafx.scene.control.Label;
@@ -15,13 +16,15 @@ public class PluginController {
         this.pluginDialog = pluginDialog;
     }
 
-    public void handleChoose(Label folderLabel){
+    public void handleChoose(){
         FileChooser fileChooser = new FileChooser();
+        File file = new File(".");
+        fileChooser.setInitialDirectory(file);
         fileChooser.setTitle("Open Resource File");
         File selectedFile = fileChooser.showOpenDialog(pluginDialog.getDialogStage());
 
         if (selectedFile != null) {
-            folderLabel.setText("File plugin   :   " + selectedFile.getName());
+            pluginDialog.getFolderLabel().setText("File plugin   :   " + selectedFile.getName());
             System.out.println("File selected: " + selectedFile.getAbsolutePath());
             fileChoose = selectedFile;
         }
@@ -33,9 +36,12 @@ public class PluginController {
                 return;
             }
             GameData.getGameData().getPluginManager().loadNewPlugin(fileChoose);
+            MessageDialog.showInfoDialog(pluginDialog.getDialogStage(), "Load Plugin Success");
+            pluginDialog.getDialogStage().close();
 
         } catch (Exception e){
-            System.out.println("jjajaj");
+            MessageDialog.showErrorDialog(pluginDialog.getDialogStage(), "Load Plugin Failed");
+            pluginDialog.getFolderLabel().setText("File plugin   :   No File Uploaded");
             e.printStackTrace();
         }
     }

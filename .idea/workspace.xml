@@ -5,23 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFileAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFileAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JSONSaveLoad/src/main/java/com/ooopppp/SaveLoadJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/src/main/java/com/ooopppp/SaveLoadJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONSaveLoad/target/JSONSaveLoad-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/target/JSONSaveLoad-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONSaveLoad/target/classes/com/ooopppp/SaveLoadJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/target/classes/com/ooopppp/SaveLoadJSON.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XMLSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XMLSaveLoad/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XMLSaveLoad/src/main/java/com/ooopppp/SaveLoadXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/XMLSaveLoad/src/main/java/com/ooopppp/SaveLoadXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XMLSaveLoad/target/classes/com/ooopppp/SaveLoadXML.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/gamestate.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/player1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/player2.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +191,7 @@
       <workItem from="1716299387544" duration="35546000" />
       <workItem from="1716371808673" duration="388000" />
       <workItem from="1716439095372" duration="7050000" />
-      <workItem from="1716447598690" duration="20273000" />
+      <workItem from="1716447598690" duration="39318000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,18 @@ public class LivingBeing extends Card{
         this.activeItem = new HashMap<>();
     }
 
+    public Map<String, Integer> getActiveItem() {
+        return activeItem;
+    }
+
+    public void setActiveItem(Map<String, Integer> activeItem) {
+        this.activeItem = activeItem;
+    }
+
+    public LivingBeing() {
+        super();
+    }
+
     public boolean haveProtect(){
         return activeItem.containsKey("Protect");
     }

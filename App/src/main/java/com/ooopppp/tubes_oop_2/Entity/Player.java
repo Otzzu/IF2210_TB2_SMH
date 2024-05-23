@@ -11,6 +11,8 @@ public class Player {
     private Farm farm;
     private int gulden;
 //    private List<Card> activeDeck;
+    public Player() {
+    }
     public Player(String name){
         farm = new Farm(4, 5);
         deck = new Deck();

@@ -8,6 +8,10 @@ public class Omnivore extends Animal{
         super(name, harvestResult, weightToHarvest, image);
     }
 
+    public Omnivore() {
+        super();
+    }
+
     @Override
     public void eat(Product product) {
         weight += product.getAddedWeight();

@@ -16,7 +16,6 @@ public class SaveLoadYAML implements ExternalSaveLoadFile {
     private Yaml yaml;
 
     public SaveLoadYAML() {
-        super();
         try{
             DumperOptions options = new DumperOptions();
             options.setIndent(2);

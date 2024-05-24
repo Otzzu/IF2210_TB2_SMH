@@ -14,7 +14,7 @@ import java.util.Map;
 public class SaveLoadJSON implements ExternalSaveLoadFile {
 
     public SaveLoadJSON() {
-        super();
+
     }
 
     @Override

@@ -40,9 +40,10 @@ public class PluginController {
             pluginDialog.getDialogStage().close();
 
         } catch (Exception e){
+            e.getCause().printStackTrace();
             MessageDialog.showErrorDialog(pluginDialog.getDialogStage(), "Load Plugin Failed");
             pluginDialog.getFolderLabel().setText("File plugin   :   No File Uploaded");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 }

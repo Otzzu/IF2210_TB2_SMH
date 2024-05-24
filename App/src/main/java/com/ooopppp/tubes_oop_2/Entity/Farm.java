@@ -84,6 +84,7 @@ public class Farm {
         }
     }
 
+
     public void addPlantObserver(Observer obs){
         plantObserver.add(obs);
     }

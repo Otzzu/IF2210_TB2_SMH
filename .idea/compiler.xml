@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="TUBES_OOP_2" />
         <module name="JSONSaveLoad" />
+        <module name="YAMLSaveLoad" />
       </profile>
     </annotationProcessing>
   </component>

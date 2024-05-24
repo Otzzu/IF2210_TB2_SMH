@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/App/JSONSaveLoad/pom.xml" />
         <option value="$PROJECT_DIR$/JSONSaveLoad/pom.xml" />
         <option value="$PROJECT_DIR$/XMLSaveLoad/pom.xml" />
+        <option value="$PROJECT_DIR$/YAMLSaveLoad/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

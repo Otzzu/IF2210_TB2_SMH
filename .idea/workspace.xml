@@ -1,119 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34cb7183-b220-4425-98c1-a4db6f3cf974" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSONSaveLoad/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/App/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/App/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/App/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/App/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/App/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java-version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/java-version.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/AttackPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/AttackPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/BuyDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/BuyDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/CardComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/CardComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/DeckContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/DeckContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Header.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/ItemComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/ItemComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/MessageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/SellCardComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/SellCardComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/SellDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/SellDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/WinDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/WinDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/SeranganBeruangView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/SeranganBeruangView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/ShuffleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/ShuffleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Boundary/StoreView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/StoreView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/BuyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BuyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/SellController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SellController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/ShuffleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/ShuffleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/CardFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/CardFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFileAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadFileAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/SaveLoadTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Helper/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Helper/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ooopppp/tubes_oop_2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Accelerate.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Accelerate.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/BearAttack.gif" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/BearAttack.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Beruang.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Beruang.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Domba.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Domba.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Kuda.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Daging_Kuda.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Delay.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Delay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Destroy.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Destroy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Instant_Harvest.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Instant_Harvest.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/Protect.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/Protect.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/back.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/bear.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/bear.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/bear_trap.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/bear_trap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/black.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/black.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/chicken.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/coin.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/coin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/corn.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/corn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/corn_seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/corn_seeds.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/cow.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/cow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/error.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/error.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/hiu_darat.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/hiu_darat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/horse.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/horse.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/info.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/info.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/no-cursor.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/no-cursor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/pumpkin.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/pumpkin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/pumpkin_seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/pumpkin_seeds.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/shark-fin.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/shark-fin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/sheep.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/sheep.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/strawberry.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/strawberry.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/strawberry_seeds.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/strawberry_seeds.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/susu.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/susu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/switch.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/switch.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/telur.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/telur.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/img/trophy.png" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/img/trophy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/sound/Ingame_Music.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/sound/Ingame_Music.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/sound/button-click.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/sound/button-click.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ooopppp/tubes_oop_2/sound/danger.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/sound/danger.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YAMLSaveLoad/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YAMLSaveLoad/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,10 +33,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gsodPcv1uaFt9IV95cuJZwFIe6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -141,21 +47,30 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LENOVO/Documents/TUBES_OOP_2/YAMLSaveLoad",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
+    "settings.build.tools.auto.reload": "ALL",
+    "settings.editor.selected.configurable": "build.tools",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\YAMLSaveLoad" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\App" />
     </key>
@@ -196,7 +111,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716495739584</updated>
-      <workItem from="1716495744730" duration="4849000" />
+      <workItem from="1716495744730" duration="5057000" />
+      <workItem from="1716516201903" duration="1397000" />
+      <workItem from="1716517621308" duration="2477000" />
     </task>
     <servers />
   </component>

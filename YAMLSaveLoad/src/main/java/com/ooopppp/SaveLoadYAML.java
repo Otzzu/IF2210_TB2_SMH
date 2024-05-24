@@ -6,10 +6,8 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import org.yaml.snakeyaml.Yaml;
 import com.ooopppp.tubes_oop_2.Entity.*;
 
@@ -68,8 +66,9 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
         // Prepare player-specific data for YAML serialization
         Map<String, Object> playerData = new LinkedHashMap<>();
         playerData.put("gulden", player.getGulden());
-        playerData.put("total_deck", player.getDeck().getAllDeck()); // Assuming getTotalCards() exists
-        playerData.put("active_deck_count", player.getDeck().getActiveDeckCount()); // Assuming getActiveDeck() returns an array
+        playerData.put("active_deck_count", player.getDeck().getActiveDeckCount());
+        playerData.put("total_deck", player.getDeck().getAllDeck().size()); // Assuming getTotalCards() exists
+         // Assuming getActiveDeck() returns an array
 
         // Active deck details: card locations and types in the deck
         int i = 0;
@@ -94,8 +93,8 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
                 LivingBeing being = player.getFarm().get(k, j); // Assuming get method returns a LivingBeing
                 if (being != null) {
                     Map<String, Object> beingDetails = new LinkedHashMap<>();
-                    int temp = j + 1;
-                    beingDetails.put("location", getLetter(k) + "0" + temp);
+                    int temp = k + 1;
+                    beingDetails.put("location", getLetter(j) + "0" + temp);
                     beingDetails.put("name", being.getName()); // Assuming getType() method exists
                     if(being instanceof Animal){
                         beingDetails.put("umur_berat", ((Animal) being).getWeight());
@@ -122,7 +121,6 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
     }
 
     public void loadCustomFile(String folderPath) throws IOException {
-        GameData.clear();
 
         Yaml yaml = new Yaml();
 
@@ -132,9 +130,11 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
             GameData gameData = GameData.getGameData();
             gameData.setTurn((Integer) gameState.get("current_turn"));
             Map<String, Integer> itemsInStore = (Map<String, Integer>) gameState.get("items_in_store");
-
+            int current = gameData.getTurn()%2 == 0 ? 1 : 0;
+            gameData.setCurrentPlayer(gameData.getPlayers()[current]);
             // Assuming the Store has a method to clear and set new items
 //            gameData.getStore().clearItems();
+            gameData.getStore().getItemSells().clear();
             CardFactory cardFactory = new CardFactory();
             itemsInStore.forEach((key, value) -> {
                 for (int i = 0; i < value; i++) {
@@ -149,6 +149,7 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
         for (int i = 1; i <= 2; i++) {
             try (FileReader reader = new FileReader(Paths.get(folderPath, "/player" + i + ".yaml").toString())) {
                 Map<String, Object> playerData = yaml.load(reader);
+                System.out.println(Arrays.toString(GameData.getGameData().getPlayers()));
                 Player player = GameData.getGameData().getPlayers()[i - 1];
 
                 // Load basic attributes
@@ -158,7 +159,7 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
 
                 CardFactory cardFact =  new CardFactory();
                 // Load active deck details
-//                player.getDeck().setActiveDeckEmpty();
+                player.getDeck().setActiveDeckEmpty();
                 List<Map<String, Object>> activeDeckDetails = (List<Map<String, Object>>) playerData.get("active_deck");
                 for (Map<String, Object> cardDetails : activeDeckDetails) {
                     player.getDeck().getActiveDeck()[getNumber((String) cardDetails.get("location"))] = cardFact.createCard(formatCardType((String) cardDetails.get("name")));
@@ -166,8 +167,9 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
 
                 // Load farm details
                 List<Map<String, Object>> farmDetails = (List<Map<String, Object>>) playerData.get("farm");
+                player.setFarm(new Farm(4,5));
                 Farm farm = player.getFarm();
-                farm = new Farm(4, 5);// Assuming a method to clear the farm
+                // Assuming a method to clear the farm
                 for (Map<String, Object> beingDetails : farmDetails) {
                     String location = (String) beingDetails.get("location");
                     int col = location.charAt(0) - 'A';
@@ -201,7 +203,7 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
         int number = 0;
         int length = column.length();
         for (int i = 0; i < length; i++) {
-            number = number * 26 + (column.charAt(i) - 'A' + 1);
+            number = number * 26 + (column.charAt(i) - 'A');
         }
         return number;
     }

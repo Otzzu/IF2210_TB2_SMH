@@ -129,4 +129,11 @@ public class Deck {
         return false;
     }
 
+    public void setActiveDeckEmpty(){
+        for (int i = 0; i < activeDeck.length; i++) {
+            activeDeck[i] = null;
+        }
+
+    }
+
 }

@@ -1,148 +1,32 @@
-gulden: 100
-total_deck:
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Beruang
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Labu
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Beruang
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Susu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Domba
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
-  name: Kuda
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Trap
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Instant Harvest
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Instant Harvest
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Labu
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Carnivore
-  activeItem: {
-    }
-  name: Hiu Darat
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Sirip Hiu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Jagung
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Domba
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Sirip Hiu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Instant Harvest
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Delay
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Trap
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Susu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
-  name: Kuda
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Accelerate
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Sirip Hiu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Labu
-active_deck_count: 3
+gulden: 600
+active_deck_count: 1
+total_deck: 31
 active_deck:
-- {
-  location: A,
-  name: Ayam
-}
-- {
-  location: B,
-  name: Protect
-}
 - {
   location: C,
   name: Protect
 }
-cardInFarm: 2
+cardInFarm: 4
 farm:
-- location: C02
-  name: Sapi
+- location: E03
+  name: Kuda
   umur_berat: 0
+  active_item: {
+    Trap: 1
+  }
+- location: A04
+  name: Biji Labu
+  umur_berat: 5
+  active_item: {
+    Accelerate: 1
+  }
+- location: B04
+  name: Biji Labu
+  umur_berat: 1
   active_item: {
     }
 - location: D04
-  name: Sapi
-  umur_berat: 13
+  name: Biji Jagung
+  umur_berat: 1
   active_item: {
-    Accelerate: 1,
-    Delay: 1
-  }
+    }

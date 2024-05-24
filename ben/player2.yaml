@@ -1,156 +1,61 @@
 gulden: 0
-total_deck:
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Labu
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Domba
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Domba
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Stroberi
-- !!com.ooopppp.tubes_oop_2.Entity.Omnivore
-  activeItem: {
-    }
-  name: Ayam
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Protect
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Trap
-}
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Accelerate
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Trap
-}
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Accelerate
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Trap
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Beruang
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Kuda
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
-  name: Kuda
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Omnivore
-  activeItem: {
-    }
-  name: Ayam
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Labu
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Telur
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Destroy
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Protect
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Protect
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Protect
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Jagung
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
-  name: Instant Harvest
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
-  name: Daging Beruang
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
+active_deck_count: 5
+total_deck: 28
+active_deck:
+- {
+  location: A,
   name: Sirip Hiu
 }
-- !!com.ooopppp.tubes_oop_2.Entity.Plant
-  activeItem: {
-    }
-  age: 0
-  name: Biji Labu
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Accelerate
+- {
+  location: C,
+  name: Daging Beruang
 }
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
+- {
+  location: D,
   name: Domba
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Omnivore
-  activeItem: {
-    }
-  name: Ayam
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Product {
+}
+- {
+  location: E,
   name: Daging Domba
 }
-- !!com.ooopppp.tubes_oop_2.Entity.Item {
+- {
+  location: F,
   name: Protect
 }
-- !!com.ooopppp.tubes_oop_2.Entity.ItemAdded {
-  name: Accelerate
-}
-- !!com.ooopppp.tubes_oop_2.Entity.Omnivore
-  activeItem: {
-    }
-  name: Ayam
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
-  name: Domba
-  weight: 0
-- !!com.ooopppp.tubes_oop_2.Entity.Herbivore
-  activeItem: {
-    }
-  name: Kuda
-  weight: 0
-active_deck_count: 0
-active_deck: [
-  ]
-cardInFarm: 3
+cardInFarm: 7
 farm:
-- location: C02
-  name: Kuda
+- location: A03
+  name: Biji Stroberi
   umur_berat: 0
   active_item: {
     }
-- location: D03
-  name: Ayam
+- location: B03
+  name: Biji Stroberi
+  umur_berat: 2
+  active_item: {
+    }
+- location: C03
+  name: Hiu Darat
   umur_berat: 0
+  active_item: {
+    }
+- location: A04
+  name: Biji Stroberi
+  umur_berat: 2
+  active_item: {
+    }
+- location: B04
+  name: Biji Stroberi
+  umur_berat: 4
+  active_item: {
+    }
+- location: C04
+  name: Biji Labu
+  umur_berat: 2
   active_item: {
     }
 - location: D04
-  name: Domba
-  umur_berat: 0
+  name: Biji Jagung
+  umur_berat: 4
   active_item: {
     }

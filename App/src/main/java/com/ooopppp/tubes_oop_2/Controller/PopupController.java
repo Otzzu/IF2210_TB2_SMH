@@ -25,7 +25,13 @@ public class PopupController {
     public void showTanamanPopup(Plant plant) {
         Stage stage = new Stage();
         System.out.println( "ggg: " + plant.getName());
-        TanamanPopup popup = new TanamanPopup(stage, plant.getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.getImage(), plant, parent);
+        TanamanPopup popup;
+        if (!plant.isReadyToHarvest()){
+            popup = new TanamanPopup(stage, plant.getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.getImage(), plant, parent);
+        } else {
+            popup = new TanamanPopup(stage, plant.harvest().getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.harvest().getImage(), plant, parent);
+
+        }
         popup.setOnHarvest(livingBeing -> {
             try {
                 player.harvestLivingBeing(livingBeing);

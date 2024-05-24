@@ -1,4 +1,5 @@
-current_turn: 3
+current_turn: 6
 items_in_store: {
-  Susu: 1
+  Susu: 1,
+  Daging Beruang: 1
 }

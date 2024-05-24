@@ -182,6 +182,7 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
                         ((Animal) being).setWeight((Integer) beingDetails.get("umur_berat"));
                     } else {
                         ((Plant) being).setAge((Integer) beingDetails.get("umur_berat"));
+                        farm.addPlantObserver((Plant) being);
                     }
                     farm.set(row, col, being); // Assuming a method to place beings at specific locations
 

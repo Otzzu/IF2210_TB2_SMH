@@ -17,6 +17,14 @@ public class LivingBeing extends Card {
         this.activeItem = activeItem;
     }
 
+    public void addItem(Item item){
+        if (activeItem.containsKey(item.getName())) {
+            activeItem.put(item.getName(), activeItem.get(item.getName()) + 1);
+        } else {
+            activeItem.put(item.getName(), 1);
+        }
+    }
+
     public Map<String, Integer> getActiveItem() {return  activeItem;}
 
     public boolean haveProtect() {
@@ -28,11 +36,7 @@ public class LivingBeing extends Card {
     }
 
     public void useItem(Item item) {
-        if (activeItem.containsKey(item.getName())) {
-            activeItem.put(item.getName(), activeItem.get(item.getName()) + 1);
-        } else {
-            activeItem.put(item.getName(), 1);
-        }
+        addItem(item);
     }
 
     public Product harvest() {

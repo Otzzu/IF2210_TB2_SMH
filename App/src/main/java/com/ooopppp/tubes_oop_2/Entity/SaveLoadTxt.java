@@ -9,6 +9,7 @@
  import java.nio.file.Paths;
  import java.util.List;
  import java.util.Map;
+ import java.util.StringJoiner;
 
  public class SaveLoadTxt implements SaveLoadFile {
      private String folderPath;
@@ -252,6 +253,8 @@
                  return;
              }
 
+             Store newStore = new Store();
+             CardFactory newCard = new CardFactory();
              for (int i = 2; i < 2 + Integer.parseInt(lines.get(1)); i++) {
                  String line = lines.get(i);
                  String[] parts = line.split(" ");
@@ -259,8 +262,6 @@
                      System.out.println("Invalid line format: " + line);
                      continue;
                  }
-                 Store newStore = new Store();
-                 CardFactory newCard = new CardFactory();
                  System.out.println(parts[1] + " " + parts[0]);
                  for (int j = 0; j < Integer.parseInt(parts[1]); i++){
                      newStore.addItems((Product)newCard.createCard((parts[0])));
@@ -314,17 +315,26 @@
                          } else {
                              writer1.write(" " + ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j]).getAge());
                          }
-                         writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().size()) + " ");
+                         StringBuilder result = new StringBuilder();
+                         if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() == 0){
+                            writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum()));
+                         } else {
+                            writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() + " "));
+                         }
                          for (Map.Entry<String, Integer> entry : GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().entrySet()) {
                              for (int k = 0; k < entry.getValue(); k++) {
-                                 writer1.write(entry.getKey());
-                                 if (k < entry.getValue() - 1) {
-                                     writer1.write(" ");
+                                 result.append(entry.getKey());
+                                 if (k < entry.getValue()) {
+                                     result.append(" ");
                                  }
                              }
                          }
+                         if (!result.isEmpty()) {
+                             result.setLength(result.length() - 1);
+                         }
+                         writer1.write(result.toString());
+                         writer1.newLine();
                      }
-                     writer1.newLine();
                  }
              }
 
@@ -355,17 +365,22 @@
                          } else {
                              writer2.write(" " + ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j]).getAge());
                          }
-                         writer2.write(" " + (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().size()) + " ");
+                         writer2.write(" " + (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() + " "));
+                         StringBuilder result = new StringBuilder();
                          for (Map.Entry<String, Integer> entry : GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().entrySet()) {
                              for (int k = 0; k < entry.getValue(); k++) {
-                                 writer2.write(entry.getKey());
-                                 if (k < entry.getValue() - 1) {
-                                     writer2.write(" ");
+                                 result.append(entry.getKey());
+                                 if (k < entry.getValue()) {
+                                     result.append(" ");
                                  }
                              }
                          }
+                         if (!result.isEmpty()) {
+                             result.setLength(result.length() - 1);
+                         }
+                         writer2.write(result.toString());
+                         writer2.newLine();
                      }
-                     writer2.newLine();
                  }
              }
          } catch (IOException e) {

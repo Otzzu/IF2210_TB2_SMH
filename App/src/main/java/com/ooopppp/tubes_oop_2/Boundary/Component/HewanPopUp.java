@@ -18,16 +18,18 @@ import com.ooopppp.tubes_oop_2.Entity.Animal;
 public class HewanPopUp extends Popup {
     private String name;
     private int weight;
+    private int weightToHarvest;
     private String activeItem;
     private String imagePath;
     private VBox contentContainer;
     private Animal animal;
     private MainView parent;
 
-    public HewanPopUp(Stage stage, String name, int weight, String activeItem, String imagePath, Animal animal, MainView parent) {
+    public HewanPopUp(Stage stage, String name, int weight, int weightToHarvest, String activeItem, String imagePath, Animal animal, MainView parent) {
         super(stage);
         this.name = name;
         this.weight = weight;
+        this.weightToHarvest = weightToHarvest;
         this.activeItem = activeItem;
         this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.animal = animal;
@@ -69,7 +71,7 @@ public class HewanPopUp extends Popup {
         weightLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(weightLabel, 0, 0);
 
-        Label weightValueLabel = new Label(String.valueOf(weight));
+        Label weightValueLabel = new Label(weight + " (" + weightToHarvest + ")");
         weightValueLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(weightValueLabel, 1, 0);
 

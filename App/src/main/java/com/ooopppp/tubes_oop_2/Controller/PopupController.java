@@ -24,9 +24,9 @@ public class PopupController {
         System.out.println( "ggg: " + plant.getName());
         TanamanPopup popup;
         if (!plant.isReadyToHarvest()){
-            popup = new TanamanPopup(stage, plant.getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.getImage(), plant, parent);
+            popup = new TanamanPopup(stage, plant.getName(), plant.getAge(), plant.getAgeToHarvest(), plant.getFormattedActiveItems(), plant.getImage(), plant, parent);
         } else {
-            popup = new TanamanPopup(stage, plant.harvest().getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.harvest().getImage(), plant, parent);
+            popup = new TanamanPopup(stage, plant.harvest().getName(), plant.getAge(), plant.getAgeToHarvest(), plant.getFormattedActiveItems(), plant.harvest().getImage(), plant, parent);
 
         }
         popup.setOnHarvest(livingBeing -> {
@@ -43,7 +43,7 @@ public class PopupController {
 
     public void showHewanPopup(Animal animal) {
         Stage stage = new Stage();
-        HewanPopUp popup = new HewanPopUp(stage, animal.getName(), animal.getWeight(), animal.getFormattedActiveItems(), animal.getImage(), animal, parent);
+        HewanPopUp popup = new HewanPopUp(stage, animal.getName(), animal.getWeight(), animal.getWeightToHarvest(), animal.getFormattedActiveItems(), animal.getImage(), animal, parent);
 
         popup.setOnHarvest(livingBeing -> {
             try {

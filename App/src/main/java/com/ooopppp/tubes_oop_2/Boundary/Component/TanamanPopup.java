@@ -18,16 +18,18 @@ import com.ooopppp.tubes_oop_2.Entity.Plant;
 public class TanamanPopup extends Popup {
     private String name;
     private int age;
+    private int ageToHarvest;
     private String activeItem;
     private String imagePath;
     private VBox contentContainer;
     private Plant plant;
     private MainView parent;
 
-    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant, MainView parent) {
+    public TanamanPopup(Stage stage, String name, int age, int ageToHarvest, String activeItem, String imagePath, Plant plant, MainView parent) {
         super(stage);
         this.name = name;
         this.age = age;
+        this.ageToHarvest = ageToHarvest;
         this.activeItem = activeItem;
         this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.plant = plant;
@@ -73,7 +75,7 @@ public class TanamanPopup extends Popup {
         ageLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(ageLabel, 0, 0);
 
-        Label ageValueLabel = new Label(String.valueOf(age));
+        Label ageValueLabel = new Label(age + " (" + ageToHarvest + ")");
         ageValueLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(ageValueLabel, 1, 0);
 

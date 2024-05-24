@@ -7,6 +7,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import java.net.URL;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.Media;
 import com.ooopppp.tubes_oop_2.Entity.LivingBeing;
 
 public abstract class Popup {
@@ -14,6 +17,18 @@ public abstract class Popup {
     protected Scene scene;
     protected Stage stage;
     private HarvestAction harvestAction;
+
+    protected void playClickSound() {
+        URL soundUrl = getClass().getResource("/com/ooopppp/tubes_oop_2/sound/button-click.mp3");
+        if (soundUrl != null) {
+            Media clickSound = new Media(soundUrl.toExternalForm());
+            MediaPlayer mediaPlayer = new MediaPlayer(clickSound);
+            mediaPlayer.play();
+        } else {
+            System.out.println("Sound file not found.");
+        }
+    }
+
 
     public Popup(Stage stage) {
         this.stage = stage;

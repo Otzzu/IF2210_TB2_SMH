@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TUBES_OOP_2" />
+        <module name="App" />
         <module name="JSONSaveLoad" />
         <module name="YAMLSaveLoad" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TUBES_OOP_2" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

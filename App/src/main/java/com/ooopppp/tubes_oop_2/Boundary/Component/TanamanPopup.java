@@ -108,8 +108,8 @@ public class TanamanPopup extends Popup {
         Button harvestButton = new Button("Panen");
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
-//        System.out.println(plant.getName());
         harvestButton.setOnAction(event -> harvest(plant));
+        playClickSound();
 
         HBox buttonBox = new HBox(harvestButton);
         buttonBox.setAlignment(Pos.CENTER);

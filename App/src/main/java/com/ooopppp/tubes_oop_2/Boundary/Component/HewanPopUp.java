@@ -105,6 +105,7 @@ public class HewanPopUp extends Popup {
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
         harvestButton.setOnAction(event -> harvest(animal));
+        playClickSound();
 
         HBox buttonBox = new HBox(harvestButton);
         buttonBox.setAlignment(Pos.CENTER);

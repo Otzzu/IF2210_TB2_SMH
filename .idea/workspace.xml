@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/InitView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/InitView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/InitView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/resources/com/ooopppp/tubes_oop_2/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>

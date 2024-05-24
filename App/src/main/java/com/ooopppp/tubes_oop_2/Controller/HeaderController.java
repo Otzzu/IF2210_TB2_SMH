@@ -69,11 +69,11 @@ public class HeaderController {
 
             if (randomNumber == 0) {
 
-                header.initializeComponents(true);
-                parent.getController().highlightAttackAreas();
-                parent.getBoard().getController().populateGrid(false);
-                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
-                AttackPopup.showView(parent);
+//                header.initializeComponents(true);
+//                parent.getController().highlightAttackAreas();
+//                parent.getBoard().getController().populateGrid(false);
+//                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
+//                AttackPopup.showView(parent);
             }else{
                 header.initializeComponents(false);
                 parent.getBoard().getController().populateGrid(false);

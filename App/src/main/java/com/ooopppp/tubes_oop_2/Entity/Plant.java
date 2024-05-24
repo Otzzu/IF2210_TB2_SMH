@@ -22,6 +22,10 @@ public class Plant extends LivingBeing implements Observer {
         }
     }
 
+    public void addAge(){
+        age++;
+    }
+
     public int getAgeToHarvest() {
         return ageToHarvest;
     }
@@ -42,7 +46,7 @@ public class Plant extends LivingBeing implements Observer {
 
     @Override
     public void update(String data) {
-        addAge(1);
+        addAge();
     }
 
     public boolean isReadyToHarvest() {

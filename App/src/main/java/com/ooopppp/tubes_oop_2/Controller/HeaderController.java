@@ -67,14 +67,19 @@ public class HeaderController {
             Random random = new Random();
             int randomNumber = random.nextInt(4); // Will generate either 0 or 1
 
-//            if (randomNumber == 0) {
-//
-//                header.initializeComponents(true);
-//                parent.getController().highlightAttackAreas();
-//                AttackPopup.showView(parent);
-//            }else{
-//                header.initializeComponents(false);
-//            }
+            if (randomNumber == 0) {
+
+                header.initializeComponents(true);
+                parent.getController().highlightAttackAreas();
+                parent.getBoard().getController().populateGrid(false);
+                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
+                AttackPopup.showView(parent);
+            }else{
+                header.initializeComponents(false);
+                parent.getBoard().getController().populateGrid(false);
+                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
+
+            }
         });
     }
 

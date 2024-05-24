@@ -11,12 +11,11 @@ import java.util.*;
 import org.yaml.snakeyaml.Yaml;
 import com.ooopppp.tubes_oop_2.Entity.*;
 
-public class SaveLoadYAML extends ExternalSaveLoadFile {
+public class SaveLoadYAML implements ExternalSaveLoadFile {
 
     private Yaml yaml;
 
     public SaveLoadYAML() {
-        super();
         try{
             DumperOptions options = new DumperOptions();
             options.setIndent(2);
@@ -182,6 +181,7 @@ public class SaveLoadYAML extends ExternalSaveLoadFile {
                         ((Animal) being).setWeight((Integer) beingDetails.get("umur_berat"));
                     } else {
                         ((Plant) being).setAge((Integer) beingDetails.get("umur_berat"));
+                        farm.addPlantObserver((Plant) being);
                     }
                     farm.set(row, col, being); // Assuming a method to place beings at specific locations
 

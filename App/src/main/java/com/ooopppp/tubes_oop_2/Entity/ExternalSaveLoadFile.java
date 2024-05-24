@@ -4,20 +4,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ExternalSaveLoadFile {
+public interface ExternalSaveLoadFile {
 
-    Map<String, String> nameKodeMap;
-    public ExternalSaveLoadFile() {
-        nameKodeMap = new HashMap<>();
-        nameKodeMap.put("", "");
-    }
+    String getExt();
+    String getName();
 
-    public abstract  String getExt();
-    public abstract String getName();
+    void loadCustomFile(String stringPath) throws IOException;
 
-    public abstract void loadCustomFile(String stringPath) throws IOException;
-
-    public abstract void saveCustomFile(String stringPath) throws IOException;
+    void saveCustomFile(String stringPath) throws IOException;
 
 
 }

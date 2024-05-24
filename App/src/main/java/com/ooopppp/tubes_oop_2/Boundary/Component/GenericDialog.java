@@ -48,7 +48,7 @@ public class GenericDialog {
 
 
         Scene dialogScene = new Scene(dialogVBox, 720, 490);
-        dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
+//        dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
         dialogScene.setFill(null);
         dialogStage.setScene(dialogScene);
     }
@@ -72,7 +72,15 @@ public class GenericDialog {
 
     private void setupComponents(VBox dialogVBox) {
         Button closeButton = new Button("X");
-        closeButton.getStyleClass().add("x-symbol");
+        closeButton.setStyle("   -fx-background-color: transparent;\n" +
+                "    -fx-font-size: 35px;\n" +
+                "    -fx-font-weight: 800;\n" +
+                "    -fx-font-family: \"Courier New\";\n" +
+                "    -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);\n" +
+                "    -fx-background-radius: 10px;\n" +
+                "    -fx-border-radius: 10px;\n" +
+                "    -fx-text-fill: #5B311C;\n" +
+                "    -fx-padding: 20 20 20 0;");
         closeButton.setOnAction(event -> dialogStage.close());
 
         closeButton.setOnMousePressed(event -> {

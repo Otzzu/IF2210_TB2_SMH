@@ -17,6 +17,7 @@
      @Override
      public void loadData(String folderPath) {
          this.folderPath = folderPath;
+         GameData.clear();
          loadGameState(folderPath);
          loadPlayer(folderPath);
      }
@@ -25,6 +26,8 @@
          // pathnya disesuain
          Path path1 = Paths.get(folderPath, "player1.txt");
          try {
+             Player player = new Player("player1");
+             GameData.getGameData().addPlayer(player);
              List<String> lines = Files.readAllLines(path1);
              GameData.getGameData().getPlayers()[0].setGulden(Integer.parseInt(lines.get(0)));
              GameData.getGameData().getPlayers()[0].getDeck().generateDeck(Integer.parseInt(lines.get(1)));
@@ -61,12 +64,12 @@
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'B') {
@@ -74,12 +77,12 @@
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'C') {
@@ -87,12 +90,12 @@
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'D') {
@@ -100,12 +103,12 @@
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'E') {
@@ -113,12 +116,12 @@
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      }
@@ -132,6 +135,8 @@
          Path path2 = Paths.get(folderPath, "player2.txt");
          try {
              List<String> lines = Files.readAllLines(path2);
+             Player player2 = new Player("player2");
+             GameData.getGameData().addPlayer(player2);
              GameData.getGameData().getPlayers()[1].setGulden(Integer.parseInt(lines.get(0)));
              GameData.getGameData().getPlayers()[1].getDeck().generateDeck(Integer.parseInt(lines.get(1)));
              CardFactory newCard = new CardFactory();
@@ -168,12 +173,12 @@
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'B') {
@@ -181,12 +186,12 @@
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'C') {
@@ -194,12 +199,12 @@
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'D') {
@@ -207,12 +212,12 @@
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      } else if (col == 'E') {
@@ -220,12 +225,12 @@
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4] instanceof Animal) {
                              ((Animal) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4]).setWeight(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4]).setAge(Integer.parseInt(parts[2]));
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
-                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4].useItem((Item) newCard.createCard(parts[k]));
+                                 GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }
                          }
                      }
@@ -243,7 +248,7 @@
          try {
              List<String> lines = Files.readAllLines(path);
              GameData.getGameData().setTurn(Integer.parseInt(lines.get(0)));
-             Store newStore = new Store();
+//             Store newStore = new Store();
 
              if(Integer.parseInt(lines.get(1)) != 0) {
                  CardFactory newCard = new CardFactory();
@@ -251,15 +256,18 @@
                      String line = lines.get(i);
                      String[] parts = line.split(" ");
                      for (int j = 0; j < Integer.parseInt(parts[1]); j++) {
-                         newStore.addItems((Product) newCard.createCard((parts[0])));
+                         GameData.getGameData().getStore().addItems((Product) newCard.createCard((parts[0])));
                      }
                  }
              }
+
+
 
          } catch (IOException e) {
              e.printStackTrace();
              System.out.println("Failed to read the game state from the file.");
          }
+
      }
 
      @Override

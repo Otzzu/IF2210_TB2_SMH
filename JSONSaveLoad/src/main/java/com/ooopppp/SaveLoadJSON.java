@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SaveLoadJSON extends ExternalSaveLoadFile {
+public class SaveLoadJSON implements ExternalSaveLoadFile {
 
     public SaveLoadJSON() {
-        super();
+
     }
 
     @Override

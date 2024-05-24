@@ -21,7 +21,15 @@ public class BuyController {
         this.stage = stage;
     }
 
+    public void handleCancelButton(){
+        storeView.getBtnSound().stop();
+        storeView.getBtnSound().play();
+        ((Stage) buyDialog.getScene().getWindow()).close();
+    }
+
     public void attachEventsBuyButton()  {
+        storeView.getBtnSound().stop();
+        storeView.getBtnSound().play();
         System.out.println("masuk buy");
         Player currentPlayer = GameData.getGameData().getCurrentPlayer();
         int currentActiveDeckSize = currentPlayer.getDeck().getActiveDeckCount();

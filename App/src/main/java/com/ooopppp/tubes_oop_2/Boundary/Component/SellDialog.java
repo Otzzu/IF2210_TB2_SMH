@@ -68,7 +68,7 @@ public class SellDialog extends VBox {
 
         Button cancelButton = new Button("Cancel");
         cancelButton.getStyleClass().add("circular-button");
-        cancelButton.setOnAction(e -> ((Stage) getScene().getWindow()).close());
+        cancelButton.setOnAction(e -> controller.handleCancelButton());
         // Set up the layout
         HBox buttonBox = new HBox(okButton,cancelButton);
         buttonBox.setSpacing(30);

@@ -5,13 +5,19 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Entity.*;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Collections;
+import java.util.Objects;
 
 public class BoardController {
     private Board board;
@@ -161,6 +167,16 @@ public class BoardController {
             ClipboardContent content = new ClipboardContent();
             content.putString("VBox");
             db.setContent(content);
+            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + ((CardComponent)event.getSource()).getCardData().getImage())));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(110);
+            imageView.setFitWidth(110);
+            imageView.setPreserveRatio(true);
+
+            SnapshotParameters snapshotParameters = new SnapshotParameters();
+            snapshotParameters.setFill(Color.TRANSPARENT);
+            WritableImage dragImage = imageView.snapshot(snapshotParameters, null);
+            db.setDragView(dragImage, 40, 40);
             VBox previousSelected = parent.getSelectedCardDeck();
 
             if (previousSelected != event.getSource() && cardComponent.getCardData() != null) {

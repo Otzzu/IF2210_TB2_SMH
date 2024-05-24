@@ -22,9 +22,8 @@ public class BuyDialog extends VBox {
     private Button buyButton;
     private  Button cancelButton;
     private BuyController controller;
-    private MainView parent;
 
-    public BuyDialog(Product product, int quantit) {
+    public BuyDialog(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
         this.setStyle("-fx-background-color:  #CB9270; -fx-font-family: 'Courier'; -fx-border-color: #FFFFFF; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
@@ -49,7 +48,7 @@ public class BuyDialog extends VBox {
         this.buyButton.getStyleClass().add("circular-button-1");
         cancelButton = new Button("Tidak");
         cancelButton.getStyleClass().add("circular-button-1");
-        cancelButton.setOnAction(e -> ((Stage) getScene().getWindow()).close());
+        cancelButton.setOnAction(e -> controller.handleCancelButton());
 
         HBox buttonContainer =  new HBox();
         buttonContainer.getChildren().addAll(buyButton,cancelButton);

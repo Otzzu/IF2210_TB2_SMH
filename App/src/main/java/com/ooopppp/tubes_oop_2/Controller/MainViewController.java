@@ -209,11 +209,6 @@ public class MainViewController {
 
 
 
-public void setUpBearAttack(){
-        mainView.getHeader().initializeComponents(true);
-        highlightAttackAreas();
-    }
-
     public void switchToStoreView(Stage stage) {
         Parent storeView = new StoreView(stage);
         stage.getScene().setRoot(storeView);

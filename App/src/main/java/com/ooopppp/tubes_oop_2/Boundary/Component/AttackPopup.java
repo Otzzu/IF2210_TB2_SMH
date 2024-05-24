@@ -1,11 +1,11 @@
-package com.ooopppp.tubes_oop_2.Boundary;
+package com.ooopppp.tubes_oop_2.Boundary.Component;
 
-import com.ooopppp.tubes_oop_2.Entity.Card;
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -52,6 +51,8 @@ public class AttackPopup extends Stage {
         }
 
         // Set the scene
+        GaussianBlur blurEffect = new GaussianBlur(10);
+        parent.getStage().getScene().getRoot().setEffect(blurEffect);
         setScene(scene);
         this.initStyle(StageStyle.TRANSPARENT);
 
@@ -60,7 +61,7 @@ public class AttackPopup extends Stage {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(() -> close());
+                Platform.runLater(() -> {close(); parent.getStage().getScene().getRoot().setEffect(null);});
             }
         }, 3000);
     }

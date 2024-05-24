@@ -28,7 +28,6 @@ public class MainView extends VBox {
     private MediaPlayer btnSound;
     private MainViewController controller;
     private MediaPlayer dangerSound;
-    private StackPane baseStack;
 
     public MediaPlayer getDangerSound() {
         return dangerSound;
@@ -73,10 +72,10 @@ public class MainView extends VBox {
         this.selectedCardDeck = selectedCardDeck;
     }
 
+
     public MainView(Stage stage){
         super();
         controller = new MainViewController(this);
-
         this.stage = stage;
         cardsInBoard = new ArrayList<>(20);
         mainContent = new HBox();

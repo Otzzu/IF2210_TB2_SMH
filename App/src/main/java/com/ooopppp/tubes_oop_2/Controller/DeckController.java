@@ -4,13 +4,18 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
 import com.ooopppp.tubes_oop_2.Boundary.Component.DeckContainer;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Entity.*;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DeckController {
     private DeckContainer deckContainer;
@@ -26,7 +31,18 @@ public class DeckController {
             Dragboard db = cardComponent.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
             content.putString("VBox");
+            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + ((CardComponent)event.getSource()).getCardData().getImage())));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(110);  // Sesuaikan tinggi
+            imageView.setFitWidth(110);   // Sesuaikan lebar
+            imageView.setPreserveRatio(true);
+
+            SnapshotParameters snapshotParameters = new SnapshotParameters();
+            snapshotParameters.setFill(Color.TRANSPARENT);
+            WritableImage dragImage = imageView.snapshot(snapshotParameters, null);
             db.setContent(content);
+            db.setDragView(dragImage, 40, 40);
+
             CardComponent previousSelected = parent.getSelectedCardDeck();
             if (parent.getSidebar().getButtonLadang().getText().equals("Ladang Lawan")){
                 if (cardComponent.getCardData() instanceof LivingBeing){

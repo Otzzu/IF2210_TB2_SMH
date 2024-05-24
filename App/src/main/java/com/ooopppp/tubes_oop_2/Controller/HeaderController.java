@@ -1,11 +1,11 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
-import com.ooopppp.tubes_oop_2.Boundary.AttackPopup;
+import com.ooopppp.tubes_oop_2.Boundary.Component.AttackPopup;
 import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.Component.Header;
 import com.ooopppp.tubes_oop_2.Boundary.Component.WinDialog;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
+import com.ooopppp.tubes_oop_2.Boundary.Component.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 import com.ooopppp.tubes_oop_2.Entity.Player;
@@ -79,6 +79,8 @@ public class HeaderController {
                 parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
 
             }
+
+
         });
     }
 

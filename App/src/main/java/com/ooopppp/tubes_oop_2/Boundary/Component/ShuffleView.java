@@ -1,11 +1,12 @@
-package com.ooopppp.tubes_oop_2.Boundary;
+package com.ooopppp.tubes_oop_2.Boundary.Component;
 
-import com.ooopppp.tubes_oop_2.Boundary.Component.CardComponent;
+import com.ooopppp.tubes_oop_2.Boundary.MainView;
 import com.ooopppp.tubes_oop_2.Controller.ShuffleController;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -57,8 +58,11 @@ public class ShuffleView extends Stage {
         initializeComponents();
         initOwner(parent.getStage());
         buildLayout();
+        GaussianBlur blurEffect = new GaussianBlur(10);
+        parent.getStage().getScene().getRoot().setEffect(blurEffect);
 
         this.setScene(scene);
+
         this.initStyle(StageStyle.TRANSPARENT);
     }
 

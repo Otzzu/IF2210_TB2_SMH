@@ -15,8 +15,15 @@ public class SellController {
         this.storeView = storeView;
     }
 
-    public void attachEventsOkButton() {
+    public void handleCancelButton(){
+        storeView.getBtnSound().stop();
+        storeView.getBtnSound().play();
+        ((Stage) sellDialog.getScene().getWindow()).close();
+    }
 
+    public void attachEventsOkButton() {
+        storeView.getBtnSound().stop();
+        storeView.getBtnSound().play();
         Product selectedProduct = sellDialog.getSelectedProduct();
 
         boolean removed = GameData.getGameData().getCurrentPlayer().getDeck().removeFromActiveDeck(selectedProduct);

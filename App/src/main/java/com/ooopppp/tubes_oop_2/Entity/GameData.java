@@ -1,5 +1,8 @@
 package com.ooopppp.tubes_oop_2.Entity;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class GameData {
     private static GameData gameData;
     private Player currentPlayer;
@@ -7,10 +10,30 @@ public class GameData {
     private int turn;
     private Store store;
     private PluginManager pluginManager;
+    private Media media;
+    private MediaPlayer mediaPlayer;
+
+    public Media getMedia() {
+        return media;
+    }
+
+    public MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
+
+    public void setMedia(Media media) {
+        this.media = media;
+    }
+
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+    }
 
     public void setTurn(int turn) {
         this.turn = turn;
     }
+
+
 
     private GameData(){
         players = new Player[2];
@@ -22,8 +45,12 @@ public class GameData {
 
     public static void clear(){
         PluginManager pluginManagerTemp = getGameData().getPluginManager();
+        Media media1 = getGameData().getMedia();
+        MediaPlayer mediaPlayer1 = getGameData().getMediaPlayer();
         gameData = new GameData();
         gameData.setPluginManager(pluginManagerTemp);
+        gameData.setMediaPlayer(mediaPlayer1);
+        gameData.setMedia(media1);
     }
 
     public void setPluginManager(PluginManager pluginManager) {

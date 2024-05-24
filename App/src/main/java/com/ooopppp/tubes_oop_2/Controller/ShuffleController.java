@@ -1,7 +1,7 @@
 package com.ooopppp.tubes_oop_2.Controller;
 
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Boundary.ShuffleView;
+import com.ooopppp.tubes_oop_2.Boundary.Component.ShuffleView;
 import com.ooopppp.tubes_oop_2.Entity.Card;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 
@@ -35,6 +35,8 @@ public class ShuffleController {
         parent.getDeckContainer().getController().renderDeck();
         parent.getDeckContainer().getController().updateDeckLabel();
         shuffleView.close();
+        parent.getStage().getScene().getRoot().setEffect(null);
+
 
     }
 }

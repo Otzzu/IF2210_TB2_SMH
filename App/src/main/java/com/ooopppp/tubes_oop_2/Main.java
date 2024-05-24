@@ -4,6 +4,7 @@ import com.ooopppp.tubes_oop_2.Boundary.InitView;
 import com.ooopppp.tubes_oop_2.Entity.GameData;
 import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -21,6 +22,11 @@ public class Main extends Application {
             System.out.println("Resource not found.");
         }
         initView.loadMediaAndPlay();
+        primaryStage.setOnCloseRequest(event -> {
+
+            Platform.exit();
+            System.exit(0);
+        });
         primaryStage.setTitle("Card Game");
         primaryStage.setScene(scene);
         primaryStage.show();

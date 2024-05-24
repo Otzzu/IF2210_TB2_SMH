@@ -62,11 +62,24 @@ public class CardComponent extends VBox implements Observer {
         this.getChildren().clear();
         if (cardData != null){
 //            System.out.println(cardData.getName());
-            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + cardData.getImage())));
+            Image image;
             Region space = new Region();
             VBox.setVgrow(space, Priority.ALWAYS);
+            if (cardData instanceof Plant plant && plant.isReadyToHarvest()){
+
+                image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + plant.harvest().getImage())));
+
+                textName.setText(plant.harvest().getName().replace(" ", "\n"));
+
+            } else {
+                image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/ooopppp/tubes_oop_2/img" + cardData.getImage())));
+
+                textName.setText(cardData.getName().replace(" ", "\n"));
+
+            }
+
             imageView.setImage(image);
-            textName.setText(cardData.getName().replace(" ", "\n"));
+
             this.getChildren().addAll(imageView, space, textName);
         }
     }

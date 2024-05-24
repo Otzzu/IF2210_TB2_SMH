@@ -1,59 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="FxmlFile" />
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
+    <component name="AutoImportSettings">
+        <option name="autoReloadType" value="SELECTIVE" />
+    </component>
+    <component name="ChangeListManager">
+        <list default="true" id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="">
+            <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/PluginDialog.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/SidebarController.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Animal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Card.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Carnivore.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ExternalSaveLoadFile.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/GameData.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Herbivore.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Item.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/ItemAdded.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/LivingBeing.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Omnivore.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Plant.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Player.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Product.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/JSONSaveLoad/src/main/java/com/ooopppp/SaveLoadJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/src/main/java/com/ooopppp/SaveLoadJSON.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/JSONSaveLoad/target/JSONSaveLoad-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/target/JSONSaveLoad-1.0-SNAPSHOT.jar" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/JSONSaveLoad/target/classes/com/ooopppp/SaveLoadJSON.class" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/target/classes/com/ooopppp/SaveLoadJSON.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/XMLSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XMLSaveLoad/pom.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/XMLSaveLoad/src/main/java/com/ooopppp/SaveLoadXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/XMLSaveLoad/src/main/java/com/ooopppp/SaveLoadXML.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/XMLSaveLoad/target/classes/com/ooopppp/SaveLoadXML.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/halo/gamestate.json" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/halo/player1.json" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/halo/player2.json" beforeDir="false" />
+        </list>
+        <option name="SHOW_DIALOG" value="false" />
+        <option name="HIGHLIGHT_CONFLICTS" value="true" />
+        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+        <option name="LAST_RESOLUTION" value="IGNORE" />
+    </component>
+    <component name="FileTemplateManagerImpl">
+        <option name="RECENT_TEMPLATES">
+            <list>
+                <option value="CSS File" />
+                <option value="FxmlFile" />
+                <option value="Enum" />
+                <option value="Interface" />
+                <option value="Class" />
+            </list>
+        </option>
+    </component>
+    <component name="Git.Settings">
+        <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    </component>
+    <component name="MavenImportPreferences">
+        <option name="generalSettings">
+            <MavenGeneralSettings>
+                <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+            </MavenGeneralSettings>
+        </option>
+    </component>
+    <component name="ProblemsViewState">
+        <option name="selectedTabId" value="CurrentFile" />
+    </component>
+    <component name="ProjectColorInfo">{
         &quot;associatedIndex&quot;: 5
         }</component>
-  <component name="ProjectId" id="2gAoLFftJqEPbqcx9tRoJxmsX3H" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
+    <component name="ProjectId" id="2gAoLFftJqEPbqcx9tRoJxmsX3H" />
+    <component name="ProjectViewState">
+        <option name="hideEmptyMiddlePackages" value="true" />
+        <option name="showLibraryContents" value="true" />
+    </component>
+    <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.MainView.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
@@ -71,107 +97,120 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\app" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\img" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\sound" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\java\com\ooopppp\tubes_oop_2\Boundary" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\App" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\app" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\css" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2" />
-      <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\css" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.ooopppp.tubes_oop_2.Main" />
-      <module name="App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ooopppp.tubes_oop_2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ooopppp.tubes_oop_2.Boundary.MainView" />
-      <module name="TUBES_OOP_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ooopppp.tubes_oop_2.Boundary.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainView" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="" />
-      <created>1715149691987</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1715149691987</updated>
-      <workItem from="1715149693071" duration="9158000" />
-      <workItem from="1715503392925" duration="653000" />
-      <workItem from="1716017633305" duration="14283000" />
-      <workItem from="1716103852965" duration="8128000" />
-      <workItem from="1716115364535" duration="8762000" />
-      <workItem from="1716128643232" duration="681000" />
-      <workItem from="1716133962171" duration="8522000" />
-      <workItem from="1716147520913" duration="988000" />
-      <workItem from="1716176913508" duration="12046000" />
-      <workItem from="1716211182133" duration="28272000" />
-      <workItem from="1716267450884" duration="23068000" />
-      <workItem from="1716299387544" duration="35546000" />
-      <workItem from="1716371808673" duration="388000" />
-      <workItem from="1716439095372" duration="7050000" />
-      <workItem from="1716447598690" duration="39318000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
+    <component name="RecentsManager">
+        <key name="CopyFile.RECENT_KEYS">
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\app" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\img" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\sound" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\java\com\ooopppp\tubes_oop_2\Boundary" />
+        </key>
+        <key name="MoveFile.RECENT_KEYS">
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\App" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\app" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2\css" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\com\ooopppp\tubes_oop_2" />
+            <recent name="C:\Users\LENOVO\Documents\TUBES_OOP_2\src\main\resources\css" />
+        </key>
+    </component>
+    <component name="RunManager" selected="Application.Main">
+        <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+            <option name="ALTERNATIVE_JRE_PATH" value="17" />
+            <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+            <option name="MAIN_CLASS_NAME" value="com.ooopppp.tubes_oop_2.Main" />
+            <module name="App" />
+            <extension name="coverage">
+                <pattern>
+                    <option name="PATTERN" value="com.ooopppp.tubes_oop_2.*" />
+                    <option name="ENABLED" value="true" />
+                </pattern>
+            </extension>
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration name="MainView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+            <option name="MAIN_CLASS_NAME" value="com.ooopppp.tubes_oop_2.Boundary.MainView" />
+            <module name="TUBES_OOP_2" />
+            <extension name="coverage">
+                <pattern>
+                    <option name="PATTERN" value="com.ooopppp.tubes_oop_2.Boundary.*" />
+                    <option name="ENABLED" value="true" />
+                </pattern>
+            </extension>
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration default="true" type="JetRunConfigurationType">
+            <module name="TUBES_OOP_2" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+            <module name="TUBES_OOP_2" />
+            <option name="filePath" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <recent_temporary>
+            <list>
+                <item itemvalue="Application.Main" />
+                <item itemvalue="Application.MainView" />
+            </list>
+        </recent_temporary>
+    </component>
+    <component name="SharedIndexes">
+        <attachedChunks>
+            <set>
+                <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+                <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+            </set>
+        </attachedChunks>
+    </component>
+    <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+    <component name="TaskManager">
+        <task active="true" id="Default" summary="Default task">
+            <changelist id="79f5e17d-d340-4b29-b039-ba6a5f4f51c2" name="Changes" comment="" />
+            <created>1715149691987</created>
+            <option name="number" value="Default" />
+            <option name="presentableId" value="Default" />
+            <updated>1715149691987</updated>
+            <workItem from="1715149693071" duration="9158000" />
+            <workItem from="1715503392925" duration="653000" />
+            <workItem from="1716017633305" duration="14283000" />
+            <workItem from="1716103852965" duration="8128000" />
+            <workItem from="1716115364535" duration="8762000" />
+            <workItem from="1716128643232" duration="681000" />
+            <workItem from="1716133962171" duration="8522000" />
+            <workItem from="1716147520913" duration="988000" />
+            <workItem from="1716176913508" duration="12046000" />
+            <workItem from="1716211182133" duration="28272000" />
+            <workItem from="1716267450884" duration="23068000" />
+            <workItem from="1716299387544" duration="35546000" />
+            <workItem from="1716371808673" duration="388000" />
+            <workItem from="1716439095372" duration="7050000" />
+            <workItem from="1716447598690" duration="39318000" />
+        </task>
+        <servers />
+    </component>
+    <component name="TypeScriptGeneratedFilesManager">
+        <option name="version" value="3" />
+    </component>
+    <component name="Vcs.Log.Tabs.Properties">
+        <option name="TAB_STATES">
+            <map>
+                <entry key="MAIN">
+                    <value>
+                        <State />
+                    </value>
+                </entry>
+            </map>
+        </option>
+    </component>
+    <component name="XSLT-Support.FileAssociations.UIState">
+        <expand />
+        <select />
+    </component>
 </project>

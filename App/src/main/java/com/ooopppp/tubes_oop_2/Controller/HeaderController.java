@@ -60,7 +60,7 @@ public class HeaderController {
             List<Card> cards = gameData.getCurrentPlayer().getDeck().shuffleCard();
 
             if (cards.size() == 0){
-                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full");
+                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full or deck empty");
             } else {
                 ShuffleView.showView(cards, parent); // This will block input to other windows until closed
             }

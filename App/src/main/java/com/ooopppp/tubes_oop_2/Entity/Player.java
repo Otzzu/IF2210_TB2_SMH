@@ -124,9 +124,6 @@ public class Player {
             throw new IllegalArgumentException("This item cannot be used here");
         }
         if (item.getName().equals("Instant Harvest")){
-            if (deck.getActiveDeckCount() == 6){
-                throw new IllegalArgumentException("Active deck full!!");
-            }
             if (livingBeing instanceof Plant) {
                 Plant plant = (Plant) livingBeing;
                 plant.setAge(plant.getAgeToHarvest());
@@ -135,12 +132,14 @@ public class Player {
                 Animal animal = (Animal) livingBeing;
                 animal.setWeight(animal.getWeightToHarvest());
             }
+            deck.removeFromActiveDeck(item);
+
             try {
                 harvestLivingBeing(livingBeing);
             } catch (IllegalStateException e) {
                 System.out.println(e.getMessage());
+                throw e;
             }
-            deck.removeFromActiveDeck(item);
             return;
         }
         giveItemToLivingBeing(item, livingBeing);

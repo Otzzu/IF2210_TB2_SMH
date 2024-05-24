@@ -1,10 +1,13 @@
 module com.ooopppp.tubes_oop_2 {
-    requires javafx.controls;
-    requires javafx.fxml;
+    requires transitive javafx.base;
+    requires transitive javafx.controls;
+    requires transitive javafx.graphics;
+    requires transitive javafx.fxml;
+    requires transitive javafx.media;
+
 
     requires org.controlsfx.controls;
     requires java.smartcardio;
-    requires javafx.media;
     requires java.desktop;
 
     opens com.ooopppp.tubes_oop_2;

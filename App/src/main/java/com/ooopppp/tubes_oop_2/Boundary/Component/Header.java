@@ -180,6 +180,7 @@ public class Header extends HBox {
                 timerRunning = false;
                 timerValue.setText("0.0s");
                 parent.getController().clearAttackAreas();
+                parent.getDangerSound().stop();
                 enableAllButtons();
                 this.getChildren().remove(timerContainer);
             });

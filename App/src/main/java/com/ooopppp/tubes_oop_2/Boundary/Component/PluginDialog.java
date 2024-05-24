@@ -13,8 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.FileChooser;
-import java.io.*;
+
 
 
 public class PluginDialog {

@@ -9,6 +9,7 @@ import com.ooopppp.tubes_oop_2.Main;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +28,7 @@ public class DialogController {
 
     public boolean saveGame(String format, String folder) {
         // Implementation to save the game
+
         System.out.println("save");
         System.out.println("Format " + format);
         System.out.println("folder " + folder);
@@ -67,6 +69,7 @@ public class DialogController {
 
         SaveLoadFile saveLoadFile =  GameData.getGameData().getPluginManager().getSaveLoadFiles(format);
         try{
+
             if (saveLoadFile == null){
                 throw new Exception("no config");
             }

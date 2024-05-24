@@ -15,4 +15,9 @@
       <module name="TUBES_OOP_2" target="17" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="TUBES_OOP_2" options="--add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls --add-opens=javafx.graphics/javafx.scene=org.controlsfx.controls" />
+    </option>
+  </component>
 </project>

@@ -18,17 +18,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>19.0.2</version>
+            <version>21.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>19.0.2</version>
+            <version>21.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>19.0.2</version>
+            <version>21.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -56,6 +56,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version> <!-- Ensure you are using an updated version -->
                 <configuration>
+
                     <finalName>App-1.0-SNAPSHOT-jar-plugin</finalName>
 
                     <archive>
@@ -94,6 +95,15 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                             <finalName>App-1.0-SNAPSHOT-shade-plugin</finalName>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -111,6 +121,10 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <compilerArgs>
+                        <arg>--add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls</arg>
+                        <arg>--add-opens=javafx.graphics/javafx.scene=org.controlsfx.controls</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>

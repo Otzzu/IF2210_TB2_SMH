@@ -60,7 +60,7 @@ public class HeaderController {
             List<Card> cards = gameData.getCurrentPlayer().getDeck().shuffleCard();
 
             if (cards.size() == 0){
-                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full");
+                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full or deck empty");
             } else {
                 ShuffleView.showView(cards, parent); // This will block input to other windows until closed
             }
@@ -68,12 +68,11 @@ public class HeaderController {
             int randomNumber = random.nextInt(4); // Will generate either 0 or 1
 
             if (randomNumber == 0) {
-
-//                header.initializeComponents(true);
-//                parent.getController().highlightAttackAreas();
-//                parent.getBoard().getController().populateGrid(false);
-//                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
-//                AttackPopup.showView(parent);
+                header.initializeComponents(true);
+                parent.getController().highlightAttackAreas();
+                parent.getBoard().getController().populateGrid(false);
+                parent.getSidebar().getButtonLadang().setText("Ladang Lawan");
+                AttackPopup.showView(parent);
             }else{
                 header.initializeComponents(false);
                 parent.getBoard().getController().populateGrid(false);

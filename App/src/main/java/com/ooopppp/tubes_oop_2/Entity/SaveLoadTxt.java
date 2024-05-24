@@ -68,6 +68,7 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[0].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0]);
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -81,6 +82,7 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[0].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1]);
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -94,6 +96,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[0].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -107,6 +111,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[0].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -120,6 +126,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[0].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -177,6 +185,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[1].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -190,6 +200,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[1].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][1]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][1].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -203,6 +215,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[1].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][2]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][2].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -216,6 +230,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[1].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][3]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][3].addItem((Item) newCard.createCard(parts[k]));
                              }
@@ -229,6 +245,8 @@
                              }
                          } else {
                              ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4]).setAge(Integer.parseInt(parts[2]));
+                             GameData.getGameData().getPlayers()[1].getFarm().addPlantObserver((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][4]);
+
                              for (int k = 4; k < 4 + Integer.parseInt(parts[3]); k++) {
                                  GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][4].addItem((Item) newCard.createCard(parts[k]));
                              }

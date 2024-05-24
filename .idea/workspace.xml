@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34cb7183-b220-4425-98c1-a4db6f3cf974" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YAMLSaveLoad/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YAMLSaveLoad/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PluginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Farm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/HewanPopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/Popup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/TanamanPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONSaveLoad/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONSaveLoad/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YAMLSaveLoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/YAMLSaveLoad/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <updated>1716495739584</updated>
       <workItem from="1716495744730" duration="5057000" />
       <workItem from="1716516201903" duration="1397000" />
-      <workItem from="1716517621308" duration="2477000" />
+      <workItem from="1716517621308" duration="9775000" />
     </task>
     <servers />
   </component>

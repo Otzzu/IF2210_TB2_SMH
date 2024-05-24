@@ -330,6 +330,8 @@ public class BoardController {
                         animal
                 );
             } else if (current.getCardData() instanceof Plant plant) {
+                System.out.println( "hhh:" + plant.getName());
+
                 popupController.showTanamanPopup(
                         plant
                 );

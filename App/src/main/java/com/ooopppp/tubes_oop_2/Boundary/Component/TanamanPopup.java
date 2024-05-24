@@ -16,14 +16,20 @@ import javafx.stage.Stage;
 import com.ooopppp.tubes_oop_2.Entity.Plant;
 
 public class TanamanPopup extends Popup {
+    private String name;
+    private int age;
+    private String activeItem;
     private String imagePath;
     private VBox contentContainer;
     private Plant plant;
     private MainView parent;
 
-    public TanamanPopup(Stage stage, Plant plant, MainView parent) {
+    public TanamanPopup(Stage stage, String name, int age, String activeItem, String imagePath, Plant plant, MainView parent) {
         super(stage);
-        this.imagePath = "/com/ooopppp/tubes_oop_2/img" + plant.getImage();
+        this.name = name;
+        this.age = age;
+        this.activeItem = activeItem;
+        this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.plant = plant;
         this.parent = parent;
         configure();
@@ -39,7 +45,7 @@ public class TanamanPopup extends Popup {
             contentContainer.getChildren().clear();
         }
 
-        Label nameLabel = new Label(plant.getName());
+        Label nameLabel = new Label(name);
         nameLabel.getStyleClass().addAll("text-popup-title");
         nameLabel.setMaxWidth(Double.MAX_VALUE);
         nameLabel.setAlignment(Pos.CENTER);
@@ -67,7 +73,7 @@ public class TanamanPopup extends Popup {
         ageLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(ageLabel, 0, 0);
 
-        Label ageValueLabel = new Label(plant.getAge() + " (" + plant.getAgeToHarvest() + ")");
+        Label ageValueLabel = new Label(String.valueOf(age));
         ageValueLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(ageValueLabel, 1, 0);
 
@@ -79,7 +85,6 @@ public class TanamanPopup extends Popup {
         VBox activeItemsBox = new VBox();
         activeItemsBox.setAlignment(Pos.TOP_LEFT);
 
-        String activeItem = plant.getFormattedActiveItems();
         if (activeItem != null && !activeItem.isEmpty()) {
             String[] items = activeItem.split(", ");
             for (String item : items) {
@@ -103,6 +108,7 @@ public class TanamanPopup extends Popup {
         Button harvestButton = new Button("Panen");
         harvestButton.getStyleClass().add("button-pop-item");
         harvestButton.setPadding(new Insets(20));
+//        System.out.println(plant.getName());
         harvestButton.setOnAction(event -> harvest(plant));
 
         HBox buttonBox = new HBox(harvestButton);

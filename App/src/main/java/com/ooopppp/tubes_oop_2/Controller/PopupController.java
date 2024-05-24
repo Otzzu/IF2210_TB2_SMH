@@ -24,7 +24,8 @@ public class PopupController {
 
     public void showTanamanPopup(Plant plant) {
         Stage stage = new Stage();
-        TanamanPopup popup = new TanamanPopup(stage, plant, parent);
+        System.out.println( "ggg: " + plant.getName());
+        TanamanPopup popup = new TanamanPopup(stage, plant.getName(), plant.getAge(), plant.getFormattedActiveItems(), plant.getImage(), plant, parent);
         popup.setOnHarvest(livingBeing -> {
             try {
                 player.harvestLivingBeing(livingBeing);
@@ -39,7 +40,8 @@ public class PopupController {
 
     public void showHewanPopup(Animal animal) {
         Stage stage = new Stage();
-        HewanPopUp popup = new HewanPopUp(stage, animal, parent);
+        HewanPopUp popup = new HewanPopUp(stage, animal.getName(), animal.getWeight(), animal.getFormattedActiveItems(), animal.getImage(), animal, parent);
+
         popup.setOnHarvest(livingBeing -> {
             try {
                 player.harvestLivingBeing(livingBeing);

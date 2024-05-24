@@ -30,21 +30,39 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <finalName>YAMLSaveLoad-1.0-SNAPSHOT-jar-plugin</finalName>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.ooopppp.SaveLoadYAML</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Plugin-Class>com.ooopppp.SaveLoadYAML</Plugin-Class>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-jar-plugin</artifactId>-->
-<!--                <version>3.0.2</version>-->
-<!--                <configuration>-->
-<!--                    <archive>-->
-<!--                        <manifest>-->
-<!--                            <addClasspath>true</addClasspath>-->
-<!--                            <mainClass>com.ooopppp.SaveLoadYAML</mainClass>-->
-<!--                        </manifest>-->
-<!--                        <manifestEntries>-->
-<!--                            <Plugin-Class>com.ooopppp.SaveLoadYAML</Plugin-Class>-->
-<!--                        </manifestEntries>-->
-<!--                    </archive>-->
-<!--                </configuration>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <version>3.1.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>copy-dependencies</id>-->
+<!--                        <phase>prepare-package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-dependencies</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <outputDirectory>${project.build.directory}/libs</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
 <!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -57,6 +75,8 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <finalName>YAMLSaveLoad-1.0-SNAPSHOT-shade-plugin</finalName>
+
                             <transformers>
                                 <!-- Transformer to add/merge manifest entries -->
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">

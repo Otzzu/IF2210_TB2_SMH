@@ -57,6 +57,7 @@ public abstract class Popup {
     }
 
     protected void harvest(LivingBeing livingBeing) {
+        System.out.println(livingBeing.getName());
         if (harvestAction != null) {
             harvestAction.execute(livingBeing);
         }

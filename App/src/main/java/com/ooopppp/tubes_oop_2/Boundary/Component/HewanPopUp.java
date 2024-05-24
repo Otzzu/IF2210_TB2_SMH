@@ -16,14 +16,20 @@ import javafx.stage.Stage;
 import com.ooopppp.tubes_oop_2.Entity.Animal;
 
 public class HewanPopUp extends Popup {
+    private String name;
+    private int weight;
+    private String activeItem;
     private String imagePath;
     private VBox contentContainer;
     private Animal animal;
     private MainView parent;
 
-    public HewanPopUp(Stage stage, Animal animal, MainView parent) {
+    public HewanPopUp(Stage stage, String name, int weight, String activeItem, String imagePath, Animal animal, MainView parent) {
         super(stage);
-        this.imagePath = "/com/ooopppp/tubes_oop_2/img" + animal.getImage();
+        this.name = name;
+        this.weight = weight;
+        this.activeItem = activeItem;
+        this.imagePath = "/com/ooopppp/tubes_oop_2/img" + imagePath;
         this.animal = animal;
         this.parent = parent;
         configure();
@@ -39,7 +45,7 @@ public class HewanPopUp extends Popup {
             contentContainer.getChildren().clear();
         }
 
-        Label nameLabel = new Label(animal.getName());
+        Label nameLabel = new Label(name);
         nameLabel.getStyleClass().addAll("text-popup-title");
         nameLabel.setMaxWidth(Double.MAX_VALUE);
         nameLabel.setAlignment(Pos.CENTER);
@@ -63,7 +69,7 @@ public class HewanPopUp extends Popup {
         weightLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(weightLabel, 0, 0);
 
-        Label weightValueLabel = new Label(animal.getWeight() + " (" + animal.getWeightToHarvest() +  ")");
+        Label weightValueLabel = new Label(String.valueOf(weight));
         weightValueLabel.getStyleClass().addAll("text-popup");
         GridPane.setConstraints(weightValueLabel, 1, 0);
 
@@ -75,7 +81,6 @@ public class HewanPopUp extends Popup {
         VBox activeItemsBox = new VBox();
         activeItemsBox.setAlignment(Pos.TOP_LEFT);
 
-        String activeItem = animal.getFormattedActiveItems();
         if (activeItem != null && !activeItem.isEmpty()) {
             String[] items = activeItem.split(", ");
             for (String item : items) {

@@ -57,15 +57,17 @@ public class HeaderController {
                return;
 
             }
-            List<Card> cards = GameData.getGameData().getCurrentPlayer().getDeck().shuffleCard();
+            List<Card> cards = gameData.getCurrentPlayer().getDeck().shuffleCard();
 
-            gameData.getCurrentPlayer().getDeck().shuffleCard();
-
-            ShuffleView.showView(cards, parent); // This will block input to other windows until closed
+            if (cards.size() == 0){
+                MessageDialog.showInfoDialog(parent.getStage(), "Active deck full");
+            } else {
+                ShuffleView.showView(cards, parent); // This will block input to other windows until closed
+            }
             Random random = new Random();
             int randomNumber = random.nextInt(4); // Will generate either 0 or 1
 
-            if (randomNumber == -1) {
+            if (randomNumber == 0) {
 
                 header.initializeComponents(true);
                 parent.getController().highlightAttackAreas();

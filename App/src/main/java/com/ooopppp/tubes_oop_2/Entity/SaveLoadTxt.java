@@ -9,6 +9,7 @@
  import java.nio.file.Paths;
  import java.util.List;
  import java.util.Map;
+ import java.util.StringJoiner;
 
  public class SaveLoadTxt implements SaveLoadFile {
      private String folderPath;
@@ -28,7 +29,6 @@
              GameData.getGameData().getPlayers()[0].setGulden(Integer.parseInt(lines.get(0)));
              GameData.getGameData().getPlayers()[0].getDeck().generateDeck(Integer.parseInt(lines.get(1)));
              CardFactory newCard = new CardFactory();
-
              int var2 = Integer.parseInt(lines.get(2));
              for (int i = 3; i < 3 + var2; i++) {
                  String line = lines.get(i);
@@ -54,7 +54,8 @@
                  String[] parts = line.split(" ");
                  for (int j = 0; j < parts.length; j++) {
                      char col = parts[0].charAt(0);
-                     char row = parts[0].charAt(2);
+                     char rowc = parts[0].charAt(2);
+                     int row = rowc - '0';
                      if (col == 'A') {
                          GameData.getGameData().getPlayers()[0].getFarm().set(row - 1, 0, (LivingBeing) newCard.createCard(parts[1]));
                          if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[row - 1][0] instanceof Animal) {
@@ -160,7 +161,8 @@
                  String[] parts = line.split(" ");
                  for (int j = 0; j < parts.length; j++) {
                      char col = parts[0].charAt(0);
-                     char row = parts[0].charAt(2);
+                     char rowc = parts[0].charAt(2);
+                     int row = rowc - '0';
                      if (col == 'A') {
                          GameData.getGameData().getPlayers()[1].getFarm().set(row - 1, 0, (LivingBeing) newCard.createCard(parts[1]));
                          if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[row - 1][0] instanceof Animal) {
@@ -240,30 +242,17 @@
          Path path = Paths.get(folderPath, "gamestate.txt");
          try {
              List<String> lines = Files.readAllLines(path);
-             if (lines.size() < 2) {
-                 System.out.println("Not enough data in file.");
-                 return;
-             }
-
              GameData.getGameData().setTurn(Integer.parseInt(lines.get(0)));
+             Store newStore = new Store();
 
-             if (lines.size() < 2 + Integer.parseInt(lines.get(1))) {
-                 System.out.println("Not enough data in file.");
-                 return;
-             }
-
-             for (int i = 2; i < 2 + Integer.parseInt(lines.get(1)); i++) {
-                 String line = lines.get(i);
-                 String[] parts = line.split(" ");
-                 if (parts.length != 2) {
-                     System.out.println("Invalid line format: " + line);
-                     continue;
-                 }
-                 Store newStore = new Store();
+             if(Integer.parseInt(lines.get(1)) != 0) {
                  CardFactory newCard = new CardFactory();
-                 System.out.println(parts[1] + " " + parts[0]);
-                 for (int j = 0; j < Integer.parseInt(parts[1]); i++){
-                     newStore.addItems((Product)newCard.createCard((parts[0])));
+                 for (int i = 2; i < 2 + Integer.parseInt(lines.get(1)); i++) {
+                     String line = lines.get(i);
+                     String[] parts = line.split(" ");
+                     for (int j = 0; j < Integer.parseInt(parts[1]); j++) {
+                         newStore.addItems((Product) newCard.createCard((parts[0])));
+                     }
                  }
              }
 
@@ -314,17 +303,26 @@
                          } else {
                              writer1.write(" " + ((Plant) GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j]).getAge());
                          }
-                         writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().size()) + " ");
+                         StringBuilder result = new StringBuilder();
+                         if (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j] != null && GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() == 0){
+                            writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum()));
+                         } else {
+                            writer1.write(" " + (GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() + " "));
+                         }
                          for (Map.Entry<String, Integer> entry : GameData.getGameData().getPlayers()[0].getFarm().getGrid()[i][j].getActiveItem().entrySet()) {
                              for (int k = 0; k < entry.getValue(); k++) {
-                                 writer1.write(entry.getKey());
-                                 if (k < entry.getValue() - 1) {
-                                     writer1.write(" ");
+                                 result.append(entry.getKey().toUpperCase().replace(" ", "_"));
+                                 if (k < entry.getValue()) {
+                                     result.append(" ");
                                  }
                              }
                          }
+                         if (!result.isEmpty()) {
+                             result.setLength(result.length() - 1);
+                         }
+                         writer1.write(result.toString());
+                         writer1.newLine();
                      }
-                     writer1.newLine();
                  }
              }
 
@@ -355,17 +353,26 @@
                          } else {
                              writer2.write(" " + ((Plant) GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j]).getAge());
                          }
-                         writer2.write(" " + (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().size()) + " ");
+                         StringBuilder result = new StringBuilder();
+                         if (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j] != null && GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() == 0){
+                             writer2.write(" " + (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum()));
+                         } else {
+                             writer2.write(" " + (GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().values().stream().mapToInt(Integer::intValue).sum() + " "));
+                         }
                          for (Map.Entry<String, Integer> entry : GameData.getGameData().getPlayers()[1].getFarm().getGrid()[i][j].getActiveItem().entrySet()) {
                              for (int k = 0; k < entry.getValue(); k++) {
-                                 writer2.write(entry.getKey());
-                                 if (k < entry.getValue() - 1) {
-                                     writer2.write(" ");
+                                 result.append(entry.getKey().toUpperCase().replace(" ", "_"));
+                                 if (k < entry.getValue()) {
+                                     result.append(" ");
                                  }
                              }
                          }
+                         if (!result.isEmpty()) {
+                             result.setLength(result.length() - 1);
+                         }
+                         writer2.write(result.toString());
+                         writer2.newLine();
                      }
-                     writer2.newLine();
                  }
              }
          } catch (IOException e) {

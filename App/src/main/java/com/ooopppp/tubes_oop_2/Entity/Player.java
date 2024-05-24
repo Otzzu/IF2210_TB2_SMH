@@ -29,7 +29,9 @@ public class Player {
         return farm;
     }
 
-
+    public void setFarm(Farm farm) {
+        this.farm = farm;
+    }
 
     public Deck getDeck() {
         return deck;

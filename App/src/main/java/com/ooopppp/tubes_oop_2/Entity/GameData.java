@@ -17,13 +17,18 @@ public class GameData {
         store = new Store();
         turn = 1;
         pluginManager = new PluginManager();
+
     }
 
     public static void clear(){
+        PluginManager pluginManagerTemp = getGameData().getPluginManager();
         gameData = new GameData();
+        gameData.setPluginManager(pluginManagerTemp);
     }
 
-
+    public void setPluginManager(PluginManager pluginManager) {
+        this.pluginManager = pluginManager;
+    }
 
     public PluginManager getPluginManager() {
         return pluginManager;

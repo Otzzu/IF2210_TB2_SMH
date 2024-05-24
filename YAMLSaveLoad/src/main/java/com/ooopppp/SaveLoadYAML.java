@@ -11,7 +11,7 @@ import java.util.*;
 import org.yaml.snakeyaml.Yaml;
 import com.ooopppp.tubes_oop_2.Entity.*;
 
-public class SaveLoadYAML extends ExternalSaveLoadFile {
+public class SaveLoadYAML implements ExternalSaveLoadFile {
 
     private Yaml yaml;
 

@@ -8,9 +8,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -28,26 +31,36 @@ public class SellDialog extends VBox {
         this.setStyle("-fx-background-color:  #FFEFC8; -fx-font-family: 'Courier'; -fx-border-color: #5B311C; -fx-border-width: 15; -fx-border-style: solid; -fx-border-radius: 15; -fx-background-radius: 25;");
         this.setPadding(new Insets(10));
         // Create a grid to hold the cards
-        gridPane = new GridPane();
-        gridPane.setAlignment(Pos.CENTER);
-        gridPane.setHgap(20);
-        gridPane.setVgap(10);
+        Label errorText = new Label();
+        if(productActiveDeck.size() == 0){
+            errorText = new Label("No Item Can be Sell");
+            errorText.setTextAlignment(TextAlignment.CENTER);
+            errorText.setMaxWidth(300);
+            errorText.setMaxWidth(300);
+            errorText.setStyle("-fx-font-size: 25px; -fx-font-weight: 900; -fx-font-family: 'Courier New'; -fx-text-fill: black;");
+        }else{
+            gridPane = new GridPane();
+            gridPane.setAlignment(Pos.CENTER);
+            gridPane.setHgap(20);
+            gridPane.setVgap(10);
 
-        // Add cards to the grid
-        int col = 0;
-        int row = 0;
-        for (Product product : productActiveDeck) {
-            SellCardComponent card = new SellCardComponent(product);
-            card.setOnMouseClicked(e -> {
-                handleCardSelection(card);
-            });
-            gridPane.add(card, col, row);
-            col++;
-            if (col == 3) { // 3 columns per row
-                col = 0;
-                row++;
+            // Add cards to the grid
+            int col = 0;
+            int row = 0;
+            for (Product product : productActiveDeck) {
+                SellCardComponent card = new SellCardComponent(product);
+                card.setOnMouseClicked(e -> {
+                    handleCardSelection(card);
+                });
+                gridPane.add(card, col, row);
+                col++;
+                if (col == 3) { // 3 columns per row
+                    col = 0;
+                    row++;
+                }
             }
         }
+
 
         // Create an OK button
         Button okButton = new Button("OK");
@@ -63,7 +76,12 @@ public class SellDialog extends VBox {
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(40);
-        this.getChildren().addAll(gridPane, buttonBox);
+        if(productActiveDeck.size() == 0){
+            this.getChildren().addAll(errorText, buttonBox);
+        }else{
+            this.getChildren().addAll(gridPane, buttonBox);
+        }
+
 
         okButton.setOnAction(e -> controller.attachEventsOkButton());
     }

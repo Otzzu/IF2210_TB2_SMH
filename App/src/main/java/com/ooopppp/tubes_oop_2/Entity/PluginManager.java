@@ -14,7 +14,8 @@ public class PluginManager {
 
     public PluginManager() {
         saveLoadFiles = new HashMap<>();
-        saveLoadFiles.put(".txt", new SaveLoadTxt());
+        SaveLoadFile loadTxt = new SaveLoadTxt();
+        saveLoadFiles.put(".txt", loadTxt);
     }
 
     public List<String> getAllTypePlugin(){

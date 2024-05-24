@@ -4,20 +4,15 @@ import com.ooopppp.tubes_oop_2.Boundary.Component.TanamanPopup;
 import com.ooopppp.tubes_oop_2.Boundary.Component.HewanPopUp;
 import com.ooopppp.tubes_oop_2.Boundary.Component.MessageDialog;
 import com.ooopppp.tubes_oop_2.Boundary.MainView;
-import com.ooopppp.tubes_oop_2.Entity.Player;
-import com.ooopppp.tubes_oop_2.Entity.Plant;
-import com.ooopppp.tubes_oop_2.Entity.Animal;
-import com.ooopppp.tubes_oop_2.Entity.LivingBeing;
+import com.ooopppp.tubes_oop_2.Entity.*;
 import com.ooopppp.tubes_oop_2.Main;
 import javafx.stage.Stage;
 
 public class PopupController {
-    private Player player;
     private BoardController boardController;
     private MainView parent;
 
-    public PopupController(Player player, BoardController boardController, MainView parent) {
-        this.player = player;
+    public PopupController(BoardController boardController, MainView parent) {
         this.boardController = boardController;
         this.parent = parent;
     }
@@ -34,7 +29,7 @@ public class PopupController {
         }
         popup.setOnHarvest(livingBeing -> {
             try {
-                player.harvestLivingBeing(livingBeing);
+                GameData.getGameData().getCurrentPlayer().harvestLivingBeing(livingBeing);
                 boardController.handleHarvestSuccess(livingBeing);
                 stage.close();
             } catch (IllegalStateException e) {
@@ -50,7 +45,7 @@ public class PopupController {
 
         popup.setOnHarvest(livingBeing -> {
             try {
-                player.harvestLivingBeing(livingBeing);
+                GameData.getGameData().getCurrentPlayer().harvestLivingBeing(livingBeing);
                 boardController.handleHarvestSuccess(livingBeing);
                 stage.close();
             } catch (IllegalStateException e) {

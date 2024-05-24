@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34cb7183-b220-4425-98c1-a4db6f3cf974" name="Changes" comment="" />
+    <list default="true" id="34cb7183-b220-4425-98c1-a4db6f3cf974" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/PopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/PluginManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +108,7 @@
       <updated>1716495739584</updated>
       <workItem from="1716495744730" duration="5057000" />
       <workItem from="1716516201903" duration="1397000" />
-      <workItem from="1716517621308" duration="25784000" />
+      <workItem from="1716517621308" duration="28057000" />
     </task>
     <servers />
   </component>

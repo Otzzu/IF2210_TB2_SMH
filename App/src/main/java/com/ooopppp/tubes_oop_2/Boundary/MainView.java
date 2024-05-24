@@ -4,10 +4,7 @@ package com.ooopppp.tubes_oop_2.Boundary;
 import com.ooopppp.tubes_oop_2.Boundary.Component.*;
 import com.ooopppp.tubes_oop_2.Controller.MainViewController;
 import com.ooopppp.tubes_oop_2.Helper.Observer;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.Parent;
@@ -30,6 +27,7 @@ public class MainView extends VBox {
     private MediaPlayer btnSound;
     private MainViewController controller;
     private MediaPlayer dangerSound;
+    private StackPane baseStack;
 
     public MediaPlayer getDangerSound() {
         return dangerSound;

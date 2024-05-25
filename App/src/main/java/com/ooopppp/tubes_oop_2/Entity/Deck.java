@@ -9,8 +9,8 @@ public class Deck {
             "HIU_DARAT", "SAPI", "DOMBA", "KUDA", "AYAM",
             "BIJI_JAGUNG", "BIJI_LABU", "BIJI_STROBERI", "ACCELERATE",
             "DELAY", "INSTANT_HARVEST", "DESTROY", "PROTECT", "TRAP",
-            "SIRIP_HIU", "SUSU", "DAGING_DOMBA", "DAGING_KUDA", "TELUR",
-            "JAGUNG", "LABU", "STROBERI"
+            "SUSU", "DAGING_DOMBA", "DAGING_KUDA", "TELUR", "STROBERI",
+            "JAGUNG",
     };
     private String[] highFreqCard = {
             "BIJI_JAGUNG", "BIJI_LABU", "BIJI_STROBERI", "ACCELERATE",

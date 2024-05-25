@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="34cb7183-b220-4425-98c1-a4db6f3cf974" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Boundary/Component/GenericDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Controller/DialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/main/java/com/ooopppp/tubes_oop_2/Entity/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/gamestate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/player1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/halo/player2.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +57,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.build.tools.auto.reload": "ALL",
     "settings.editor.selected.configurable": "build.tools",
     "vue.rearranger.settings.migration": "true"
@@ -114,7 +118,7 @@
       <workItem from="1716495744730" duration="5057000" />
       <workItem from="1716516201903" duration="1397000" />
       <workItem from="1716517621308" duration="28350000" />
-      <workItem from="1716553580888" duration="22574000" />
+      <workItem from="1716553580888" duration="24475000" />
     </task>
     <servers />
   </component>

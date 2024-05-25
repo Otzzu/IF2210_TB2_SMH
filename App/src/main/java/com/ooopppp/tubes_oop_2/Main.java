@@ -33,6 +33,14 @@ public class Main extends Application {
         primaryStage.setTitle("Card Game");
         primaryStage.setScene(scene);
         primaryStage.show();
+        URL bgSound = Main.class.getResource("/com/ooopppp/tubes_oop_2/sound/opsound.mp3");
+        if (bgSound == null) {
+            System.out.println("Resource not found.");
+            return;
+        }
+        Media media1 = new Media(bgSound.toExternalForm());
+        MediaPlayer mediaPlayerOp = new MediaPlayer(media1);
+        mediaPlayerOp.play();
     }
 
     public static void main(String[] args) {
@@ -42,14 +50,7 @@ public class Main extends Application {
         gameData.addPlayer(player1);
         gameData.addPlayer(player2);
         gameData.setCurrentPlayer(player1);
-        URL bgSound = Main.class.getResource("/com/ooopppp/tubes_oop_2/sound/opsound.mp3");
-        if (bgSound == null) {
-            System.out.println("Resource not found.");
-            return;
-        }
-        Media media1 = new Media(bgSound.toExternalForm());
-        MediaPlayer mediaPlayerOp = new MediaPlayer(media1);
-        mediaPlayerOp.play();
+
         launch(args);
     }
 

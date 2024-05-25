@@ -35,6 +35,6 @@ Selain itu, objek yang ditempatkan di ladang dapat dihancurkan oleh serangan ber
 1. Ekstrak zip pengumpulan, akan didapatkan 3 file jar yaitu App-1.0-SNAPSHOT-shade-plugin.jar (program utama), JSONSaveLoad-1.0-SNAPSHOT-shade-plugin.jar (plugin), dan YAMLSaveLoad-1.0-SNAPSHOT-shade-plugin.jar (plugin).
 2. Pastikan sudah mendowload javafx versi 21.0.3 melalui link berikut https://download2.gluonhq.com/openjfx/21.0.3/openjfx-21.0.3_windows-x64_bin-sdk.zip. Ekstrak zip javafx yang sudah didownload tersebut dan ingat lokasinya (secara umum lokasi diletakkan pada folder yang sama dengan jdk java). Jika ingin lebih aman gunakan java versi 17 yang sama dengan versi java yang digunakan pada jar file.
 3. Masuk ke folder hasil ekstraksi zip pengumpulan lalu jalankan perintah berikut
-java --module-path "C:\Program Files\Java\javafx-sdk-21.0.3\lib" --add-modules javafx.controls,javafx.fxml --add-opens javafx.base/com.sun.javafx=ALL-UNNAMED --add-opens javafx.graphics/com.sun.glass.utils=ALL-UNNAMED  --add-opens javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED  -jar App-1.0-SNAPSHOT-shade-plugin.jar
-
-
+    ```
+    java --module-path "C:\Program Files\Java\javafx-sdk-21.0.3\lib" --add-modules javafx.controls,javafx.fxml --add-opens javafx.base/com.sun.javafx=ALL-UNNAMED --add-opens javafx.graphics/com.sun.glass.utils=ALL-UNNAMED  --add-opens javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED  -jar App-1.0-SNAPSHOT-shade-plugin.jar
+    ```

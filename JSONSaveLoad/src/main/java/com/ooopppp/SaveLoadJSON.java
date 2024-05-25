@@ -97,7 +97,7 @@ public class SaveLoadJSON implements ExternalSaveLoadFile {
                 playerObj.getFarm().addPlantObserver((Plant) c);
             }
 
-            Map<String, Integer> itemAktif = (Map<String, Integer>) player1.get("kartu_aktif");
+            Map<String, Integer> itemAktif = (Map<String, Integer>) stringObjectMap.get("kartu_aktif");
             ((LivingBeing) c).setActiveItem(itemAktif);
             playerObj.getFarm().getGrid()[indexI][indexJ] = (LivingBeing) c;
         }

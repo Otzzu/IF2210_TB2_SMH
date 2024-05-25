@@ -38,3 +38,7 @@ Selain itu, objek yang ditempatkan di ladang dapat dihancurkan oleh serangan ber
     ```
     java --module-path "C:\Program Files\Java\javafx-sdk-21.0.3\lib" --add-modules javafx.controls,javafx.fxml --add-opens javafx.base/com.sun.javafx=ALL-UNNAMED --add-opens javafx.graphics/com.sun.glass.utils=ALL-UNNAMED  --add-opens javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED  -jar App-1.0-SNAPSHOT-shade-plugin.jar
     ```
+
+## Dokumentasi Program
+![StartWindow](image.png)
+![MainView](image-1.png)

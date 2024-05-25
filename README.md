@@ -34,7 +34,7 @@ Selain itu, objek yang ditempatkan di ladang dapat dihancurkan oleh serangan ber
 Kalimat "C:\Program Files\Java\javafx-sdk-21.0.3\lib" bisa diganti dengan path ke javafx sdk yang sesuai yang sudah di download sebelumnya
 Kalimat "app/target/App-1.0-SNAPSHOT-shade-plugin.jar bisa diganti dan disesuaikan tergantung dari lokasi jar file App-1.0-SNAPSHOT-shade-plugin.jar.
 
-6. Sebenarnya bisa dijalankan dengan lebih gampang dengan cara java -jar app/target/App-1.0-SNAPSHOT-shade-plugin.jar (dari root projek) atau bahkan bisa juga langsung dengan double-click pada file jar nya. Namun untuk cara menjalankan dengan lebih aman bisa dengan menggunakan perintah pada langkah 4.
+5. Sebenarnya bisa dijalankan dengan lebih gampang dengan cara java -jar app/target/App-1.0-SNAPSHOT-shade-plugin.jar (dari root projek) atau bahkan bisa juga langsung dengan double-click pada file jar nya. Namun untuk cara menjalankan dengan lebih aman bisa dengan menggunakan perintah pada langkah 4.
 
 ## Cara Menjalankan Program melalui drive pengumpulan
 1. Ekstrak zip pengumpulan, akan didapatkan 3 file jar yaitu App-1.0-SNAPSHOT-shade-plugin.jar (program utama), JSONSaveLoad-1.0-SNAPSHOT-shade-plugin.jar (plugin), dan YAMLSaveLoad-1.0-SNAPSHOT-shade-plugin.jar (plugin).

@@ -31,6 +31,7 @@ public class GenericDialog {
     private TextField textField;
     private Button actionButton;
     private Label feedbackLabel;
+    private Button chooseFileButton;
 
     public GenericDialog(Stage owner, String actionType, MainView parent) {
         this.dialogStage = new Stage();
@@ -51,6 +52,10 @@ public class GenericDialog {
 //        dialogScene.getStylesheets().add(getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css").toExternalForm());
         dialogScene.setFill(null);
         dialogStage.setScene(dialogScene);
+    }
+
+    public Button getChooseFileButton() {
+        return chooseFileButton;
     }
 
     public static void showGenericDialog(Stage owner, String type, MainView parent) {
@@ -112,6 +117,35 @@ public class GenericDialog {
 
         Label folderLabel = new Label("Folder");
         folderLabel.setStyle("-fx-font-size: 25; -fx-font-weight: 900; -fx-font-family: 'Courier';");
+
+        chooseFileButton = new Button("Choose Folder");
+        chooseFileButton.setMaxSize(430, 45);
+        chooseFileButton.setMinSize(430, 45);
+        chooseFileButton.setStyle("-fx-font-family: 'Courier';-fx-text-fill: #000000; -fx-background-color: #DBE056; -fx-font-size: 20; -fx-background-radius: 15; -fx-font-weight: 900; -fx-effect: dropshadow(gaussian, rgba(50, 50, 50, 0.7), 20, 0.1, 5, 5);");
+        chooseFileButton.setOnAction(e -> controller.handleChoose());
+
+        chooseFileButton.setOnMouseEntered(event -> {
+            chooseFileButton.setScaleX(1.05);
+            chooseFileButton.setScaleY(1.05);
+        });
+
+        chooseFileButton.setOnMouseExited(event -> {
+            chooseFileButton.setScaleX(1.0);
+            chooseFileButton.setScaleY(1.0);
+        });
+
+        chooseFileButton.setOnMousePressed(event -> {
+            chooseFileButton.setScaleX(0.9);
+
+            chooseFileButton.setScaleY(0.9);
+        });
+
+        chooseFileButton.setOnMouseReleased(event -> {
+            chooseFileButton.setScaleX(1.0);
+            chooseFileButton.setScaleY(1.0);
+        });
+
+
         textField = new TextField();
         textField.setPromptText("Folder Name");
         setupTextField();
@@ -126,7 +160,9 @@ public class GenericDialog {
         grid.add(formatLabel, 0, 0);
         grid.add(comboBox, 1, 0);
         grid.add(folderLabel, 0, 1);
-        grid.add(textField, 1, 1);
+        textField.setMaxWidth(80);
+
+        grid.add(chooseFileButton, 1, 1);
 
         HBox actionButtonBox = new HBox(actionButton);
         actionButtonBox.setAlignment(Pos.CENTER);

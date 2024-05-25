@@ -151,6 +151,7 @@ public class Player {
         }
 
         if (livingBeing.haveProtect()){
+            deck.removeFromActiveDeck(item);
             throw new IllegalArgumentException("This card have protection");
         }
 

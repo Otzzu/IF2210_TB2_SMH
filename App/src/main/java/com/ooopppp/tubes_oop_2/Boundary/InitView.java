@@ -52,7 +52,9 @@ public class InitView extends StackPane {
     private void switchToMainView() {
         root.getBtnSound().stop();
         root.getBtnSound().play();
+        mediaPlayer.play();
         Scene scene = new Scene(root, 980, 900);
+
         URL css = getClass().getResource("/com/ooopppp/tubes_oop_2/css/style.css");
         if (css != null) {
             scene.getStylesheets().add(css.toExternalForm());
@@ -76,7 +78,7 @@ public class InitView extends StackPane {
         }
     }
 
-    public void loadMediaAndPlay() {
+    public void loadMedia() {
 
 //        Thread songThread = new Thread(() -> {
         try {
@@ -93,7 +95,9 @@ public class InitView extends StackPane {
             mediaPlayer.setVolume(0.6);
             mediaPlayer.setOnError(() -> System.err.println("Error occurred: " + media.getError().getMessage()));
             media.setOnError(() -> System.err.println("Error occurred: " + media.getError().getMessage()));
-            mediaPlayer.play();
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

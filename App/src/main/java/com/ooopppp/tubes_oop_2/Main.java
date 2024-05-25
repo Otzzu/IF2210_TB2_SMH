@@ -6,6 +6,8 @@ import com.ooopppp.tubes_oop_2.Entity.Player;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import java.net.URL;
 
@@ -21,7 +23,8 @@ public class Main extends Application {
         } else {
             System.out.println("Resource not found.");
         }
-        initView.loadMediaAndPlay();
+        initView.loadMedia();
+
         primaryStage.setOnCloseRequest(event -> {
 
             Platform.exit();
@@ -39,6 +42,14 @@ public class Main extends Application {
         gameData.addPlayer(player1);
         gameData.addPlayer(player2);
         gameData.setCurrentPlayer(player1);
+        URL bgSound = Main.class.getResource("/com/ooopppp/tubes_oop_2/sound/opsound.mp3");
+        if (bgSound == null) {
+            System.out.println("Resource not found.");
+            return;
+        }
+        Media media1 = new Media(bgSound.toExternalForm());
+        MediaPlayer mediaPlayerOp = new MediaPlayer(media1);
+        mediaPlayerOp.play();
         launch(args);
     }
 

@@ -64,7 +64,7 @@ public class WinDialog {
         grid.add(endLabel, 1, 0);
         grid.add(trophyRightView, 2, 0);
 
-        Label errorMessage = new Label("Pemenangnya " + name);
+        Label errorMessage = new Label(this.name != null ? "Pemenangnya " + name : "Pertandingan Seri");
         errorMessage.setStyle("-fx-font-size: 28; -fx-text-alignment: center; -fx-alignment: CENTER; -fx-font-family: 'Courier'; -fx-text-fill: #00FF00; -fx-font-weight: 800;");
         HBox feedbackBox = new HBox(errorMessage);
         feedbackBox.setAlignment(Pos.CENTER);

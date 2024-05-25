@@ -44,15 +44,15 @@ public class HeaderController {
             changePlayerTextColor();
             if(gameData.getTurn() == 21){
                Player[] players = gameData.getPlayers();
-               int winnedId = 0;
-               int maxGulden = 0;
-               for (int i = 0; i < 2; i++){
-                   if(players[i].getGulden() > maxGulden){
-                       maxGulden = players[i].getGulden();
-                       winnedId = i;
-                   }
+                WinDialog winDialog ;
+               if(players[0].getGulden() > players[1].getGulden()){
+                    winDialog = new WinDialog(parent.getStage(), players[0].getName());
+               }else if (players[0].getGulden() < players[1].getGulden()){
+                    winDialog = new WinDialog(parent.getStage(), players[1].getName());
+               }else {
+                    winDialog = new WinDialog(parent.getStage(), null);
                }
-               WinDialog winDialog = new WinDialog(parent.getStage(), players[winnedId].getName());
+
                winDialog.showDialog();
                return;
 
